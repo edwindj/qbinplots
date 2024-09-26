@@ -7,6 +7,7 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ggtableplot)](https://CRAN.R-project.org/package=ggtableplot)
+[![R-CMD-check](https://github.com/edwindj/ggtableplot/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/edwindj/ggtableplot/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ## Installation
