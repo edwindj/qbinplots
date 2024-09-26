@@ -16,8 +16,9 @@ knitr::opts_chunk$set(
 # ggtableplot
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/ggtableplot)](https://CRAN.R-project.org/package=ggtableplot)
-[![R-CMD-check](https://github.com/edwindj/ggtableplot/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/edwindj/ggtableplot/actions/workflows/R-CMD-check.yaml)
+
+[![CRAN status](https://www.r-pkg.org/badges/version/ggtableplot)](https://CRAN.R-project.org/package=ggtableplot) [![R-CMD-check](https://github.com/edwindj/ggtableplot/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/edwindj/ggtableplot/actions/workflows/R-CMD-check.yaml)
+
 <!-- badges: end -->
 
 ## Installation
@@ -37,7 +38,13 @@ library(ggtableplot)
 ## basic example code
 ```
 
-
 ```{r cars}
 ggtableplot(iris, "Sepal.Length", 75)
+```
+
+Or the well-known `diamonds` dataset
+
+```{r}
+data("diamonds", package = "ggplot2")
+ggtableplot(diamonds, "carat", ncols=4)
 ```

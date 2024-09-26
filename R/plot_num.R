@@ -1,5 +1,7 @@
 #' @import ggplot2
-plot_num <- function(data, name, color = "blue"){
+plot_num <- function(data, name, color = "#555555"){
+  bin <- data$bin
+
   ggplot(data, aes(x = bin, y = mean)) +
     geom_col(color=color, fill=color) +
     labs(y = name) +

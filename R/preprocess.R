@@ -34,7 +34,7 @@ preprocess <- function(x, sort_variable, n = 100){
   )
 }
 
-
+#' @importFrom stats fivenum
 calc_num <- function(x, na.rm = TRUE){
   l <-
     fivenum(x) |>

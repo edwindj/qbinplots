@@ -8,7 +8,7 @@ ggtableplot(
   data,
   sort_variable = names(data)[1],
   n = 100,
-  nco = ncol(data),
+  ncols = ncol(data),
   ...
 )
 }
@@ -18,6 +18,8 @@ ggtableplot(
 \item{sort_variable}{The variable to sort the data by}
 
 \item{n}{The number of bins to use for binning the data}
+
+\item{ncols}{The number of column to be used in the layout}
 
 \item{...}{Additional arguments to pass to the plot functions}
 }

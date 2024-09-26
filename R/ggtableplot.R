@@ -4,11 +4,12 @@
 #' @param data A data.frame or data.table
 #' @param sort_variable The variable to sort the data by
 #' @param n The number of bins to use for binning the data
+#' @param ncols The number of column to be used in the layout
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
 #' @example example/ggtableplot.R
 #' @return A ggplot object
-ggtableplot <- function(data, sort_variable = names(data)[1], n = 100, nco=ncol(data), ...) {
+ggtableplot <- function(data, sort_variable = names(data)[1], n = 100, ncols=ncol(data), ...) {
   d <- preprocess(
     data,
     sort_variable = sort_variable,
@@ -29,7 +30,7 @@ ggtableplot <- function(data, sort_variable = names(data)[1], n = 100, nco=ncol(
 
   p <- set_palettes(p, d$cat_cols)
 
-  p <- layout(p, ncol = nco)
+  p <- layout(p, ncol = ncols)
   p
 }
 
