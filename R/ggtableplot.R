@@ -5,6 +5,8 @@
 #' @param sort_variable The variable to sort the data by
 #' @param n The number of bins to use for binning the data
 #' @param ... Additional arguments to pass to the plot functions
+#' @export
+#' @example example/ggtableplot.R
 #' @return A ggplot object
 ggtableplot <- function(data, sort_variable = names(data)[1], n = 100, nco=ncol(data), ...) {
   d <- preprocess(

@@ -1,10 +1,10 @@
 Package: ggtableplot
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: TablePlots with ggplot2
+Version: 0.0.1.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Edwin", "de Jonge", , "edwindjonge@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = ""))
+Description: Create tableplots with package `ggplot2`.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
