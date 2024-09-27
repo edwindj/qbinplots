@@ -13,6 +13,8 @@ Depends:
     ggplot2
 Imports: 
     data.table,
-    patchwork
+    patchwork,
+    scales
 Suggests: 
+    palmerpenguins,
     tinytest

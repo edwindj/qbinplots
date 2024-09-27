@@ -21,6 +21,8 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
+This package is in its early stages, not ready for production yet.
+
 ## Installation
 
 You can install the development version of ggtableplot from [GitHub](https://github.com/) with:
@@ -31,11 +33,20 @@ remotes::install_github("edwindj/ggtableplot")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ```{r example}
 library(ggtableplot)
 ## basic example code
+```
+
+A percentile plot...
+
+```{r percentile_iris}
+percentile_dep_plot(iris, "Sepal.Length", 25)
+```
+
+```{r percentile_plot_penguins }
+library(palmerpenguins)
+percentile_dep_plot(penguins[1:7], c("body_mass_g"), 25)
 ```
 
 ```{r cars}

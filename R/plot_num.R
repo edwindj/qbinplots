@@ -1,10 +1,12 @@
 #' @import ggplot2
 plot_num <- function(data, name, color = "#555555"){
   bin <- data$bin
+  f <- data$f
 
-  ggplot(data, aes(x = bin, y = mean)) +
+  ggplot(data, aes(x = f, y = mean)) +
     geom_col(color=color, fill=color) +
     labs(y = name) +
+    scale_y_continuous(position = "right") +
     coord_flip() +
     theme_minimal()
 }

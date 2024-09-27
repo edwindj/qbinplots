@@ -1,12 +1,16 @@
 #' @import patchwork
 layout <- function(p, ncol = length(p)){
   first <- p[[1]] +
-    scale_x_continuous(name=NULL, expand = c(0,0))
+    scale_x_continuous(
+      name=NULL,
+      expand = c(0,0),
+      labels=scales::label_percent()
+    )
 
   rest <- p[-1] |>
     lapply(function(x){
       x +
-        scale_x_discrete(name = NULL, labels=NULL, breaks=NULL)
+        scale_x_continuous(name = NULL, labels=NULL, breaks=NULL, expand = c(0,0))
     })
 
   p <- c(list(first), rest)
@@ -20,7 +24,7 @@ layout <- function(p, ncol = length(p)){
   p
 }
 
-PALS <- c("Accent", "Dark2", "Paired", "Pastel1", "Pastel2", "Set1", "Set2", "Set3")
+PALS <- c("Accent", "Dark2", "Set1", "Set2", "Set3","Paired", "Pastel1", "Pastel2")
 
 set_palettes <- function(x, cat_cols, ...){
   pals <- PALS[seq_along(cat_cols) %% length(PALS) + 1]

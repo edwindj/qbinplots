@@ -14,13 +14,17 @@ preprocess <- function(x, sort_variable, n = 100){
 
   nd <- lapply(num_cols, function(nc){
     d <- x[, calc_num(.SD[[nc]], na.rm=TRUE), by = bin]
+    d$f <- d$bin/n
     d
   })
   names(nd) <- num_cols
 
   cd <- lapply(cat_cols, function(cc){
-    x[, calc_cat(.SD[[cc]]), by = bin]
+    d <- x[, calc_cat(.SD[[cc]]), by = bin]
+    d$f <- d$bin/n
+    d
   })
+
   names(cd) <- cat_cols
 
   l <- c(nd, cd)[names(x)]
@@ -45,7 +49,6 @@ calc_num <- function(x, na.rm = TRUE){
 }
 
 calc_cat <- function(x){
-
   d <- (1.0 * table(x))/length(x)
   d <- as.data.table(d)
   names(d) <- c("category", "freq")

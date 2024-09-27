@@ -11,6 +11,8 @@ status](https://www.r-pkg.org/badges/version/ggtableplot)](https://CRAN.R-projec
 
 <!-- badges: end -->
 
+This package is in its early stages, not ready for production yet.
+
 ## Installation
 
 You can install the development version of ggtableplot from
@@ -22,13 +24,26 @@ remotes::install_github("edwindj/ggtableplot")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ``` r
 library(ggtableplot)
 #> Loading required package: ggplot2
 ## basic example code
 ```
+
+A percentile plot…
+
+``` r
+percentile_dep_plot(iris, "Sepal.Length", 25)
+```
+
+<img src="man/figures/README-percentile_iris-1.png" width="100%" />
+
+``` r
+library(palmerpenguins)
+percentile_dep_plot(penguins[1:7], c("body_mass_g"), 25)
+```
+
+<img src="man/figures/README-percentile_plot_penguins-1.png" width="100%" />
 
 ``` r
 ggtableplot(iris, "Sepal.Length", 75)
