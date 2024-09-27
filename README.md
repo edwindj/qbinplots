@@ -40,7 +40,7 @@ percentile_dep_plot(iris, "Sepal.Length", 25)
 
 ``` r
 library(palmerpenguins)
-percentile_dep_plot(penguins[1:7], c("body_mass_g"), 25)
+percentile_dep_plot(penguins[1:7], c("body_mass_g"), 25, ncols = NULL)
 ```
 
 <img src="man/figures/README-percentile_plot_penguins-1.png" width="100%" />
