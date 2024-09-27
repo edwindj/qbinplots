@@ -47,6 +47,12 @@ ggtableplot(iris, "Sepal.Length", 25)
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ``` r
+percentile_dep_plot(iris, "Petal.Width", 25, ncols=NULL)
+```
+
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
+``` r
 library(palmerpenguins)
 percentile_dep_plot(penguins[1:7], c("body_mass_g"), 25, ncols = NULL)
 ```
@@ -66,4 +72,4 @@ data("diamonds", package = "ggplot2")
 ggtableplot(diamonds, "carat", ncols=4)
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />

@@ -1,5 +1,7 @@
 #' @import patchwork
-layout <- function(p, ncol = length(p)){
+layout <- function(p, ncol = length(p), sort_variable){
+  idx <- match(sort_variable, names(p))
+  p <- c(p[idx], p[-idx])
   first <- p[[1]] +
     scale_x_continuous(
       name=NULL,

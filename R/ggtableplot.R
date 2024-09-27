@@ -30,7 +30,7 @@ ggtableplot <- function(data, sort_variable = names(data)[1], n = 100, ncols=nco
 
   p <- set_palettes(p, d$cat_cols)
 
-  p <- layout(p, ncol = ncols)
+  p <- layout(p, ncol = ncols, sort_variable = sort_variable)
   p
 }
 

@@ -50,6 +50,10 @@ vs
 ggtableplot(iris, "Sepal.Length", 25)
 ```
 
+```{r}
+percentile_dep_plot(iris, "Petal.Width", 25, ncols=NULL)
+```
+
 ```{r percentile_plot_penguins }
 library(palmerpenguins)
 percentile_dep_plot(penguins[1:7], c("body_mass_g"), 25, ncols = NULL)
