@@ -7,8 +7,10 @@ plot_cat <- function(data, name){
   freq <- data$freq
   category <- data$category
 
+  width = resolution(data$f)
+
   ggplot(data, aes(x = f, y=freq, fill = category)) +
-    geom_col() +
+    geom_col(width=width) +
     coord_flip() +
     labs(fill = NULL, y = name) +
     scale_y_continuous(position = "right", labels = scales::label_percent(), n.breaks = 3) +

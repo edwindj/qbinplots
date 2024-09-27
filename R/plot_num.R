@@ -3,8 +3,10 @@ plot_num <- function(data, name, color = "#555555"){
   bin <- data$bin
   f <- data$f
 
+  width <- resolution(f) * 1.0
+
   ggplot(data, aes(x = f, y = mean)) +
-    geom_col(color=color, fill=color) +
+    geom_col(fill=color, width = width) +
     labs(y = name) +
     scale_y_continuous(position = "right") +
     coord_flip() +

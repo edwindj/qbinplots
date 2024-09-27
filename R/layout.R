@@ -4,13 +4,13 @@ layout <- function(p, ncol = length(p)){
     scale_x_continuous(
       name=NULL,
       expand = c(0,0),
-      labels=scales::label_percent()
+      label=scales::label_percent()
     )
 
   rest <- p[-1] |>
     lapply(function(x){
       x +
-        scale_x_continuous(name = NULL, labels=NULL, breaks=NULL, expand = c(0,0))
+        scale_x_continuous(name = NULL, label=NULL, breaks=NULL, expand = c(0,0))
     })
 
   p <- c(list(first), rest)

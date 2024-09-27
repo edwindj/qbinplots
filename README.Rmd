@@ -41,7 +41,13 @@ library(ggtableplot)
 A percentile plot...
 
 ```{r percentile_iris}
-percentile_dep_plot(iris, "Sepal.Length", 25)
+percentile_dep_plot(iris, "Sepal.Length", 25, ncols=NULL)
+```
+
+vs
+
+```{r}
+ggtableplot(iris, "Sepal.Length", 25)
 ```
 
 ```{r percentile_plot_penguins }

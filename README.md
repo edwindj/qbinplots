@@ -33,10 +33,18 @@ library(ggtableplot)
 A percentile plot…
 
 ``` r
-percentile_dep_plot(iris, "Sepal.Length", 25)
+percentile_dep_plot(iris, "Sepal.Length", 25, ncols=NULL)
 ```
 
 <img src="man/figures/README-percentile_iris-1.png" width="100%" />
+
+vs
+
+``` r
+ggtableplot(iris, "Sepal.Length", 25)
+```
+
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ``` r
 library(palmerpenguins)
@@ -58,4 +66,4 @@ data("diamonds", package = "ggplot2")
 ggtableplot(diamonds, "carat", ncols=4)
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
