@@ -7,9 +7,9 @@
 #' @param ncols The number of column to be used in the layout
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
-#' @example example/ggtableplot.R
+#' @example example/table_plot.R
 #' @return A ggplot object
-ggtableplot <- function(data, sort_variable = names(data)[1], n = 100, ncols=ncol(data), ...) {
+table_plot <- function(data, sort_variable = names(data)[1], n = 100, ncols=ncol(data), ...) {
   d <- preprocess(
     data,
     sort_variable = sort_variable,
@@ -18,12 +18,12 @@ ggtableplot <- function(data, sort_variable = names(data)[1], n = 100, ncols=nco
 
   pn <- lapply(d$num_cols, function(n){
     d <- d$data[[n]]
-    plot_bar(d, n)
+    plot_num_bar(d, n)
   })
   names(pn) <- d$num_cols
 
   pc <- lapply(d$cat_cols, function(n){
-    plot_cat(d$data[[n]], n)
+    plot_cat_stacked(d$data[[n]], n)
   })
   names(pc) <- d$cat_cols
   p <- c(pn, pc)[names(data)]

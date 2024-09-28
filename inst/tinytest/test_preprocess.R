@@ -1,2 +1,1 @@
 library(tinytest)
-library(ggtableplot)
