@@ -18,7 +18,7 @@ ggtableplot <- function(data, sort_variable = names(data)[1], n = 100, ncols=nco
 
   pn <- lapply(d$num_cols, function(n){
     d <- d$data[[n]]
-    plot_num(d, n)
+    plot_bar(d, n)
   })
   names(pn) <- d$num_cols
 

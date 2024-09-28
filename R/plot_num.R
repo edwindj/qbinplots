@@ -1,5 +1,5 @@
 #' @import ggplot2
-plot_num <- function(data, name, color = "#555555"){
+plot_bar <- function(data, name, color = "#555555"){
   bin <- data$bin
   f <- data$f
 
