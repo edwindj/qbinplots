@@ -9,12 +9,14 @@
 #' @export
 #' @example example/quantile_dependence_plot.R
 #' @return A ggplot object
-quantile_dependence_plot <- function(data, sort_variable = names(data)[1], n = 100, ncols=NULL, ...) {
+quantile_dependence_plot <- function(data, sort_variable = NULL, n = 100, ncols=NULL, ...) {
   d <- preprocess(
     data,
     sort_variable = sort_variable,
     n = n
   )
+
+  sort_variable <- d$sort_variable
 
   pn <- lapply(d$num_cols, function(n){
     d <- d$data[[n]]

@@ -1,16 +1,35 @@
 #' @import data.table
-preprocess <- function(x, sort_variable, n = 100){
+preprocess <- function(x, sort_variable = NULL, n = 100, min_bin_size = 5){
+  # TODO check if data.frame
+
+  is_num <- sapply(x, is.numeric)
+  num_cols <- is_num |> which() |> names()
+  cat_cols <- (!is_num) |> which() |> names()
+
+  if (length(num_cols) == 0){
+    stop("No numeric columns found", call. = FALSE)
+  }
+
+  if (is.null(sort_variable)){
+    sort_variable <- num_cols[1]
+    message("No sort_variable specified, using first numeric column: '", num_cols[1], "'")
+  }
+
   x <- as.data.table(x)
   setkeyv(x, sort_variable)
 
+  # TODO add check
+  if (nrow(x) / n < min_bin_size){
+    n <- nrow(x)/min_bin_size
+    message("'n' is larger then nrows/",min_bin_size," ('min_bin_size'), setting 'n' to: ", n)
+  }
+
+  if (n > nrow(x)){
+    n <- nrow(x)/3
+    message("n is larger then nrows/3, setting n to: ", n)
+  }
+
   bin <- x[, cut(.I, n, labels = FALSE)]
-
-  n <- min(n, nrow(x))
-
-  is_num <- sapply(x, is.numeric)
-
-  num_cols <- is_num |> which() |> names()
-  cat_cols <- (!is_num) |> which() |> names()
 
   nd <- lapply(num_cols, function(nc){
     d <- x[, calc_num(.SD[[nc]], na.rm=TRUE), by = bin]

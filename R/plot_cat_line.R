@@ -1,14 +1,8 @@
 #' @import ggplot2
 plot_cat_line <- function(x_data, y_data, x_name, y_name, ..., color = "#555555"){
 
-  # CRAN checks...
-  bin <- data$bin
-  f <- data$f
-  freq <- data$freq
-  category <- data$category
-
   # CRAN checks
-  . <- med <- x <- NULL
+  . <- x <- freq <- category <- med <- NULL
 
   data <- cbind(x_data[(y_data$bin),.(x = med, x_m = mean)], y_data)
 

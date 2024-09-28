@@ -61,6 +61,7 @@ quantile_dependence_plot(penguins[1:7], c("body_mass_g"), 25)
 
 ``` r
 table_plot(iris, "Sepal.Length", 75)
+#> 'n' is larger then nrows/5 ('min_bin_size'), setting 'n' to: 30
 ```
 
 <img src="man/figures/README-cars-1.png" width="100%" />
@@ -80,3 +81,9 @@ quantile_dependence_plot(diamonds[1:6], "carat", ncols=3)
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+
+``` r
+dependence_plot(diamonds, "price")
+```
+
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />

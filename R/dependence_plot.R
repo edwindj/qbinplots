@@ -7,15 +7,16 @@
 #' @param ncols The number of column to be used in the layout
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
-#' @example example/table_plot.R
+#' @example example/dependence_plot.R
 #' @return A ggplot object
-partial_dependence_plot <- function(data, sort_variable = names(data)[1], n = 100, ncols=ncol(data), ...) {
+dependence_plot <- function(data, sort_variable = NULL, n = 100, ncols = NULL, ...) {
   d <- preprocess(
     data,
     sort_variable = sort_variable,
     n = n
   )
-  #TODO check if sort_variable is in data en numcol
+
+  sort_variable <- d$sort_variable
 
   num_cols <- d$num_cols
   m <- match(sort_variable, num_cols)
@@ -26,7 +27,8 @@ partial_dependence_plot <- function(data, sort_variable = names(data)[1], n = 10
 
   pn <- lapply(num_cols, function(y_name){
     y_data <- d$data[[y_name]]
-    plot_num_line(
+#    plot_num_line(
+    plot_num_pdp_hinge(
       x_data = x_data,
       y_data = y_data,
       x_name=sort_variable,
@@ -45,10 +47,20 @@ partial_dependence_plot <- function(data, sort_variable = names(data)[1], n = 10
     )
   })
   names(pc) <- d$cat_cols
-  p <- c(pn, pc)
+
+  nms <- names(data)
+  idx <- match(sort_variable, nms)
+  nms <- nms[-idx]
+
+  p <- c(pn, pc)[nms]
 
   #p <- set_palettes(p, d$cat_cols)
   p <- Reduce(`+`, p)
+
+  if (!is.null(ncols)) {
+    p <- p + plot_layout(ncol = ncols)
+  }
+
   p
 }
 

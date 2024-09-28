@@ -4,13 +4,7 @@
 \alias{table_plot}
 \title{Create a tableplot from a dataset}
 \usage{
-table_plot(
-  data,
-  sort_variable = names(data)[1],
-  n = 100,
-  ncols = ncol(data),
-  ...
-)
+table_plot(data, sort_variable = NULL, n = 100, ncols = ncol(data), ...)
 }
 \arguments{
 \item{data}{A data.frame or data.table}

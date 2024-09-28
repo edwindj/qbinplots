@@ -6,7 +6,7 @@
 \usage{
 quantile_dependence_plot(
   data,
-  sort_variable = names(data)[1],
+  sort_variable = NULL,
   n = 100,
   ncols = NULL,
   ...

@@ -73,5 +73,12 @@ table_plot(diamonds, "carat", ncols=4)
 ```{r}
 data("diamonds", package = "ggplot2")
 quantile_dependence_plot(diamonds[1:6], "carat", ncols=3)
-
 ```
+
+```{r}
+dependence_plot(diamonds, "price")
+```
+
+
+
+

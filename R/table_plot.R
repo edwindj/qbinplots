@@ -9,12 +9,14 @@
 #' @export
 #' @example example/table_plot.R
 #' @return A ggplot object
-table_plot <- function(data, sort_variable = names(data)[1], n = 100, ncols=ncol(data), ...) {
+table_plot <- function(data, sort_variable = NULL, n = 100, ncols=ncol(data), ...) {
   d <- preprocess(
     data,
     sort_variable = sort_variable,
     n = n
   )
+
+  sort_variable <- d$sort_variable
 
   pn <- lapply(d$num_cols, function(n){
     d <- d$data[[n]]
