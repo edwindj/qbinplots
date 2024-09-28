@@ -69,3 +69,9 @@ Or the well-known `diamonds` dataset
 data("diamonds", package = "ggplot2")
 ggtableplot(diamonds, "carat", ncols=4)
 ```
+
+```{r}
+data("diamonds", package = "ggplot2")
+percentile_dep_plot(diamonds[1:6], "carat", ncols=3)
+
+```

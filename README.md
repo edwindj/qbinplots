@@ -73,3 +73,10 @@ ggtableplot(diamonds, "carat", ncols=4)
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+``` r
+data("diamonds", package = "ggplot2")
+percentile_dep_plot(diamonds[1:6], "carat", ncols=3)
+```
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
