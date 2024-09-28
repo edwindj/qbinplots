@@ -1,15 +1,15 @@
-#' Create a percentile dependency plot
+#' Create a quantile dependence plot
 #'
-#' Create a table plot from a dataset/frame
+#' Create a quantile dependence plot
 #' @param data A data.frame or data.table
 #' @param sort_variable The variable to sort the data by
 #' @param n The number of bins to use for binning the data
 #' @param ncols The number of column to be used in the layout
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
-#' @example example/percentile_dep_plot.R
+#' @example example/quantile_dependence_plot.R
 #' @return A ggplot object
-percentile_dep_plot <- function(data, sort_variable = names(data)[1], n = 100, ncols=ncol(data), ...) {
+quantile_dependence_plot <- function(data, sort_variable = names(data)[1], n = 100, ncols=NULL, ...) {
   d <- preprocess(
     data,
     sort_variable = sort_variable,

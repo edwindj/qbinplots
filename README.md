@@ -30,10 +30,10 @@ library(quantdepplot)
 ## basic example code
 ```
 
-A percentile plot…
+A quantile dependence plot
 
 ``` r
-percentile_dep_plot(iris, "Sepal.Length", 25, ncols=NULL)
+quantile_dependence_plot(iris, "Sepal.Length", 25)
 ```
 
 <img src="man/figures/README-percentile_iris-1.png" width="100%" />
@@ -47,14 +47,14 @@ table_plot(iris, "Sepal.Length", 25)
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ``` r
-percentile_dep_plot(iris, "Petal.Width", 25, ncols=NULL)
+quantile_dependence_plot(iris, "Petal.Width", 25)
 ```
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
 ``` r
 library(palmerpenguins)
-percentile_dep_plot(penguins[1:7], c("body_mass_g"), 25, ncols = NULL)
+quantile_dependence_plot(penguins[1:7], c("body_mass_g"), 25)
 ```
 
 <img src="man/figures/README-percentile_plot_penguins-1.png" width="100%" />
@@ -76,7 +76,7 @@ table_plot(diamonds, "carat", ncols=4)
 
 ``` r
 data("diamonds", package = "ggplot2")
-percentile_dep_plot(diamonds[1:6], "carat", ncols=3)
+quantile_dependence_plot(diamonds[1:6], "carat", ncols=3)
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
