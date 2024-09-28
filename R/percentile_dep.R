@@ -18,7 +18,8 @@ percentile_dep_plot <- function(data, sort_variable = names(data)[1], n = 100, n
 
   pn <- lapply(d$num_cols, function(n){
     d <- d$data[[n]]
-    plot_num2(d, n)
+    #plot_num2(d, n)
+    plot_hinge(d, n)
     #plot_fivenum(d, n)
   })
   names(pn) <- d$num_cols

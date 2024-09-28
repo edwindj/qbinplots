@@ -15,6 +15,9 @@ preprocess <- function(x, sort_variable, n = 100){
   nd <- lapply(num_cols, function(nc){
     d <- x[, calc_num(.SD[[nc]], na.rm=TRUE), by = bin]
     d$f <- d$bin/n
+    d$iqr <-  d$q3 - d$q1
+    d$hinge_low <- pmax(d$min,d$q1 - 1.5 * d$iqr)
+    d$hinge_high <- pmin(d$q3 + 1.5 * d$iqr, d$max)
     d
   })
   names(nd) <- num_cols
