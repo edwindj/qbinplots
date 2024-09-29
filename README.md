@@ -87,3 +87,9 @@ funq_plot(diamonds, "price")
 ```
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+
+``` r
+funq_plot(diamonds, "carat")
+```
+
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
