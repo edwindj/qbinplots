@@ -1,18 +1,22 @@
-#' Create a tableplot from a dataset
+#' Plot variables as a function of another variable
 #'
-#' Create a table plot from a dataset/frame
+#' Plot the median and interquartile range of numerical variables and frequency of
+#' other variables as a function the `x` variable.
+#'
+#' The statistics are derived by binning the `x` variable into `n` bins or quantiles and
+#' calculating the statistics for each bin, hence the name `funq_plot`.
 #' @param data A data.frame or data.table
-#' @param sort_variable The variable to sort the data by
+#' @param x `character` name of variable that should be plotted in the x-axis.
 #' @param n The number of bins to use for binning the data
 #' @param ncols The number of column to be used in the layout
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
-#' @example example/dependence_plot.R
-#' @return A ggplot object
-dependence_plot <- function(data, sort_variable = NULL, n = 100, ncols = NULL, ...) {
+#' @example example/funq_plot.R
+#' @return A ggplot object with the plots
+funq_plot <- function(data, x = NULL, n = 100, ncols = NULL, ...) {
   d <- preprocess(
     data,
-    sort_variable = sort_variable,
+    sort_variable = x,
     n = n
   )
 
@@ -53,8 +57,9 @@ dependence_plot <- function(data, sort_variable = NULL, n = 100, ncols = NULL, .
   nms <- nms[-idx]
 
   p <- c(pn, pc)[nms]
+  # qd_plot(p)
 
-  #p <- set_palettes(p, d$cat_cols)
+  p <- set_palettes(p, d$cat_cols)
   p <- Reduce(`+`, p)
 
   if (!is.null(ncols)) {

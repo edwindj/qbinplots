@@ -20,7 +20,7 @@ preprocess <- function(x, sort_variable = NULL, n = 100, min_bin_size = 5){
 
   # TODO add check
   if (nrow(x) / n < min_bin_size){
-    n <- nrow(x)/min_bin_size
+    n <- trunc(nrow(x)/min_bin_size)
     message("'n' is larger then nrows/",min_bin_size," ('min_bin_size'), setting 'n' to: ", n)
   }
 

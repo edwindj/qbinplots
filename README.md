@@ -83,7 +83,7 @@ quantile_dependence_plot(diamonds[1:6], "carat", ncols=3)
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
 ``` r
-dependence_plot(diamonds, "price")
+funq_plot(diamonds, "price")
 ```
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />

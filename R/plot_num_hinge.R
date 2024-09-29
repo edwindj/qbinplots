@@ -11,6 +11,7 @@ plot_hinge <- function(data, name, color = "blue"){
   hinge_high <- data$hinge_high
 
   w <- resolution(f)
+  wh <- w/2
 
   ggplot(data, aes(x = f)) +
     geom_segment(aes(x = f-w/2, xend = f + w/2, y = max, yend = max), alpha=.2, color = color) +
@@ -18,8 +19,8 @@ plot_hinge <- function(data, name, color = "blue"){
     geom_rect(
       alpha = 0.1,
       aes(
-        xmin = f - w/2,
-        xmax = f + w/2,
+        xmin = f - wh,
+        xmax = f + wh,
         ymin = hinge_low,
         ymax = q1
       ),
@@ -29,8 +30,8 @@ plot_hinge <- function(data, name, color = "blue"){
     geom_rect(
       alpha = 0.1,
       aes(
-        xmin = f - w/2,
-        xmax = f + w/2,
+        xmin = f - wh,
+        xmax = f + wh,
         ymin = q3,
         ymax = hinge_high
       ),
@@ -40,8 +41,8 @@ plot_hinge <- function(data, name, color = "blue"){
     geom_rect(
       alpha = 0.4,
       aes(
-        xmin = f- w/2,
-        xmax = f + w /2,
+        xmin = f- wh,
+        xmax = f + wh,
         ymin = q1,
         ymax = q3
       ),
@@ -50,7 +51,8 @@ plot_hinge <- function(data, name, color = "blue"){
     ) +
     # geom_step(aes(y = mean), color=color) +
     # geom_step(aes(y = mean), color="black", linetype="dashed") +
-    geom_step(aes(y = med), color="blue") +
+    geom_step(aes(y = med), color="blue", direction = "hv") +
+    #geom_segment(aes(yend = med, y = med, x = f-wh, xend=f+wh), color="blue") +
     labs(y = name) +
     scale_y_continuous(position = "right") +
     coord_flip() +

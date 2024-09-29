@@ -76,7 +76,7 @@ quantile_dependence_plot(diamonds[1:6], "carat", ncols=3)
 ```
 
 ```{r}
-dependence_plot(diamonds, "price")
+funq_plot(diamonds, "price")
 ```
 
 
