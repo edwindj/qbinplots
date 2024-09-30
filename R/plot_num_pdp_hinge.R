@@ -1,5 +1,11 @@
 #' @import ggplot2
-plot_num_pdp_hinge <- function(x_data, y_data, x_name, y_name, color = "blue"){
+plot_num_pdp_hinge <- function(
+    x_data,
+    y_data,
+    x_name,
+    y_name,
+    color = "#555555"
+  ){
   data <- data.frame(
     x = x_data$med,
     y = y_data$med,
@@ -21,7 +27,7 @@ plot_num_pdp_hinge <- function(x_data, y_data, x_name, y_name, color = "blue"){
         ymin = hinge_low,
         ymax = hinge_high
       ),
-      fill = "blue",
+      fill = color,
       color = NA,
       alpha = 0.2
     ) +
@@ -32,7 +38,7 @@ plot_num_pdp_hinge <- function(x_data, y_data, x_name, y_name, color = "blue"){
         ymin = q1,
         ymax = q3
       ),
-      fill = "blue",
+      fill = color,
       color = NA,
       alpha = 0.2
     ) +

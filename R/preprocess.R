@@ -24,17 +24,13 @@ preprocess <- function(x, sort_variable = NULL, n = 100, min_bin_size = 5){
     message("'n' is larger then nrows/",min_bin_size," ('min_bin_size'), setting 'n' to: ", n)
   }
 
-  if (n > nrow(x)){
-    n <- nrow(x)/3
-    message("n is larger then nrows/3, setting n to: ", n)
-  }
-
   bin <- x[, cut(.I, n, labels = FALSE)]
 
   nd <- lapply(num_cols, function(nc){
     d <- x[, calc_num(.SD[[nc]], na.rm=TRUE), by = bin]
     d$f <- d$bin/n
     iqr <-  d$q3 - d$q1
+    # TODO rename hinge
     d$hinge_low <- pmax(d$min,d$q1 - 1.5 * iqr)
     d$hinge_high <- pmin(d$q3 + 1.5 * iqr, d$max)
     d
@@ -51,12 +47,15 @@ preprocess <- function(x, sort_variable = NULL, n = 100, min_bin_size = 5){
 
   l <- c(nd, cd)[names(x)]
 
-  list(
-    sort_variable = sort_variable,
-    bin = bin,
-    num_cols = num_cols,
-    cat_cols = cat_cols,
-    data = l
+  structure(
+    list(
+      sort_variable = sort_variable,
+      bin = bin,
+      num_cols = num_cols,
+      cat_cols = cat_cols,
+      data = l
+    ),
+    class="qbin"
   )
 }
 

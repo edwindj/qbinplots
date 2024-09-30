@@ -13,7 +13,15 @@
 #' @export
 #' @example example/funq_plot.R
 #' @return A ggplot object with the plots
-funq_plot <- function(data, x = NULL, n = 100, ncols = NULL, ...) {
+funq_plot <- function(
+    data,
+    x = NULL,
+    n = 100,
+    color = "#555555",
+    color_cat = FALSE,
+    ncols = NULL,
+    ...
+  ) {
   d <- preprocess(
     data,
     sort_variable = x,
@@ -36,7 +44,8 @@ funq_plot <- function(data, x = NULL, n = 100, ncols = NULL, ...) {
       x_data = x_data,
       y_data = y_data,
       x_name=sort_variable,
-      y_name = y_name
+      y_name = y_name,
+      color = color
     )
   })
   names(pn) <- num_cols
@@ -47,7 +56,9 @@ funq_plot <- function(data, x = NULL, n = 100, ncols = NULL, ...) {
       x_data,
       y_data = y_data,
       x_name = sort_variable,
-      y_name = y_name
+      y_name = y_name,
+      color = color,
+      color_cat = color_cat
     )
   })
   names(pc) <- d$cat_cols
@@ -59,7 +70,10 @@ funq_plot <- function(data, x = NULL, n = 100, ncols = NULL, ...) {
   p <- c(pn, pc)[nms]
   # qd_plot(p)
 
-  p <- set_palettes(p, d$cat_cols)
+  if(color_cat){
+    p <- set_palettes(p, d$cat_cols)
+  }
+
   p <- Reduce(`+`, p)
 
   if (!is.null(ncols)) {
