@@ -1,18 +1,9 @@
-#' Create a tableplot from a dataset
-#'
-#' Create a table plot from a dataset/frame
-#' @param data A data.frame or data.table
-#' @param sort_variable The variable to sort the data by
-#' @param n The number of bins to use for binning the data
-#' @param ncols The number of column to be used in the layout
-#' @param ... Additional arguments to pass to the plot functions
 #' @export
-#' @example example/table_plot.R
-#' @return A ggplot object
-table_plot <- function(data, sort_variable = NULL, n = 100, ncols=ncol(data), ...) {
+#' @rdname qbin_barplot
+table_plot <- function(data, x = NULL, n = 100, ncols=ncol(data), ...) {
   d <- preprocess(
     data,
-    sort_variable = sort_variable,
+    sort_variable = x,
     n = n
   )
 
