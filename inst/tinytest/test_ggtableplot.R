@@ -1,9 +1,8 @@
 library(tinytest)
-library(quantdepplot)
+library(qbinplot)
 
 a <- table_plot(iris, "Sepal.Length", 75)
 a
-
 
 table_plot(diamonds[1:4], "carat", 75)
 

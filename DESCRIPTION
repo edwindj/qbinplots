@@ -1,13 +1,10 @@
-Package: quantdepplot
-Title: Quantile Dedepence Plots
+Package: qbinplot
+Title: Quantile Bin Plots
 Version: 0.0.1.9000
 Authors@R: 
     person("Edwin", "de Jonge", , "edwindjonge@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6580-4718"))
-Description: Create quantile dependence plots (qdp), that show the relationship
-  between two variables by plotting the distribution of each variables against 
-  quantiles of one variable. It also provides table plot and a partial dependence
-  functionality.
+Description: Create plots based on quantile binning: qbin_box, qbin_step, table_plot and funq plots. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

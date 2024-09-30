@@ -7,9 +7,9 @@
 #' @param ncols The number of column to be used in the layout
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
-#' @example example/quantile_dependence_plot.R
+#' @example example/qbin_boxplot.R
 #' @return A ggplot object
-quantile_dependence_plot <- function(data, sort_variable = NULL, n = 100, ncols=NULL, ...) {
+qbin_boxplot <- function(data, sort_variable = NULL, n = 100, ncols=NULL, ...) {
   d <- preprocess(
     data,
     sort_variable = sort_variable,
