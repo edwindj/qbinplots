@@ -6,8 +6,8 @@
 <!-- badges: start -->
 
 [![CRAN
-status](https://www.r-pkg.org/badges/version/qbinplot)](https://CRAN.R-project.org/package=quantdepplot)
-[![R-CMD-check](https://github.com/edwindj/quantdepplot/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/edwindj/quantdepplot/actions/workflows/R-CMD-check.yaml)
+status](https://www.r-pkg.org/badges/version/qbinplot)](https://CRAN.R-project.org/package=qbinplot)
+[![R-CMD-check](https://github.com/edwindj/qbinplot/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/edwindj/qbinplot/actions/workflows/R-CMD-check.yaml)
 
 <!-- badges: end -->
 
