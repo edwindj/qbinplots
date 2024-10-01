@@ -4,7 +4,16 @@
 \alias{funq_plot}
 \title{Plot variables as a function of another variable}
 \usage{
-funq_plot(data, x = NULL, n = 100, ncols = NULL, ...)
+funq_plot(
+  data,
+  x = NULL,
+  n = 100,
+  color = "darkblue",
+  fill = "#555555",
+  auto_fill = FALSE,
+  ncols = NULL,
+  ...
+)
 }
 \arguments{
 \item{data}{A data.frame or data.table}
@@ -12,6 +21,12 @@ funq_plot(data, x = NULL, n = 100, ncols = NULL, ...)
 \item{x}{\code{character} name of variable that should be plotted in the x-axis.}
 
 \item{n}{The number of bins to use for binning the data}
+
+\item{color}{The color to use for the line charts}
+
+\item{fill}{The fill color to use for the areas}
+
+\item{auto_fill}{If \code{TRUE}, use a different color for each category}
 
 \item{ncols}{The number of column to be used in the layout}
 
@@ -21,22 +36,25 @@ funq_plot(data, x = NULL, n = 100, ncols = NULL, ...)
 A ggplot object with the plots
 }
 \description{
-Plot the median and interquartile range of numerical variables and frequency of
-other variables as a function the \code{x} variable.
+Plot the median and interquartile range of numerical variables and level frequency
+of the other variables as a function the \code{x} variable using quantile bins,
+hence the name \code{funq_plot}.
 }
 \details{
-The statistics are derived by binning the \code{x} variable into \code{n} bins or quantiles and
+It \code{qbin}s the \code{x} variable and plots the medians of the qbins vs the other variables, thereby
+creating a functional view of \code{x} to the rest of the data, hence the name \code{funq}
 calculating the statistics for each bin, hence the name \code{funq_plot}.
 }
 \examples{
-funq_plot(iris, "Petal.Length", 20)
+funq_plot(iris, "Petal.Length", n = 20, auto_fill = TRUE)
 
-funq_plot(diamonds, "price")
-funq_plot(diamonds, "carat")
+funq_plot(diamonds[1:7], "carat")
+funq_plot(diamonds[1:7], x = "carat", color = "black", auto_fill=TRUE)
+
+funq_plot(diamonds[1:7], x = "depth", color = "black", auto_fill=TRUE)
 
 if (require(palmerpenguins)){
-  funq_plot(penguins[1:7], "body_mass_g", 25)
-  qbin_boxplot(penguins[1:7], c("body_mass_g"), 25)
+  funq_plot(penguins[1:7], "body_mass_g", n = 25, auto_fill = TRUE)
 }
 
 }

@@ -5,11 +5,23 @@
 #' @param sort_variable The variable to sort the data by
 #' @param n The number of bins to use for binning the data
 #' @param ncols The number of column to be used in the layout
+#' @param color The color to use for the lines
+#' @param fill The color to use for the bars
+#' @param auto_fill If `TRUE`, use a different color for each category
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
 #' @example example/qbin_boxplot.R
 #' @return A ggplot object
-qbin_boxplot <- function(data, sort_variable = NULL, n = 100, ncols=NULL, ...) {
+qbin_boxplot <- function(
+    data,
+    sort_variable = NULL,
+    n = 100,
+    ncols=NULL,
+    color = "darkblue",
+    fill = "#555555",
+    auto_fill = FALSE,
+    ...
+  ){
   d <- preprocess(
     data,
     sort_variable = sort_variable,
@@ -21,14 +33,19 @@ qbin_boxplot <- function(data, sort_variable = NULL, n = 100, ncols=NULL, ...) {
   pn <- lapply(d$num_cols, function(n){
     d <- d$data[[n]]
     #plot_num2(d, n)
-    plot_hinge(d, n)
+    plot_hinge(d, n, color = color)
     #plot_fivenum(d, n)
   })
   names(pn) <- d$num_cols
 
   pc <- lapply(d$cat_cols, function(n){
     #plot_cat(d$data[[n]], n)
-    plot_cat_freq(d$data[[n]], n)
+    plot_cat_freq(
+      d$data[[n]],
+      n,
+      fill = fill,
+      auto_fill = auto_fill
+    )
   })
   names(pc) <- d$cat_cols
   p <- c(pn, pc)[names(data)]

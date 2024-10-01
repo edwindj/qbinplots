@@ -4,7 +4,16 @@
 \alias{qbin_boxplot}
 \title{Create a quantile dependence plot}
 \usage{
-qbin_boxplot(data, sort_variable = NULL, n = 100, ncols = NULL, ...)
+qbin_boxplot(
+  data,
+  sort_variable = NULL,
+  n = 100,
+  ncols = NULL,
+  color = "darkblue",
+  fill = "#555555",
+  auto_fill = FALSE,
+  ...
+)
 }
 \arguments{
 \item{data}{A data.frame or data.table}
@@ -14,6 +23,12 @@ qbin_boxplot(data, sort_variable = NULL, n = 100, ncols = NULL, ...)
 \item{n}{The number of bins to use for binning the data}
 
 \item{ncols}{The number of column to be used in the layout}
+
+\item{color}{The color to use for the lines}
+
+\item{fill}{The color to use for the bars}
+
+\item{auto_fill}{If \code{TRUE}, use a different color for each category}
 
 \item{...}{Additional arguments to pass to the plot functions}
 }
@@ -26,7 +41,12 @@ Create a quantile dependence plot
 \examples{
 data("diamonds", package="ggplot2")
 
-qbin_boxplot(iris)
-qbin_boxplot(diamonds[1:7], "carat")
+qbin_boxplot(iris, auto_fill = TRUE)
+
+qbin_boxplot(diamonds[1:7], "carat", auto_fill = TRUE, color = "black")
+qbin_boxplot(diamonds[1:7], "price", auto_fill = TRUE, color = "black")
+
+
+
 
 }

@@ -1,8 +1,8 @@
 #' @import data.table
-preprocess <- function(x, sort_variable = NULL, n = 100, min_bin_size = 5){
+preprocess <- function(data, sort_variable = NULL, n = 100, min_bin_size = 5){
   # TODO check if data.frame
 
-  is_num <- sapply(x, is.numeric)
+  is_num <- sapply(data, is.numeric)
   num_cols <- is_num |> which() |> names()
   cat_cols <- (!is_num) |> which() |> names()
 
@@ -15,19 +15,19 @@ preprocess <- function(x, sort_variable = NULL, n = 100, min_bin_size = 5){
     message("No sort_variable specified, using first numeric column: '", num_cols[1], "'")
   }
 
-  x <- as.data.table(x)
-  setkeyv(x, sort_variable)
+  data <- as.data.table(data)
+  setkeyv(data, sort_variable)
 
   # TODO add check
-  if (nrow(x) / n < min_bin_size){
-    n <- trunc(nrow(x)/min_bin_size)
-    message("'n' is larger then nrows/",min_bin_size," ('min_bin_size'), setting 'n' to: ", n)
+  if ((nrow(data) / n) < min_bin_size){
+    n <- trunc(nrow(data)/min_bin_size)
+    message("Bin size < min_bin_size, setting 'n' to: ", n)
   }
 
-  bin <- x[, cut(.I, n, labels = FALSE)]
+  bin <- data[, cut(.I, n, labels = FALSE)]
 
   nd <- lapply(num_cols, function(nc){
-    d <- x[, calc_num(.SD[[nc]], na.rm=TRUE), by = bin]
+    d <- data[, calc_num(.SD[[nc]], na.rm=TRUE), by = bin]
     d$f <- d$bin/n
     iqr <-  d$q3 - d$q1
     # TODO rename hinge
@@ -38,14 +38,14 @@ preprocess <- function(x, sort_variable = NULL, n = 100, min_bin_size = 5){
   names(nd) <- num_cols
 
   cd <- lapply(cat_cols, function(cc){
-    d <- x[, calc_cat(.SD[[cc]]), by = bin]
+    d <- data[, calc_cat(.SD[[cc]]), by = bin]
     d$f <- d$bin/n
     d
   })
 
   names(cd) <- cat_cols
 
-  l <- c(nd, cd)[names(x)]
+  l <- c(nd, cd)[names(data)]
 
   structure(
     list(

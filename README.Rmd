@@ -41,17 +41,17 @@ library(qbinplot)
 A quantile dependence plot
 
 ```{r percentile_iris}
-qbin_boxplot(iris, "Sepal.Length", 25)
+qbin_boxplot(iris, "Sepal.Length", n = 25, auto_fill = TRUE)
 ```
 
 vs
 
 ```{r}
-table_plot(iris, "Sepal.Length", 25)
+table_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
 ```
 
 ```{r}
-qbin_boxplot(iris, "Petal.Width", 25)
+qbin_boxplot(iris, "Petal.Width", 25, auto_fill = TRUE)
 ```
 
 ```{r percentile_plot_penguins }
@@ -76,11 +76,11 @@ qbin_boxplot(diamonds[1:6], "carat", ncols=3)
 ```
 
 ```{r}
-funq_plot(diamonds, "price")
+funq_plot(diamonds[1:7], "carat")
 ```
 
 ```{r}
-funq_plot(diamonds, "carat")
+funq_plot(diamonds[1:7], "carat", auto_fill = TRUE)
 ```
 
 

@@ -24,7 +24,7 @@ plot_hinge <- function(data, name, color = "blue"){
         ymin = hinge_low,
         ymax = q1
       ),
-      fill = "blue",
+      fill = color,
       color = NA
     ) +
     geom_rect(
@@ -35,7 +35,7 @@ plot_hinge <- function(data, name, color = "blue"){
         ymin = q3,
         ymax = hinge_high
       ),
-      fill = "blue",
+      fill = color,
       color = NA
     ) +
     geom_rect(
@@ -46,12 +46,12 @@ plot_hinge <- function(data, name, color = "blue"){
         ymin = q1,
         ymax = q3
       ),
-      fill = "blue",
+      fill = color,
       color = NA
     ) +
     # geom_step(aes(y = mean), color=color) +
     # geom_step(aes(y = mean), color="black", linetype="dashed") +
-    geom_step(aes(y = med), color="blue", direction = "hv") +
+    geom_step(aes(y = med), color=color, direction = "hv") +
     #geom_segment(aes(yend = med, y = med, x = f-wh, xend=f+wh), color="blue") +
     labs(y = name) +
     scale_y_continuous(position = "right") +

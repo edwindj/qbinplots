@@ -1,13 +1,18 @@
 #' Plot variables as a function of another variable
 #'
-#' Plot the median and interquartile range of numerical variables and frequency of
-#' other variables as a function the `x` variable.
+#' Plot the median and interquartile range of numerical variables and level frequency
+#' of the other variables as a function the `x` variable using quantile bins,
+#' hence the name `funq_plot`.
 #'
-#' The statistics are derived by binning the `x` variable into `n` bins or quantiles and
+#' It `qbin`s the `x` variable and plots the medians of the qbins vs the other variables, thereby
+#' creating a functional view of `x` to the rest of the data, hence the name `funq`
 #' calculating the statistics for each bin, hence the name `funq_plot`.
 #' @param data A data.frame or data.table
 #' @param x `character` name of variable that should be plotted in the x-axis.
 #' @param n The number of bins to use for binning the data
+#' @param color The color to use for the line charts
+#' @param fill The fill color to use for the areas
+#' @param auto_fill If `TRUE`, use a different color for each category
 #' @param ncols The number of column to be used in the layout
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
@@ -17,8 +22,9 @@ funq_plot <- function(
     data,
     x = NULL,
     n = 100,
-    color = "#555555",
-    color_cat = FALSE,
+    color = "darkblue",
+    fill = "#555555",
+    auto_fill = FALSE,
     ncols = NULL,
     ...
   ) {
@@ -57,8 +63,8 @@ funq_plot <- function(
       y_data = y_data,
       x_name = sort_variable,
       y_name = y_name,
-      color = color,
-      color_cat = color_cat
+      fill = fill,
+      auto_fill = auto_fill
     )
   })
   names(pc) <- d$cat_cols
@@ -70,7 +76,7 @@ funq_plot <- function(
   p <- c(pn, pc)[nms]
   # qd_plot(p)
 
-  if(color_cat){
+  if(isTRUE(auto_fill)){
     p <- set_palettes(p, d$cat_cols)
   }
 

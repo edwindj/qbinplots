@@ -5,9 +5,17 @@
 \alias{table_plot}
 \title{Create a qbin_barplot from a dataset}
 \usage{
-qbin_barplot(data, x = NULL, n = 100, ncols = NULL, ...)
+qbin_barplot(
+  data,
+  x = NULL,
+  n = 100,
+  ncols = NULL,
+  fill = "#555555",
+  type = c("median", "mean"),
+  ...
+)
 
-table_plot(data, x = NULL, n = 100, ncols = ncol(data), ...)
+table_plot(data, x = NULL, n = 100, ncols = ncol(data), fill = "#555555", ...)
 }
 \arguments{
 \item{data}{A data.frame or data.table}
@@ -16,7 +24,11 @@ table_plot(data, x = NULL, n = 100, ncols = ncol(data), ...)
 
 \item{n}{The number of bins to use for binning the data}
 
-\item{ncols}{The number of column to be used in the layout}
+\item{ncols}{The number of column to be used in the layout.}
+
+\item{fill}{The color to use for the bars.}
+
+\item{type}{The type of statistic to use for the bars.}
 
 \item{...}{Additional arguments to pass to the plot functions}
 }

@@ -1,12 +1,19 @@
 #' @import ggplot2
-plot_num_bar <- function(data, name, color = "#555555"){
+plot_num_bar <- function(data, name, fill = "#555555", type=c("median", "mean")){
   bin <- data$bin
   f <- data$f
+  # CRAN checks
+  med <- NULL
+
+  mapping <- aes(x = f, y = med)
+  if (match.arg(type) == "mean"){
+    mapping <- aes(x = f, y = mean)
+  }
 
   width <- resolution(f) * 1.0
 
-  ggplot(data, aes(x = f, y = mean)) +
-    geom_col(fill=color, width = width) +
+  ggplot(data, mapping = mapping) +
+    geom_col(fill=fill, width = width) +
     labs(y = name) +
     scale_y_continuous(position = "right") +
     coord_flip() +

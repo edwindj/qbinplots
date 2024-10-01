@@ -4,9 +4,9 @@ plot_cat_line <- function(
     y_data,
     x_name,
     y_name,
-    color_cat = FALSE,
+    auto_fill = FALSE,
     ...,
-    color = "#555555"
+    fill = "#555555"
   ){
 
   # CRAN checks
@@ -14,8 +14,8 @@ plot_cat_line <- function(
 
   data <- cbind(x_data[(y_data$bin),.(x = med, x_m = mean)], y_data)
 
-  geom <- geom_area(show.legend = FALSE, fill = color)
-  if (isTRUE(color_cat)){
+  geom <- geom_area(show.legend = FALSE, fill = fill)
+  if (isTRUE(auto_fill)){
     geom <- geom_area(show.legend = FALSE, aes(fill=category))
   }
 
