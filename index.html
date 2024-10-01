@@ -78,14 +78,14 @@
 <span><span class="co">## basic example code</span></span></code></pre></div>
 <p>A quantile dependence plot</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/qbin_boxplot.html">qbin_boxplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="st">"Sepal.Length"</span>, <span class="fl">25</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/qbin_boxplot.html">qbin_boxplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="st">"Sepal.Length"</span>, n <span class="op">=</span> <span class="fl">25</span>, auto_fill <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-percentile_iris-1.png" width="100%"></p>
 <p>vs</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/qbin_barplot.html">table_plot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="st">"Sepal.Length"</span>, <span class="fl">25</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/qbin_barplot.html">table_plot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="st">"Sepal.Length"</span>, <span class="fl">25</span>, auto_fill <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/qbin_boxplot.html">qbin_boxplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="st">"Petal.Width"</span>, <span class="fl">25</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/qbin_boxplot.html">qbin_boxplot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="st">"Petal.Width"</span>, <span class="fl">25</span>, auto_fill <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/" class="external-link">palmerpenguins</a></span><span class="op">)</span></span>
@@ -93,7 +93,7 @@
 <p><img src="reference/figures/README-percentile_plot_penguins-1.png" width="100%"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/qbin_barplot.html">table_plot</a></span><span class="op">(</span><span class="va">iris</span>, <span class="st">"Sepal.Length"</span>, <span class="fl">75</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 'n' is larger then nrows/5 ('min_bin_size'), setting 'n' to: 30</span></span></code></pre></div>
+<span><span class="co">#&gt; Bin size &lt; min_bin_size, setting 'n' to: 30</span></span></code></pre></div>
 <p><img src="reference/figures/README-cars-1.png" width="100%"></p>
 <p>Or the well-known <code>diamonds</code> dataset</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -105,10 +105,10 @@
 <span><span class="fu"><a href="reference/qbin_boxplot.html">qbin_boxplot</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">]</span>, <span class="st">"carat"</span>, ncols<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="100%"></p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/funq_plot.html">funq_plot</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="st">"price"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/funq_plot.html">funq_plot</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">]</span>, <span class="st">"carat"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-6-1.png" width="100%"></p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/funq_plot.html">funq_plot</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="st">"carat"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/funq_plot.html">funq_plot</a></span><span class="op">(</span><span class="va">diamonds</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">]</span>, <span class="st">"carat"</span>, auto_fill <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-7-1.png" width="100%"></p>
 </div>
 </div>
@@ -141,8 +141,8 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=quantdepplot" class="external-link"><img src="https://www.r-pkg.org/badges/version/qbinplot" alt="CRAN status"></a></li>
-<li><a href="https://github.com/edwindj/quantdepplot/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/edwindj/quantdepplot/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://CRAN.R-project.org/package=qbinplot" class="external-link"><img src="https://www.r-pkg.org/badges/version/qbinplot" alt="CRAN status"></a></li>
+<li><a href="https://github.com/edwindj/qbinplot/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/edwindj/qbinplot/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 
