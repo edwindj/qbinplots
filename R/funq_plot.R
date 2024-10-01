@@ -14,6 +14,8 @@
 #' @param fill The fill color to use for the areas
 #' @param auto_fill If `TRUE`, use a different color for each category
 #' @param ncols The number of column to be used in the layout
+#' @param xmarker `numeric`, the x marker.
+#' @param qmarker `numeric`, the quantile marker to use that is translated in a x value.
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
 #' @example example/funq_plot.R
@@ -26,6 +28,8 @@ funq_plot <- function(
     fill = "#555555",
     auto_fill = FALSE,
     ncols = NULL,
+    xmarker = NULL,
+    qmarker = NULL,
     ...
   ) {
   d <- preprocess(
@@ -74,6 +78,13 @@ funq_plot <- function(
   nms <- nms[-idx]
 
   p <- c(pn, pc)[nms]
+
+  if (!is.null(xmarker)){
+    for (i in seq_along(p)){
+      p[[i]] <- p[[i]] + geom_vline(xintercept = xmarker, linetype="dashed", alpha = 0.7)
+    }
+  }
+
   # qd_plot(p)
 
   if(isTRUE(auto_fill)){

@@ -12,6 +12,8 @@ funq_plot(
   fill = "#555555",
   auto_fill = FALSE,
   ncols = NULL,
+  xmarker = NULL,
+  qmarker = NULL,
   ...
 )
 }
@@ -29,6 +31,10 @@ funq_plot(
 \item{auto_fill}{If \code{TRUE}, use a different color for each category}
 
 \item{ncols}{The number of column to be used in the layout}
+
+\item{xmarker}{\code{numeric}, the x marker.}
+
+\item{qmarker}{\code{numeric}, the quantile marker to use that is translated in a x value.}
 
 \item{...}{Additional arguments to pass to the plot functions}
 }

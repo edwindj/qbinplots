@@ -8,6 +8,8 @@
 #' @param color The color to use for the lines
 #' @param fill The color to use for the bars
 #' @param auto_fill If `TRUE`, use a different color for each category
+#' @param qmarker `numeric`, the quantile marker to use.
+#' @param xmarker `numeric` the x marker, i.e. the value for x that is translated into a q value.
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
 #' @example example/qbin_boxplot.R
@@ -20,6 +22,8 @@ qbin_boxplot <- function(
     color = "darkblue",
     fill = "#555555",
     auto_fill = FALSE,
+    qmarker = NULL,
+    xmarker = NULL,
     ...
   ){
   d <- preprocess(
@@ -49,6 +53,14 @@ qbin_boxplot <- function(
   })
   names(pc) <- d$cat_cols
   p <- c(pn, pc)[names(data)]
+
+  #TODO add xmarker
+
+  if (!is.null(qmarker)){
+    for (i in seq_along(p)){
+      p[[i]] <- p[[i]] + geom_vline(xintercept = qmarker, linetype="dashed", alpha = 0.7)
+    }
+  }
 
   p <- set_palettes(p, d$cat_cols, sort_variable = sort_variable)
 

@@ -12,6 +12,8 @@ qbin_boxplot(
   color = "darkblue",
   fill = "#555555",
   auto_fill = FALSE,
+  qmarker = NULL,
+  xmarker = NULL,
   ...
 )
 }
@@ -29,6 +31,10 @@ qbin_boxplot(
 \item{fill}{The color to use for the bars}
 
 \item{auto_fill}{If \code{TRUE}, use a different color for each category}
+
+\item{qmarker}{\code{numeric}, the quantile marker to use.}
+
+\item{xmarker}{\code{numeric} the x marker, i.e. the value for x that is translated into a q value.}
 
 \item{...}{Additional arguments to pass to the plot functions}
 }
