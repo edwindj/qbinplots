@@ -15,6 +15,7 @@
 #' @param auto_fill If `TRUE`, use a different color for each category
 #' @param ncols The number of column to be used in the layout
 #' @param xmarker `numeric`, the x marker.
+#' @param add_rug if `TRUE` a rug is added to the plot
 #' @param qmarker `numeric`, the quantile marker to use that is translated in a x value.
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
@@ -30,6 +31,7 @@ funq_plot <- function(
     ncols = NULL,
     xmarker = NULL,
     qmarker = NULL,
+    add_rug = FALSE,
     ...
   ) {
   d <- preprocess(
@@ -55,7 +57,8 @@ funq_plot <- function(
       y_data = y_data,
       x_name=sort_variable,
       y_name = y_name,
-      color = color
+      color = color,
+      add_rug = add_rug
     )
   })
   names(pn) <- num_cols

@@ -4,7 +4,8 @@ plot_num_pdp_hinge <- function(
     y_data,
     x_name,
     y_name,
-    color = "#555555"
+    color = "#555555",
+    add_rug = FALSE
   ){
   data <- data.frame(
     x = x_data$med,
@@ -20,7 +21,7 @@ plot_num_pdp_hinge <- function(
   #
 
 
-  ggplot(data) +
+  p <- ggplot(data) +
     geom_ribbon(
       aes(
         x = x,
@@ -45,6 +46,11 @@ plot_num_pdp_hinge <- function(
     geom_line(aes(x = x, y = y), color = color) +
     labs(x = x_name, y = NULL, title=y_name) +
     theme_minimal()
+
+  if (isTRUE(add_rug)){
+    p <- p + geom_rug(aes(x = x))
+  }
+  p
     # geom_segment(aes(x = f-w/2, xend = f + w/2, y = max, yend = max), alpha=.2, color = color) +
     # geom_segment(aes(x = f-w/2, xend = f + w/2, y = min, yend = min), alpha=.2, color = color) +
     # geom_rect(
