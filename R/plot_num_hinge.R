@@ -54,7 +54,7 @@ plot_hinge <- function(data, name, color = "blue"){
     geom_step(aes(y = med), color=color, direction = "hv") +
     #geom_segment(aes(yend = med, y = med, x = f-wh, xend=f+wh), color="blue") +
     labs(y = name) +
-    scale_y_continuous(position = "right") +
+    scale_y_continuous(position = "right", limits = c(min(q1), max(q3)), oob = scales::squish) +
     coord_flip() +
     theme_minimal()
 }
