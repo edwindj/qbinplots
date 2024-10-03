@@ -55,6 +55,10 @@ qbin_boxplot <- function(
   p <- c(pn, pc)[names(data)]
 
   #TODO add xmarker
+  if (length(xmarker) > 0){
+    idx <- findInterval(xmarker, c(-Inf, d$data[[sort_variable]]$max))
+    qmarker <- c(qmarker, d$data[[sort_variable]]$f[idx])
+  }
 
   if (!is.null(qmarker)){
     for (i in seq_along(p)){

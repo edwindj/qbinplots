@@ -79,6 +79,11 @@ funq_plot <- function(
 
   p <- c(pn, pc)[nms]
 
+  if (length(qmarker) > 0){
+    idx <- findInterval(qmarker, c(-Inf, x_data$f))
+    xmarker <- c(xmarker, x_data$med[idx])
+  }
+
   if (!is.null(xmarker)){
     for (i in seq_along(p)){
       p[[i]] <- p[[i]] + geom_vline(xintercept = xmarker, linetype="dashed", alpha = 0.7)
