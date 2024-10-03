@@ -58,12 +58,12 @@ creating a functional view of \code{x} to the rest of the data, hence the name \
 calculating the statistics for each bin, hence the name \code{funq_plot}.
 }
 \examples{
-funq_plot(iris, "Petal.Length", n = 20, auto_fill = TRUE)
+funq_plot(iris, "Sepal.Length", n = 25, auto_fill = TRUE, xmarker=5.5)
 
-funq_plot(diamonds[1:7], "carat")
+funq_plot(diamonds[1:7], "carat", xlim=c(0,2))
 
 if (require(palmerpenguins)){
-  funq_plot(penguins[1:7], "body_mass_g", n = 25, auto_fill = TRUE)
+  funq_plot(penguins[1:7], "body_mass_g", n = 25, auto_fill = TRUE, xmarker=4650)
 }
 
 }

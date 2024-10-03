@@ -2,7 +2,7 @@
 % Please edit documentation in R/qbin_boxplot.R
 \name{qbin_boxplot}
 \alias{qbin_boxplot}
-\title{Create a quantile dependence plot}
+\title{Create a quantile bin boxplot}
 \usage{
 qbin_boxplot(
   data,
@@ -42,13 +42,16 @@ qbin_boxplot(
 A ggplot object
 }
 \description{
-Create a quantile dependence plot
+Create a quantile bin boxplot
+The data is binned by the \code{sort_variable} and a boxplot is created for each bin.
+The median of the subsequent boxplots are connected to highlight jumps in the data.
 }
 \examples{
 
-qbin_boxplot(iris, "Sepal.Length", n = 25)
+qbin_boxplot(iris, "Sepal.Length", n = 25, xmarker=5.55)
 
 data("diamonds", package="ggplot2")
+
 qbin_boxplot(
   diamonds[1:7],
   "carat",

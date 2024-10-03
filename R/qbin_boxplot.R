@@ -1,6 +1,8 @@
-#' Create a quantile dependence plot
+#' Create a quantile bin boxplot
 #'
-#' Create a quantile dependence plot
+#' Create a quantile bin boxplot
+#' The data is binned by the `sort_variable` and a boxplot is created for each bin.
+#' The median of the subsequent boxplots are connected to highlight jumps in the data.
 #' @param data A data.frame or data.table
 #' @param sort_variable The variable to sort the data by
 #' @param n The number of bins to use for binning the data
