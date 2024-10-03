@@ -14,6 +14,7 @@ funq_plot(
   ncols = NULL,
   xmarker = NULL,
   qmarker = NULL,
+  add_rug = FALSE,
   ...
 )
 }
@@ -35,6 +36,8 @@ funq_plot(
 \item{xmarker}{\code{numeric}, the x marker.}
 
 \item{qmarker}{\code{numeric}, the quantile marker to use that is translated in a x value.}
+
+\item{add_rug}{if \code{TRUE} a rug is added to the plot}
 
 \item{...}{Additional arguments to pass to the plot functions}
 }

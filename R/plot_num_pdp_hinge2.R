@@ -1,5 +1,5 @@
 #' @import ggplot2
-plot_num_pdp_hinge <- function(
+plot_num_pdp_hinge2 <- function(
     x_data,
     y_data,
     x_name,
@@ -8,17 +8,30 @@ plot_num_pdp_hinge <- function(
     add_rug = FALSE
   ){
 
-  data <- data.frame(
-    x = x_data$med,
-    y = y_data$med,
-    q1 = y_data$q1,
-    q3 = y_data$q3,
-    hinge_low = y_data$hinge_low,
-    hinge_high = y_data$hinge_high
-  )
+  data <- rbind(
+    data.table(
+      bin = y_data$bin,
+      x = x_data$min,
+      y = y_data$med,
+      q1 = y_data$q1,
+      q3 = y_data$q3,
+      hinge_low = y_data$hinge_low,
+      hinge_high = y_data$hinge_high
+    ),
+    data.table(
+      bin = y_data$bin,
+      x = x_data$max,
+      y = y_data$med,
+      q1 = y_data$q1,
+      q3 = y_data$q3,
+      hinge_low = y_data$hinge_low,
+      hinge_high = y_data$hinge_high
+    )
+  )[order(bin,x),]
+
 
   # to keep CRAN happy
-  x <- y <- f <- med <- q1 <- q3 <- hinge_low <- hinge_high <- NULL
+  x <- y <- f <- med <- q1 <- q3 <- hinge_low <- hinge_high <- bin <- NULL
   #
 
 
@@ -49,7 +62,7 @@ plot_num_pdp_hinge <- function(
     theme_minimal()
 
   if (isTRUE(add_rug)){
-    p <- p + geom_rug(aes(x = x))
+    p <- p + geom_rug(data = data, aes(x = x))
   }
   p
     # geom_segment(aes(x = f-w/2, xend = f + w/2, y = max, yend = max), alpha=.2, color = color) +

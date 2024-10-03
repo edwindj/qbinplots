@@ -52,7 +52,7 @@ funq_plot <- function(
   pn <- lapply(num_cols, function(y_name){
     y_data <- d$data[[y_name]]
 #    plot_num_line(
-    plot_num_pdp_hinge(
+    plot_num_pdp_hinge2(
       x_data = x_data,
       y_data = y_data,
       x_name=sort_variable,
@@ -65,7 +65,7 @@ funq_plot <- function(
 
   pc <- lapply(d$cat_cols, function(y_name){
     y_data <- d$data[[y_name]]
-    plot_cat_line(
+    plot_cat_line2(
       x_data,
       y_data = y_data,
       x_name = sort_variable,

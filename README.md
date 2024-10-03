@@ -30,7 +30,7 @@ library(qbinplot)
 ## basic example code
 ```
 
-A quantile dependence plot
+A quantile binning boxplot
 
 ``` r
 qbin_boxplot(iris, "Sepal.Length", n = 25, auto_fill = TRUE)
@@ -40,56 +40,65 @@ qbin_boxplot(iris, "Sepal.Length", n = 25, auto_fill = TRUE)
 
 vs
 
+A quantile binning barplot
+
 ``` r
-table_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+qbin_barplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ``` r
-qbin_boxplot(iris, "Petal.Width", 25, auto_fill = TRUE)
+table_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
 ```
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
+``` r
+funq_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+```
+
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+Choosing “Petal.Width”
+
+``` r
+qbin_boxplot(iris, "Petal.Width", 25, auto_fill = TRUE)
+```
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
 ``` r
 library(palmerpenguins)
 qbin_boxplot(penguins[1:7], c("body_mass_g"), 25)
 ```
 
-<img src="man/figures/README-percentile_plot_penguins-1.png" width="100%" />
-
-``` r
-table_plot(iris, "Sepal.Length", 75)
-#> Bin size < min_bin_size, setting 'n' to: 30
-```
-
-<img src="man/figures/README-cars-1.png" width="100%" />
+<img src="man/figures/README-qbin_boxplot_penquins-1.png" width="100%" />
 
 Or the well-known `diamonds` dataset
 
 ``` r
 data("diamonds", package = "ggplot2")
-table_plot(diamonds, "carat", ncols=4)
-```
-
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
-
-``` r
-data("diamonds", package = "ggplot2")
-qbin_boxplot(diamonds[1:6], "carat", ncols=3)
-```
-
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
-
-``` r
-funq_plot(diamonds[1:7], "carat")
+table_plot(diamonds[1:7], "carat")
 ```
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
 ``` r
-funq_plot(diamonds[1:7], "carat", auto_fill = TRUE)
+data("diamonds", package = "ggplot2")
+qbin_boxplot(diamonds[1:7], "carat")
 ```
 
 <img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
+
+``` r
+funq_plot(diamonds[1:7], "carat")
+```
+
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
+
+``` r
+funq_plot(diamonds[1:7], "carat", auto_fill = TRUE)
+```
+
+<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />

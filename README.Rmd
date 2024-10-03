@@ -38,7 +38,7 @@ library(qbinplot)
 ## basic example code
 ```
 
-A quantile dependence plot
+A quantile binning boxplot
 
 ```{r percentile_iris}
 qbin_boxplot(iris, "Sepal.Length", n = 25, auto_fill = TRUE)
@@ -46,33 +46,42 @@ qbin_boxplot(iris, "Sepal.Length", n = 25, auto_fill = TRUE)
 
 vs
 
+A quantile binning barplot
+
+```{r}
+qbin_barplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+```
+
 ```{r}
 table_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
 ```
 
 ```{r}
+funq_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+```
+
+Choosing "Petal.Width"
+
+```{r}
 qbin_boxplot(iris, "Petal.Width", 25, auto_fill = TRUE)
 ```
 
-```{r percentile_plot_penguins }
+```{r qbin_boxplot_penquins}
 library(palmerpenguins)
 qbin_boxplot(penguins[1:7], c("body_mass_g"), 25)
 ```
 
-```{r cars}
-table_plot(iris, "Sepal.Length", 75)
-```
 
 Or the well-known `diamonds` dataset
 
 ```{r}
 data("diamonds", package = "ggplot2")
-table_plot(diamonds, "carat", ncols=4)
+table_plot(diamonds[1:7], "carat")
 ```
 
 ```{r}
 data("diamonds", package = "ggplot2")
-qbin_boxplot(diamonds[1:6], "carat", ncols=3)
+qbin_boxplot(diamonds[1:7], "carat")
 ```
 
 ```{r}
