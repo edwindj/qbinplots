@@ -10,12 +10,18 @@ plot_cat_line2 <- function(
   ){
 
   # CRAN checks
-  . <- x <- freq <- category <- bin <- med <- NULL
+  . <- x <- freq <- category <- bin <- med <- lb <- ub <-  NULL
+
+  bin_bounds <- data.table(
+    bin = x_data$bin,
+    lb = (x_data$min + c(x_data$min[1], x_data$max[-1]))/2
+  )
+  bin_bounds$ub <- c(bin_bounds$lb[-1], x_data$max[length(x_data$max)])
 
   data <- rbind(
-    cbind(x_data[(y_data$bin),.(x = min, x_m = mean)], y_data),
-    cbind(x_data[(y_data$bin),.(x = max, x_m = mean)], y_data)
-  )[order(bin,x),]
+    cbind(bin_bounds[(y_data$bin),.(x = lb)], y_data),
+    cbind(bin_bounds[(y_data$bin),.(x = ub)], y_data)
+  )[order(category, bin,x),]
 
   geom <- geom_area(show.legend = FALSE, fill = fill)
   if (isTRUE(auto_fill)){

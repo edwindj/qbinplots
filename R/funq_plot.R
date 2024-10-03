@@ -17,6 +17,7 @@
 #' @param xmarker `numeric`, the x marker.
 #' @param add_rug if `TRUE` a rug is added to the plot
 #' @param qmarker `numeric`, the quantile marker to use that is translated in a x value.
+#' @param xlim `numeric`, the limits of the x-axis.
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
 #' @example example/funq_plot.R
@@ -25,13 +26,14 @@ funq_plot <- function(
     data,
     x = NULL,
     n = 100,
-    color = "darkblue",
-    fill = "#555555",
+    color = "#002f2f", #"darkblue",
+    fill = "#2f4f4f", #"#555555",
     auto_fill = FALSE,
     ncols = NULL,
     xmarker = NULL,
     qmarker = NULL,
     add_rug = FALSE,
+    xlim = NULL,
     ...
   ) {
   d <- preprocess(
@@ -90,6 +92,12 @@ funq_plot <- function(
   if (!is.null(xmarker)){
     for (i in seq_along(p)){
       p[[i]] <- p[[i]] + geom_vline(xintercept = xmarker, linetype="dashed", alpha = 0.7)
+    }
+  }
+
+  if (!is.null(xlim)){
+    for (i in seq_along(p)){
+      p[[i]] <- p[[i]] + coord_cartesian(xlim = xlim)
     }
   }
 

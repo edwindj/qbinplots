@@ -88,8 +88,14 @@ qbin_boxplot(diamonds[1:7], "carat")
 funq_plot(diamonds[1:7], "carat")
 ```
 
+We can zoom in on the `carat` variable, because the upper quantile bins are not very informative.
 ```{r}
-funq_plot(diamonds[1:7], "carat", auto_fill = TRUE)
+funq_plot(
+  diamonds[1:7], 
+  "carat", 
+  auto_fill = TRUE,
+  xlim = c(0, 2.5)
+)
 ```
 
 

@@ -9,8 +9,8 @@ qbin_boxplot(
   sort_variable = NULL,
   n = 100,
   ncols = NULL,
-  color = "darkblue",
-  fill = "#555555",
+  color = "#002f2f",
+  fill = "#2f4f4f",
   auto_fill = FALSE,
   qmarker = NULL,
   xmarker = NULL,
@@ -45,12 +45,16 @@ A ggplot object
 Create a quantile dependence plot
 }
 \examples{
+
+qbin_boxplot(iris, "Sepal.Length", n = 25)
+
 data("diamonds", package="ggplot2")
-
-qbin_boxplot(iris, auto_fill = TRUE)
-
-qbin_boxplot(diamonds[1:7], "carat", auto_fill = TRUE, color = "black")
-qbin_boxplot(diamonds[1:7], "price", auto_fill = TRUE, color = "black")
+qbin_boxplot(
+  diamonds[1:7],
+  "carat",
+  color = "#333",
+  auto_fill = TRUE
+)
 
 
 

@@ -8,13 +8,14 @@ funq_plot(
   data,
   x = NULL,
   n = 100,
-  color = "darkblue",
-  fill = "#555555",
+  color = "#002f2f",
+  fill = "#2f4f4f",
   auto_fill = FALSE,
   ncols = NULL,
   xmarker = NULL,
   qmarker = NULL,
   add_rug = FALSE,
+  xlim = NULL,
   ...
 )
 }
@@ -39,6 +40,8 @@ funq_plot(
 
 \item{add_rug}{if \code{TRUE} a rug is added to the plot}
 
+\item{xlim}{\code{numeric}, the limits of the x-axis.}
+
 \item{...}{Additional arguments to pass to the plot functions}
 }
 \value{
@@ -58,9 +61,6 @@ calculating the statistics for each bin, hence the name \code{funq_plot}.
 funq_plot(iris, "Petal.Length", n = 20, auto_fill = TRUE)
 
 funq_plot(diamonds[1:7], "carat")
-funq_plot(diamonds[1:7], x = "carat", color = "black", auto_fill=TRUE)
-
-funq_plot(diamonds[1:7], x = "depth", color = "black", auto_fill=TRUE)
 
 if (require(palmerpenguins)){
   funq_plot(penguins[1:7], "body_mass_g", n = 25, auto_fill = TRUE)

@@ -97,8 +97,16 @@ funq_plot(diamonds[1:7], "carat")
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
+We can zoom in on the `carat` variable, because the upper quantile bins
+are not very informative.
+
 ``` r
-funq_plot(diamonds[1:7], "carat", auto_fill = TRUE)
+funq_plot(
+  diamonds[1:7], 
+  "carat", 
+  auto_fill = TRUE,
+  xlim = c(0, 2.5)
+)
 ```
 
 <img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />

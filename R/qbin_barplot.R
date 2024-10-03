@@ -19,7 +19,7 @@ qbin_barplot <- function(
     x = NULL,
     n = 100,
     ncols=NULL,
-    fill = "#555555",
+    fill = "#2f4f4f",
     type = c("median", "mean"),
     ...
   ) {

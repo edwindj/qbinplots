@@ -10,7 +10,7 @@ qbin_barplot(
   x = NULL,
   n = 100,
   ncols = NULL,
-  fill = "#555555",
+  fill = "#2f4f4f",
   type = c("median", "mean"),
   ...
 )
@@ -45,14 +45,14 @@ The \code{table_plot} calls \code{qbin_barplot} with \code{ncols} set to \code{n
 \examples{
 data("diamonds", package="ggplot2")
 
-table_plot(diamonds, "carat")
-
 table_plot(diamonds[c(1:4, 7)], "carat")
 
-table_plot(iris, "Sepal.Length", 50)
-
+qbin_barplot(iris, "Sepal.Length", n = 25)
+table_plot(iris, "Sepal.Length", 25)
 
 if (require(palmerpenguins)) {
   table_plot(penguins[1:7], "body_mass_g", 25)
 }
+
+
 }
