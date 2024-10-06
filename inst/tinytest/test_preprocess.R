@@ -1,4 +1,4 @@
 library(tinytest)
 
 
-b <- qbinplot:::preprocess(iris, "Sepal.Length", 75)
+b <- qbinplot:::qbin(iris, "Sepal.Length", 75)

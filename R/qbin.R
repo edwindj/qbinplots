@@ -1,5 +1,15 @@
+#' Bin a data.frame into quantile bins
+#'
+#' Bins a data.frame into quantile bins for variable `x`
+#' @param data a `data.frame` to be binned
+#' @param x `character` variable name used for the quantile binning
+#' @param n `integer` number of quantile bins.
+#' @param min_bin_size `integer` minimum number of rows/data points that should be
+#' in a quantile bin.
+#' @param ... reserved for future use
+#' @export
 #' @import data.table
-preprocess <- function(data, sort_variable = NULL, n = 100, min_bin_size = 5){
+qbin <- function(data, x = NULL, n = 100, min_bin_size = 5, ...){
   # TODO check if data.frame
 
   is_num <- sapply(data, is.numeric)
@@ -10,13 +20,13 @@ preprocess <- function(data, sort_variable = NULL, n = 100, min_bin_size = 5){
     stop("No numeric columns found", call. = FALSE)
   }
 
-  if (is.null(sort_variable)){
-    sort_variable <- num_cols[1]
-    message("No sort_variable specified, using first numeric column: '", num_cols[1], "'")
+  if (is.null(x)){
+    x <- num_cols[1]
+    message("No `x` variable specified, using first numeric column: '", num_cols[1], "'")
   }
 
   data <- as.data.table(data)
-  setkeyv(data, sort_variable)
+  setkeyv(data, x)
 
   # TODO add check
   if ((nrow(data) / n) < min_bin_size){
@@ -49,7 +59,7 @@ preprocess <- function(data, sort_variable = NULL, n = 100, min_bin_size = 5){
 
   structure(
     list(
-      sort_variable = sort_variable,
+      x = x,
       bin = bin,
       num_cols = num_cols,
       cat_cols = cat_cols,
@@ -78,7 +88,7 @@ calc_cat <- function(x){
 }
 
 calc_bin_bounds <- function(x){
-  bin <- NULL
+  . <- bin <- NULL
 
   bin_bounds <- x[,.(
     bin = bin,
@@ -92,5 +102,5 @@ calc_bin_bounds <- function(x){
   bin_bounds
 }
 
-# d <- preprocess(iris, "Sepal.Length", n = 25)
+# d <- qbin(iris, "Sepal.Length", n = 25)
 # hist(d$data$Species$freq)

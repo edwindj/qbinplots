@@ -1,10 +1,10 @@
 #' Create a quantile bin boxplot
 #'
 #' Create a quantile bin boxplot
-#' The data is binned by the `sort_variable` and a boxplot is created for each bin.
+#' The data is binned by the `x` and a boxplot is created for each bin.
 #' The median of the subsequent boxplots are connected to highlight jumps in the data.
 #' @param data A data.frame or data.table
-#' @param sort_variable The variable to sort the data by
+#' @param x `character` The variable to bin the data by
 #' @param n The number of bins to use for binning the data
 #' @param ncols The number of column to be used in the layout
 #' @param color The color to use for the lines
@@ -18,7 +18,7 @@
 #' @return A ggplot object
 qbin_boxplot <- function(
     data,
-    sort_variable = NULL,
+    x = NULL,
     n = 100,
     ncols=NULL,
     color = "#002f2f",
@@ -28,13 +28,13 @@ qbin_boxplot <- function(
     xmarker = NULL,
     ...
   ){
-  d <- preprocess(
+  d <- qbin(
     data,
-    sort_variable = sort_variable,
+    x = x,
     n = n
   )
 
-  sort_variable <- d$sort_variable
+  x <- d$x
 
   pn <- lapply(d$num_cols, function(n){
     d <- d$data[[n]]
@@ -59,8 +59,8 @@ qbin_boxplot <- function(
 
   #TODO add xmarker
   if (length(xmarker) > 0){
-    idx <- findInterval(xmarker, c(-Inf, d$data[[sort_variable]]$max))
-    qmarker <- c(qmarker, d$data[[sort_variable]]$f[idx])
+    idx <- findInterval(xmarker, c(-Inf, d$data[[x]]$max))
+    qmarker <- c(qmarker, d$data[[x]]$f[idx])
   }
 
   if (!is.null(qmarker)){
@@ -69,9 +69,11 @@ qbin_boxplot <- function(
     }
   }
 
-  p <- set_palettes(p, d$cat_cols, sort_variable = sort_variable)
+  if (isTRUE(auto_fill)){
+    p <- set_palettes(p, d$cat_cols)
+  }
 
-  p <- layout(p, ncol = ncols, sort_variable = sort_variable)
+  p <- layout(p, ncol = ncols, x = x)
   p
 }
 

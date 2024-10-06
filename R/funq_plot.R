@@ -36,20 +36,20 @@ funq_plot <- function(
     xlim = NULL,
     ...
   ) {
-  d <- preprocess(
+  d <- qbin(
     data,
-    sort_variable = x,
+    x = x,
     n = n
   )
 
-  sort_variable <- d$sort_variable
+  x <- d$x
 
   num_cols <- d$num_cols
-  m <- match(sort_variable, num_cols)
+  m <- match(x, num_cols)
   # remove sort_column
   num_cols <- num_cols[-m]
 
-  x_data <- d$data[[sort_variable]]
+  x_data <- d$data[[x]]
 
   pn <- lapply(num_cols, function(y_name){
     y_data <- d$data[[y_name]]
@@ -57,7 +57,7 @@ funq_plot <- function(
     plot_num_pdp_hinge2(
       x_data = x_data,
       y_data = y_data,
-      x_name=sort_variable,
+      x_name= x,
       y_name = y_name,
       color = color,
       add_rug = add_rug
@@ -70,7 +70,7 @@ funq_plot <- function(
     plot_cat_line2(
       x_data,
       y_data = y_data,
-      x_name = sort_variable,
+      x_name = x,
       y_name = y_name,
       fill = fill,
       auto_fill = auto_fill
@@ -79,7 +79,7 @@ funq_plot <- function(
   names(pc) <- d$cat_cols
 
   nms <- names(data)
-  idx <- match(sort_variable, nms)
+  idx <- match(x, nms)
   nms <- nms[-idx]
 
   p <- c(pn, pc)[nms]

@@ -58,7 +58,7 @@ plot_num3 <- function(data, name, color = "#555555"){
 
 #
 #
-# pp <- preprocess(iris, "Sepal.Length", 75)
+# pp <- qbin(iris, "Sepal.Length", 75)
 #
 # n <- pp$num_cols[1]
 # d <- pp$data[[n]]

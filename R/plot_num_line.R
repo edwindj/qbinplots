@@ -20,7 +20,7 @@ plot_num_line <- function(x_data, y_data, x_name, y_name){
 
 #
 #
-# pp <- preprocess(iris, "Sepal.Length", 75)
+# pp <- qbin(iris, "Sepal.Length", 75)
 #
 # n <- pp$num_cols[1]
 # d <- pp$data[[n]]

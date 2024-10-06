@@ -23,7 +23,7 @@ plot_num_bar <- function(data, name, fill = "#555555", type=c("median", "mean"))
 
 #
 #
-# pp <- preprocess(iris, "Sepal.Length", 75)
+# pp <- qbin(iris, "Sepal.Length", 75)
 #
 # n <- pp$num_cols[1]
 # d <- pp$data[[n]]

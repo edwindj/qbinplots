@@ -25,13 +25,13 @@ qbin_barplot <- function(
   ) {
   type <- match.arg(type)
 
-  d <- preprocess(
+  d <- qbin(
     data,
-    sort_variable = x,
+    x = x,
     n = n
   )
 
-  sort_variable <- d$sort_variable
+  x <- d$x
 
   pn <- lapply(d$num_cols, function(n){
     d <- d$data[[n]]
@@ -48,7 +48,7 @@ qbin_barplot <- function(
 
   p <- set_palettes(p, d$cat_cols)
 
-  p <- layout(p, ncol = ncols, sort_variable = sort_variable)
+  p <- layout(p, ncol = ncols, x = x)
   p
 }
 

@@ -6,7 +6,7 @@
 \usage{
 qbin_boxplot(
   data,
-  sort_variable = NULL,
+  x = NULL,
   n = 100,
   ncols = NULL,
   color = "#002f2f",
@@ -20,7 +20,7 @@ qbin_boxplot(
 \arguments{
 \item{data}{A data.frame or data.table}
 
-\item{sort_variable}{The variable to sort the data by}
+\item{x}{\code{character} The variable to bin the data by}
 
 \item{n}{The number of bins to use for binning the data}
 
@@ -43,7 +43,7 @@ A ggplot object
 }
 \description{
 Create a quantile bin boxplot
-The data is binned by the \code{sort_variable} and a boxplot is created for each bin.
+The data is binned by the \code{x} and a boxplot is created for each bin.
 The median of the subsequent boxplots are connected to highlight jumps in the data.
 }
 \examples{
