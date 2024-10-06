@@ -10,9 +10,11 @@ plot_num_pdp_hinge2 <- function(
   ){
 
   bin_bounds <- data.table(
+    bin = x_data$bin,
     lb = (x_data$min + c(x_data$min[1], x_data$max[-1]))/2
   )
   bin_bounds$ub <- c(bin_bounds$lb[-1], x_data$max[length(x_data$max)])
+
 
   data <- rbind(
     data.table(

@@ -66,6 +66,7 @@ calc_num <- function(x, na.rm = TRUE){
     as.list()
   names(l) <- c("min", "q1", "med", "q3", "max")
   l$mean <- mean(x, na.rm = na.rm)
+  l$count <- length(x)
   l
 }
 
@@ -74,6 +75,21 @@ calc_cat <- function(x){
   d <- as.data.table(d)
   names(d) <- c("category", "freq")
   d
+}
+
+calc_bin_bounds <- function(x){
+  bin <- NULL
+
+  bin_bounds <- x[,.(
+    bin = bin,
+    lb  = (min + c(min[1], max[-nrow(x)]))/2,
+    ub  = (max + c(min[-1], max[nrow(x)]))/2
+  )]
+
+  bin_bounds$count <- x$count
+  bin_bounds$density <- (bin_bounds$ub - bin_bounds$lb)/bin_bounds$count
+  bin_bounds$density <- 1 - (bin_bounds$density / max(bin_bounds$density))
+  bin_bounds
 }
 
 # d <- preprocess(iris, "Sepal.Length", n = 25)
