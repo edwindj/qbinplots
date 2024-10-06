@@ -43,8 +43,13 @@ qbin_barplot <- function(
   pc <- lapply(d$cat_cols, function(n){
     plot_cat_stacked(d$data[[n]], n)
   })
+
   names(pc) <- d$cat_cols
   p <- c(pn, pc)[names(data)]
+
+  # put x as the first column
+  idx <- match(x, names(data))
+  p <- c(p[idx], p[-idx])
 
   p <- set_palettes(p, d$cat_cols)
 

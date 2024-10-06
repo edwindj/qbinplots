@@ -54,8 +54,13 @@ qbin_boxplot <- function(
       auto_fill = auto_fill
     )
   })
+
   names(pc) <- d$cat_cols
   p <- c(pn, pc)[names(data)]
+
+  # put x as the first column
+  idx <- match(x, names(data))
+  p <- c(p[idx], p[-idx])
 
   #TODO add xmarker
   if (length(xmarker) > 0){
