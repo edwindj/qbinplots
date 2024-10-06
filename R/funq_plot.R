@@ -107,11 +107,17 @@ funq_plot <- function(
     p <- set_palettes(p, d$cat_cols)
   }
 
-  p <- Reduce(`+`, p)
+  p <- qbin_plot(
+    p,
+    x = x,
+    ncols = ncols
+  )
 
-  if (!is.null(ncols)) {
-    p <- p + plot_layout(ncol = ncols)
-  }
+  # p <- Reduce(`+`, p)
+  #
+  # if (!is.null(ncols)) {
+  #   p <- p + plot_layout(ncol = ncols)
+  # }
 
   p
 }

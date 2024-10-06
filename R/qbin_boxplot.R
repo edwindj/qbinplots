@@ -73,7 +73,8 @@ qbin_boxplot <- function(
     p <- set_palettes(p, d$cat_cols)
   }
 
-  p <- layout(p, ncol = ncols, x = x)
+  p <- qbin_plot(p, x = x, ncols = ncols, y_scale_rm = TRUE)
+
   p
 }
 
