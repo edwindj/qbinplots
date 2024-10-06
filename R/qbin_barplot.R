@@ -48,6 +48,7 @@ qbin_barplot <- function(
 
   p <- set_palettes(p, d$cat_cols)
 
+
   p <- layout(p, ncol = ncols, x = x)
   p
 }

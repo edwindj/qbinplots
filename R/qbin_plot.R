@@ -1,7 +1,8 @@
-qbin_plot <- function(l, ncol=NULL, y_scale_rm = FALSE){
+qbin_plot <- function(l, x, ncol=NULL, y_scale_rm = FALSE){
   structure(
     l,
     class="qbin_plot",
+    x = x,
     ncol = ncol,
     y_scale_rm = y_scale_rm
   )
