@@ -1,5 +1,5 @@
 #' @import ggplot2
-plot_hinge <- function(data, name, color = "blue"){
+plot_hinge <- function(data, name, color = "blue", connect = TRUE){
   bin <- data$bin
 
   # to keep CRAN happy
@@ -51,8 +51,11 @@ plot_hinge <- function(data, name, color = "blue"){
     ) +
     # geom_step(aes(y = mean), color=color) +
     # geom_step(aes(y = mean), color="black", linetype="dashed") +
-    geom_step(aes(y = med), color=color, direction = "hv") +
-    #geom_segment(aes(yend = med, y = med, x = f-wh, xend=f+wh), color="blue") +
+    (if (isTRUE(connect)){
+      geom_step(aes(y = med), color=color, direction = "hv")
+    } else {
+      geom_segment(aes(yend = med, y = med, x = f-wh, xend=f+wh), color=color)
+    }) +
     labs(y = name) +
     scale_y_continuous(position = "right", limits = c(min(q1), max(q3)), oob = scales::squish) +
     coord_flip() +

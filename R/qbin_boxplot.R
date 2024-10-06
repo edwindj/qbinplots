@@ -7,6 +7,7 @@
 #' @param x `character` The variable to bin the data by
 #' @param n The number of bins to use for binning the data
 #' @param ncols The number of column to be used in the layout
+#' @param connect if `TRUE` subsequent boxplots are connected
 #' @param color The color to use for the lines
 #' @param fill The color to use for the bars
 #' @param auto_fill If `TRUE`, use a different color for each category
@@ -21,6 +22,7 @@ qbin_boxplot <- function(
     x = NULL,
     n = 100,
     ncols=NULL,
+    connect = TRUE,
     color = "#002f2f",
     fill = "#2f4f4f",
     auto_fill = FALSE,
@@ -39,7 +41,7 @@ qbin_boxplot <- function(
   pn <- lapply(d$num_cols, function(n){
     d <- d$data[[n]]
     #plot_num2(d, n)
-    p <- plot_hinge(d, n, color = color)
+    p <- plot_hinge(d, n, color = color, connect= connect)
     p
     #plot_fivenum(d, n)
   })
