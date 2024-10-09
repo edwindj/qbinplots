@@ -9,7 +9,13 @@
 #' @param ... reserved for future use
 #' @export
 #' @import data.table
-qbin <- function(data, x = NULL, n = 100, min_bin_size = 5, ...){
+qbin <- function(
+    data,
+    x = NULL,
+    n = 100,
+    min_bin_size = 5,
+    ...
+  ){
   # TODO check if data.frame
 
   is_num <- sapply(data, is.numeric)
@@ -102,5 +108,22 @@ calc_bin_bounds <- function(x){
   bin_bounds
 }
 
+# qbin.qbin <- function(
+#     data,
+#     x = NULL,
+#     n = 100,
+#     min_bin_size = 5,
+#     ...
+# ){
+#
+#   if (!missing(x) && !is.null(x) && data$x != x){
+#     warning("`x` is different from `data$x`"
+#             , call. = FALSE
+#             )
+#   }
+#
+#   }
+# }
+#
 # d <- qbin(iris, "Sepal.Length", n = 25)
 # hist(d$data$Species$freq)
