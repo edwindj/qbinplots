@@ -4,7 +4,7 @@ Version: 0.2.0.9000
 Authors@R: 
     person("Edwin", "de Jonge", , "edwindjonge@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6580-4718"))
-Description: Create plots based on quantile binning: qbin_box, qbin_step, table_plot and funq plots.
+Description: Create plots based on quantile binning: qbin_boxpot, qbin_barplot, table_plot and funq_plot.
   The plots are created with 'ggplot2' and 'patchwork' and can be further adjusted.
 License: MIT + file LICENSE
 Encoding: UTF-8
