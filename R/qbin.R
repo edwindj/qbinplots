@@ -38,7 +38,7 @@ qbin <- function(data, x = NULL, n = 100, min_bin_size = 5, ...){
 
   nd <- lapply(num_cols, function(nc){
     d <- data[, calc_num(.SD[[nc]], na.rm=TRUE), by = bin]
-    d$f <- d$bin/n
+    d$f <- (d$bin-1)/(n-1)
     iqr <-  d$q3 - d$q1
     # TODO rename hinge
     d$hinge_low <- pmax(d$min,d$q1 - 1.5 * iqr)
@@ -49,7 +49,7 @@ qbin <- function(data, x = NULL, n = 100, min_bin_size = 5, ...){
 
   cd <- lapply(cat_cols, function(cc){
     d <- data[, calc_cat(.SD[[cc]]), by = bin]
-    d$f <- d$bin/n
+    d$f <- (d$bin-1)/(n-1)
     d
   })
 
