@@ -71,8 +71,9 @@ plot_heatmap <- function(f, y, name, fill = "#2f4f4f", ...){
     geom_bin_2d(show.legend = FALSE) +
     # scale_x_continuous(labels = scales::percent_format()) +
     scale_fill_gradient(low = "#eeeeee", high=fill) +
+    scale_y_continuous( position = "right")+
     coord_flip() +
-    labs(x = "", y = name) +
+    labs(y = name) +
     theme_minimal()
 
   p

@@ -110,3 +110,13 @@ funq_plot(
 ```
 
 <img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
+
+``` r
+qbin_heatmap(
+  iris,
+  x = "Sepal.Length",
+  n = 25
+)
+```
+
+<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />

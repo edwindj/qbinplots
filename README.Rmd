@@ -98,5 +98,11 @@ funq_plot(
 )
 ```
 
-
+```{r}
+qbin_heatmap(
+  iris,
+  x = "Sepal.Length",
+  n = 25
+)
+```
 
