@@ -3,7 +3,7 @@
 \name{qbin_barplot}
 \alias{qbin_barplot}
 \alias{table_plot}
-\title{Create a qbin_barplot from a dataset}
+\title{Create a qbin_barplot}
 \usage{
 qbin_barplot(
   data,
@@ -33,11 +33,11 @@ table_plot(data, x = NULL, n = 100, ncols = ncol(data), fill = "#555555", ...)
 \item{...}{Additional arguments to pass to the plot functions}
 }
 \value{
-A ggplot object
+A \code{list} of ggplot objects.
 }
 \description{
-Create qbin_barplot/table_plot from a dataset/frame. Shows the distribution
-of variables for each quantile bin of \code{x}.
+\code{\link[=qbin_barplot]{qbin_barplot()}} shows the median or mean for each qbin, thereby focusing on
+the expected value per bin.
 }
 \details{
 The \code{table_plot} calls \code{qbin_barplot} with \code{ncols} set to \code{ncol(data)}
@@ -56,3 +56,9 @@ if (require(palmerpenguins)) {
 
 
 }
+\seealso{
+Other qbin plotting functions: 
+\code{\link{qbin_boxplot}()},
+\code{\link{qbin_heatmap}()}
+}
+\concept{qbin plotting functions}

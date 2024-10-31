@@ -42,7 +42,7 @@ qbin_heatmap(
 \item{...}{Additional arguments to pass to the plot functions}
 }
 \value{
-A ggplot object
+A \code{list} of ggplot objects.
 }
 \description{
 \code{qbin_heatmap} from a dataset/frame. Shows the distribution
@@ -77,5 +77,10 @@ qbin_heatmap(
 
 
 
+}
+\seealso{
+Other qbin plotting functions: 
+\code{\link{qbin_barplot}()},
+\code{\link{qbin_boxplot}()}
 }
 \concept{qbin plotting functions}

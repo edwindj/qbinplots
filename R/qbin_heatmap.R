@@ -18,7 +18,7 @@
 #' @export
 #' @example example/qbin_heatmap.R
 #' @family qbin plotting functions
-#' @return A ggplot object
+#' @return A `list` of ggplot objects.
 qbin_heatmap <- function(
     data,
     x = NULL,

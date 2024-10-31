@@ -19,5 +19,12 @@ in a quantile bin.}
 \item{...}{reserved for future use}
 }
 \description{
-Bins a data.frame into quantile bins for variable \code{x}
+Bins a data.frame into quantile bins for variable \code{x} in \code{data}.
+}
+\details{
+Each numeric variable in the data.frame is binned into \code{n} quantile bins, for
+which the \code{\link[=fivenum]{fivenum()}} and \code{\link[=mean]{mean()}} is calculated.
+
+Each categorical variable is binned into \code{n} quantile bins, for which the
+level frequency is calculated.
 }

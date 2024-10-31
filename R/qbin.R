@@ -1,6 +1,12 @@
 #' Bin a data.frame into quantile bins
 #'
-#' Bins a data.frame into quantile bins for variable `x`
+#' Bins a data.frame into quantile bins for variable `x` in `data`.
+#'
+#' Each numeric variable in the data.frame is binned into `n` quantile bins, for
+#' which the [fivenum()] and [mean()] is calculated.
+#'
+#' Each categorical variable is binned into `n` quantile bins, for which the
+#' level frequency is calculated.
 #' @param data a `data.frame` to be binned
 #' @param x `character` variable name used for the quantile binning
 #' @param n `integer` number of quantile bins.

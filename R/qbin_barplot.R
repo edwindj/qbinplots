@@ -1,7 +1,7 @@
-#' Create a qbin_barplot from a dataset
+#' Create a qbin_barplot
 #'
-#' Create qbin_barplot/table_plot from a dataset/frame. Shows the distribution
-#' of variables for each quantile bin of `x`.
+#' [qbin_barplot()] shows the median or mean for each qbin, thereby focusing on
+#' the expected value per bin.
 #'
 #' The `table_plot` calls `qbin_barplot` with `ncols` set to `ncol(data)`
 #' @param data A data.frame or data.table
@@ -13,7 +13,8 @@
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
 #' @example example/table_plot.R
-#' @return A ggplot object
+#' @family qbin plotting functions
+#' @return A `list` of ggplot objects.
 qbin_barplot <- function(
     data,
     x = NULL,

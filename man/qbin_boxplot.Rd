@@ -42,12 +42,17 @@ qbin_boxplot(
 \item{...}{Additional arguments to pass to the plot functions}
 }
 \value{
-A ggplot object
+A \code{list} of ggplot objects.
 }
 \description{
-Create a quantile bin boxplot
+\code{qbin_boxplot} creates quantile bin boxplots from \code{data} using \code{x} as the binning
+variable. It focuses on the change of median between qbins. It is a
+complement to \code{\link[=qbin_heatmap]{qbin_heatmap()}} which focuses on the distribution within the qbins.
+}
+\details{
 The data is binned by the \code{x} and a boxplot is created for each bin.
-The median of the subsequent boxplots are connected to highlight jumps in the data.
+The median of the subsequent boxplots are connected to highlight jumps in the
+data. It hints at the dependecy of the variable on the binning variable.
 }
 \examples{
 
@@ -66,3 +71,9 @@ qbin_boxplot(
 
 
 }
+\seealso{
+Other qbin plotting functions: 
+\code{\link{qbin_barplot}()},
+\code{\link{qbin_heatmap}()}
+}
+\concept{qbin plotting functions}
