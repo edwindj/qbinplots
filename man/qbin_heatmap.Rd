@@ -8,7 +8,8 @@ qbin_heatmap(
   data,
   x = NULL,
   n = 100,
-  bins = c(n, n),
+  bins = n,
+  type = c("gradient", "size"),
   ncols = NULL,
   auto_fill = FALSE,
   fill = "#2f4f4f",
@@ -25,6 +26,8 @@ qbin_heatmap(
 \item{n}{The number of bins to use for binning the data, is overruled by \code{bins}}
 
 \item{bins}{\code{integer} vector with the number of bins to use for the x and y axis.}
+
+\item{type}{The type of heatmap to use. Either "gradient" or "size".}
 
 \item{ncols}{The number of column to be used in the layout.}
 
@@ -48,15 +51,27 @@ of variables for each quantile bin of \code{x}. It is a complement to
 }
 \examples{
 
-qbin_heatmap(iris, "Sepal.Length", n = 25)
+qbin_heatmap(
+  iris,
+  "Sepal.Length",
+  n = 25,
+  auto_fill = TRUE
+)
+
+qbin_heatmap(
+  iris,
+  "Sepal.Length",
+  n = 25,
+  auto_fill = TRUE,
+  type = "size"
+)
+
 
 data("diamonds", package="ggplot2")
 
 qbin_heatmap(
-  diamonds[c(1:4, 7)],
+  diamonds[c(1,7:9)],
   "carat",
-  color = "#333",
-  auto_fill = TRUE
 )
 
 

@@ -8,6 +8,7 @@
 #' @param x The variable that generates the quantile bins.
 #' @param n The number of bins to use for binning the data, is overruled by `bins`
 #' @param bins `integer` vector with the number of bins to use for the x and y axis.
+#' @param type The type of heatmap to use. Either "gradient" or "size".
 #' @param ncols The number of column to be used in the layout.
 #' @param fill The color used for categorical variables.
 #' @param low The color used for low values in the heatmap.
@@ -22,7 +23,8 @@ qbin_heatmap <- function(
     data,
     x = NULL,
     n = 100,
-    bins = c(n, n),
+    bins = n,
+    type = c("gradient", "size"),
     ncols=NULL,
     auto_fill = FALSE,
     fill = "#2f4f4f",
@@ -32,9 +34,6 @@ qbin_heatmap <- function(
 ) {
 
   bins <- as.integer(bins)
-  if (length(bins) == 1){
-    bins <- c(bins, bins)
-  }
 
   d <- qbin(
     data,
@@ -43,14 +42,36 @@ qbin_heatmap <- function(
   )
 
   n <- d$n
+  bins[1] <- d$n
+
+  if (length(bins) == 1){
+    bins <- c(bins, bins)
+  }
+
 
   o <- order(data[[d$x]])
   f <- order(o) |> cut(n, labels = FALSE)
   f <- (f-1)/(n-1)
 
+  plot_heatmap <- switch(
+    match.arg(type),
+    gradient = plot_heatmap_gradient,
+    size = plot_heatmap_size
+  )
+
   pn <- lapply(d$num_cols, function(nc){
     y <- data[[nc]]
-    plot_heatmap(f, y, nc, bins = bins, low = low, high = high)
+    plot_heatmap(
+      f,
+      y    = y,
+      name = nc,
+      bins = bins,
+      # needed for gradient
+      low  = low,
+      high = high,
+      # needed for size
+      fill = fill
+    )
   })
   names(pn) <- d$num_cols
 

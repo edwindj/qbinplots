@@ -1,13 +1,25 @@
 
-qbin_heatmap(iris, "Sepal.Length", n = 25)
+qbin_heatmap(
+  iris,
+  "Sepal.Length",
+  n = 25,
+  auto_fill = TRUE
+)
+
+qbin_heatmap(
+  iris,
+  "Sepal.Length",
+  n = 25,
+  auto_fill = TRUE,
+  type = "size"
+)
+
 
 data("diamonds", package="ggplot2")
 
 qbin_heatmap(
-  diamonds[c(1:4, 7)],
+  diamonds[c(1,7:9)],
   "carat",
-  color = "#333",
-  auto_fill = TRUE
 )
 
 
