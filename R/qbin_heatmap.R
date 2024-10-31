@@ -1,33 +1,48 @@
 #' Create a qbin_heatmap from a dataset
 #'
-#' Create qbin_heatmap from a dataset/frame. Shows the distribution
-#' of variables for each quantile bin of `x`.
+#' `qbin_heatmap` from a dataset/frame. Shows the distribution
+#' of variables for each quantile bin of `x`. It is a complement to
+#' [qbin_boxplot()], focussing on the distribution per [qbin()].
 #'
 #' @param data A data.frame or data.table
 #' @param x The variable that generates the quantile bins.
-#' @param n The number of bins to use for binning the data
+#' @param n The number of bins to use for binning the data, is overruled by `bins`
+#' @param bins `integer` vector with the number of bins to use for the x and y axis.
 #' @param ncols The number of column to be used in the layout.
-#' @param fill The color to use for the heatmap.
+#' @param fill The color used for categorical variables.
+#' @param low The color used for low values in the heatmap.
+#' @param high The color used for high values in the heatmap.
 #' @param auto_fill If `TRUE`, use a different color for each category.
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
 #' @example example/qbin_heatmap.R
+#' @family qbin plotting functions
 #' @return A ggplot object
 qbin_heatmap <- function(
     data,
     x = NULL,
     n = 100,
+    bins = c(n, n),
     ncols=NULL,
     auto_fill = FALSE,
     fill = "#2f4f4f",
+    low = "#eeeeee",
+    high = "#2f4f4f",
     ...
 ) {
+
+  bins <- as.integer(bins)
+  if (length(bins) == 1){
+    bins <- c(bins, bins)
+  }
 
   d <- qbin(
     data,
     x = x,
-    n = n
+    n = bins[1]
   )
+
+  n <- d$n
 
   o <- order(data[[d$x]])
   f <- order(o) |> cut(n, labels = FALSE)
@@ -35,7 +50,7 @@ qbin_heatmap <- function(
 
   pn <- lapply(d$num_cols, function(nc){
     y <- data[[nc]]
-    plot_heatmap(f, y, nc, fill = fill)
+    plot_heatmap(f, y, nc, bins = bins, low = low, high = high)
   })
   names(pn) <- d$num_cols
 
@@ -64,17 +79,3 @@ qbin_heatmap <- function(
   p
 }
 
-plot_heatmap <- function(f, y, name, fill = "#2f4f4f", ...){
-  d <- data.frame(x = f, y = y)
-  x <- NULL
-  p <- ggplot(data.frame(x = f, y = y), aes(x = x, y = y)) +
-    geom_bin_2d(show.legend = FALSE) +
-    # scale_x_continuous(labels = scales::percent_format()) +
-    scale_fill_gradient(low = "#eeeeee", high=fill) +
-    scale_y_continuous( position = "right")+
-    coord_flip() +
-    labs(y = name) +
-    theme_minimal()
-
-  p
-}

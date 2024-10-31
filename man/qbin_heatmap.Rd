@@ -8,9 +8,12 @@ qbin_heatmap(
   data,
   x = NULL,
   n = 100,
+  bins = c(n, n),
   ncols = NULL,
   auto_fill = FALSE,
   fill = "#2f4f4f",
+  low = "#eeeeee",
+  high = "#2f4f4f",
   ...
 )
 }
@@ -19,13 +22,19 @@ qbin_heatmap(
 
 \item{x}{The variable that generates the quantile bins.}
 
-\item{n}{The number of bins to use for binning the data}
+\item{n}{The number of bins to use for binning the data, is overruled by \code{bins}}
+
+\item{bins}{\code{integer} vector with the number of bins to use for the x and y axis.}
 
 \item{ncols}{The number of column to be used in the layout.}
 
 \item{auto_fill}{If \code{TRUE}, use a different color for each category.}
 
-\item{fill}{The color to use for the heatmap.}
+\item{fill}{The color used for categorical variables.}
+
+\item{low}{The color used for low values in the heatmap.}
+
+\item{high}{The color used for high values in the heatmap.}
 
 \item{...}{Additional arguments to pass to the plot functions}
 }
@@ -33,8 +42,9 @@ qbin_heatmap(
 A ggplot object
 }
 \description{
-Create qbin_heatmap from a dataset/frame. Shows the distribution
-of variables for each quantile bin of \code{x}.
+\code{qbin_heatmap} from a dataset/frame. Shows the distribution
+of variables for each quantile bin of \code{x}. It is a complement to
+\code{\link[=qbin_boxplot]{qbin_boxplot()}}, focussing on the distribution per \code{\link[=qbin]{qbin()}}.
 }
 \examples{
 
@@ -53,3 +63,4 @@ qbin_heatmap(
 
 
 }
+\concept{qbin plotting functions}

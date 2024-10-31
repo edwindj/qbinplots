@@ -67,6 +67,7 @@ qbin <- function(
     list(
       x = x,
       bin = bin,
+      n = n,
       num_cols = num_cols,
       cat_cols = cat_cols,
       data = l
