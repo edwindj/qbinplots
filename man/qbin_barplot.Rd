@@ -40,7 +40,7 @@ A \code{list} of ggplot objects.
 the expected value per bin.
 }
 \details{
-The \code{table_plot} calls \code{qbin_barplot} with \code{ncols} set to \code{ncol(data)}
+The \code{table_plot} calls \code{qbin_barplot} with \code{ncols} set to \code{ncol(data)}.
 }
 \examples{
 data("diamonds", package="ggplot2")

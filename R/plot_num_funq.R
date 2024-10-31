@@ -1,24 +1,47 @@
 #' @import ggplot2
-plot_num_pdp_hinge <- function(
+plot_num_funq <- function(
     x_data,
     y_data,
     x_name,
     y_name,
     color = "#555555",
-    add_rug = FALSE
+    add_rug = FALSE,
+    show_mean = FALSE
   ){
 
-  data <- data.frame(
-    x = x_data$med,
-    y = y_data$med,
-    q1 = y_data$q1,
-    q3 = y_data$q3,
-    hinge_low = y_data$hinge_low,
-    hinge_high = y_data$hinge_high
+  bin_bounds <- data.table(
+    bin = x_data$bin,
+    lb = (x_data$min + c(x_data$min[1], x_data$max[-1]))/2
   )
+  bin_bounds$ub <- c(bin_bounds$lb[-1], x_data$max[length(x_data$max)])
+
+
+  data <- rbind(
+    data.table(
+      bin = y_data$bin,
+      x = bin_bounds$lb,
+      y = y_data$med,
+      mean = y_data$mean,
+      q1 = y_data$q1,
+      q3 = y_data$q3,
+      hinge_low = y_data$hinge_low,
+      hinge_high = y_data$hinge_high
+    ),
+    data.table(
+      bin = y_data$bin,
+      x = bin_bounds$ub,
+      y = y_data$med,
+      mean = y_data$mean,
+      q1 = y_data$q1,
+      q3 = y_data$q3,
+      hinge_low = y_data$hinge_low,
+      hinge_high = y_data$hinge_high
+    )
+  )[order(bin,x),]
+
 
   # to keep CRAN happy
-  x <- y <- f <- med <- q1 <- q3 <- hinge_low <- hinge_high <- NULL
+  x <- y <- f <- med <- q1 <- q3 <- hinge_low <- hinge_high <- bin <- NULL
   #
 
 
@@ -48,8 +71,12 @@ plot_num_pdp_hinge <- function(
     labs(x = x_name, y = NULL, title=y_name) +
     theme_minimal()
 
+  if (isTRUE(show_mean)){
+    p <- p + geom_line(aes(x = x, y = mean), color = color, linetype="dashed")
+  }
+
   if (isTRUE(add_rug)){
-    p <- p + geom_rug(aes(x = x))
+    p <- p + geom_rug(data = data, aes(x = x))
   }
   p
     # geom_segment(aes(x = f-w/2, xend = f + w/2, y = max, yend = max), alpha=.2, color = color) +

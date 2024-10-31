@@ -46,7 +46,7 @@ qbin_boxplot <- function(
   pn <- lapply(d$num_cols, function(n){
     d <- d$data[[n]]
     #plot_num2(d, n)
-    p <- plot_hinge(d, n, color = color, connect= connect)
+    p <- plot_boxplot(d, n, color = color, connect= connect)
     p
     #plot_fivenum(d, n)
   })

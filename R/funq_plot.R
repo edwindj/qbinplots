@@ -54,7 +54,7 @@ funq_plot <- function(
   pn <- lapply(num_cols, function(y_name){
     y_data <- d$data[[y_name]]
 #    plot_num_line(
-    plot_num_pdp_hinge2(
+    plot_num_funq(
       x_data = x_data,
       y_data = y_data,
       x_name= x,
@@ -67,7 +67,7 @@ funq_plot <- function(
 
   pc <- lapply(d$cat_cols, function(y_name){
     y_data <- d$data[[y_name]]
-    plot_cat_line2(
+    plot_cat_area(
       x_data,
       y_data = y_data,
       x_name = x,

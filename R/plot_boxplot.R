@@ -1,5 +1,5 @@
 #' @import ggplot2
-plot_hinge <- function(data, name, color = "blue", connect = TRUE){
+plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
   bin <- data$bin
 
   # to keep CRAN happy

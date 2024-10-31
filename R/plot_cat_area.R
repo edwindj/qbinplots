@@ -1,5 +1,5 @@
 #' @import ggplot2
-plot_cat_line2 <- function(
+plot_cat_area <- function(
     x_data,
     y_data,
     x_name,

@@ -3,7 +3,7 @@
 #' [qbin_barplot()] shows the median or mean for each qbin, thereby focusing on
 #' the expected value per bin.
 #'
-#' The `table_plot` calls `qbin_barplot` with `ncols` set to `ncol(data)`
+#' The `table_plot` calls `qbin_barplot` with `ncols` set to `ncol(data)`.
 #' @param data A data.frame or data.table
 #' @param x The variable that generates the quantile bins.
 #' @param n The number of bins to use for binning the data
