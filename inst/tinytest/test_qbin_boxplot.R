@@ -1,8 +1,9 @@
 library(tinytest)
 
-qbin_boxplot( iris
+p <- qbin_boxplot( iris
             , n = 25
             )
+
 
 qbin_boxplot( diamonds[1:7])
 
