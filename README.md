@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# qbinplot
+# qbinplots
 
 <!-- badges: start -->
 
@@ -19,13 +19,13 @@ You can install the development version of `qbinplot` from
 [GitHub](https://github.com/) with:
 
 ``` r
-remotes::install_github("edwindj/qbinplot")
+remotes::install_github("edwindj/qbinplots")
 ```
 
 ## Example
 
 ``` r
-library(qbinplot)
+library(qbinplots)
 #> Loading required package: ggplot2
 ## basic example code
 ```
