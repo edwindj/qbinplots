@@ -15,14 +15,14 @@
 #' @param auto_fill If `TRUE`, use a different color for each category
 #' @param ncols The number of column to be used in the layout
 #' @param xmarker `numeric`, the x marker.
-#' @param add_rug if `TRUE` a rug is added to the plot
+#' @param show_bins if `TRUE` a rug is added to the plot
 #' @param qmarker `numeric`, the quantile marker to use that is translated in a x value.
 #' @param xlim `numeric`, the limits of the x-axis.
 #' @param connect if `TRUE` subsequent medians are connected.
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
+#' @family conditional quantile plotting functions
 #' @example example/funq_plot.R
-#' @seealso [conq_boxplot()]
 #' @return A ggplot object with the plots
 funq_plot <- function(
     data,
@@ -34,7 +34,7 @@ funq_plot <- function(
     ncols = NULL,
     xmarker = NULL,
     qmarker = NULL,
-    add_rug = FALSE,
+    show_bins = FALSE,
     xlim = NULL,
     connect = TRUE,
     ...
@@ -63,7 +63,7 @@ funq_plot <- function(
       x_name= x,
       y_name = y_name,
       color = color,
-      add_rug = add_rug,
+      show_bins = show_bins,
       connect = connect
     )
   })

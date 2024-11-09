@@ -10,10 +10,11 @@
 #' @param fill The color to use for the bars.
 #' @param auto_fill If `TRUE`, use a different color for each category
 #' @param type The type of statistic to use for the bars.
+#' @param show_bins If `TRUE`, show the bins on the x-axis.
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
 #' @example example/table_plot.R
-#' @family qbin plotting functions
+#' @family conditional quantile plotting functions
 #' @return A `list` of ggplot objects.
 conq_barplot <- function(
     data,
@@ -22,7 +23,7 @@ conq_barplot <- function(
     ncols=NULL,
     fill = "#2f4f4f",
     auto_fill = FALSE,
-    add_rug = FALSE,
+    show_bins = FALSE,
     type = c("median", "mean"),
     ...
 ) {
@@ -45,7 +46,7 @@ conq_barplot <- function(
       y_name = y,
       fill = fill,
       type = type,
-      add_rug = add_rug
+      show_bins = show_bins
     )
   })
 

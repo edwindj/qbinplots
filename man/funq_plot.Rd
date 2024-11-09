@@ -14,7 +14,7 @@ funq_plot(
   ncols = NULL,
   xmarker = NULL,
   qmarker = NULL,
-  add_rug = FALSE,
+  show_bins = FALSE,
   xlim = NULL,
   connect = TRUE,
   ...
@@ -39,7 +39,7 @@ funq_plot(
 
 \item{qmarker}{\code{numeric}, the quantile marker to use that is translated in a x value.}
 
-\item{add_rug}{if \code{TRUE} a rug is added to the plot}
+\item{show_bins}{if \code{TRUE} a rug is added to the plot}
 
 \item{xlim}{\code{numeric}, the limits of the x-axis.}
 
@@ -71,5 +71,8 @@ if (require(palmerpenguins)){
 
 }
 \seealso{
-\code{\link[=conq_boxplot]{conq_boxplot()}}
+Other conditional quantile plotting functions: 
+\code{\link{conq_barplot}()},
+\code{\link{conq_boxplot}()}
 }
+\concept{conditional quantile plotting functions}

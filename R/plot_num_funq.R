@@ -5,7 +5,7 @@ plot_num_funq <- function(
     x_name,
     y_name,
     color = "#555555",
-    add_rug = FALSE,
+    show_bins = FALSE,
     connect = TRUE,
     show_mean = FALSE
   ){
@@ -84,7 +84,7 @@ plot_num_funq <- function(
     p <- p + geom_line(aes(x = x, y = mean), color = color, linetype="dashed")
   }
 
-  if (isTRUE(add_rug)){
+  if (isTRUE(show_bins)){
     p <- p + geom_rug(data = data, aes(x = x))
   }
   p

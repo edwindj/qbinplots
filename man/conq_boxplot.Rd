@@ -14,7 +14,7 @@ conq_boxplot(
   ncols = NULL,
   xmarker = NULL,
   qmarker = NULL,
-  add_rug = FALSE,
+  show_bins = FALSE,
   xlim = NULL,
   connect = FALSE,
   ...
@@ -39,7 +39,7 @@ conq_boxplot(
 
 \item{qmarker}{\code{numeric}, the quantile marker to use that is translated in a x value.}
 
-\item{add_rug}{if \code{TRUE} a rug is added to the plot}
+\item{show_bins}{if \code{TRUE} a rug is added to the plot}
 
 \item{xlim}{\code{numeric}, the limits of the x-axis.}
 
@@ -60,3 +60,9 @@ x and the y-variables, by connecting the medians of the quantile bins.
 \examples{
 conq_boxplot(iris, x = "Petal.Length", n = 25, auto_fill = TRUE)
 }
+\seealso{
+Other conditional quantile plotting functions: 
+\code{\link{conq_barplot}()},
+\code{\link{funq_plot}()}
+}
+\concept{conditional quantile plotting functions}

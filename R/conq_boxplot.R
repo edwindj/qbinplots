@@ -9,7 +9,8 @@
 #' [qbin_boxplot()] shows the boxplots of the quantile bins on a quantile scale.
 #'
 #' @export
-#' @example example/conq_plot.R
+#' @example example/conq_boxplot.R
+#' @family conditional quantile plotting functions
 #' @inheritParams funq_plot
 conq_boxplot <- function(
     data,
@@ -21,7 +22,7 @@ conq_boxplot <- function(
     ncols = NULL,
     xmarker = NULL,
     qmarker = NULL,
-    add_rug = FALSE,
+    show_bins = FALSE,
     xlim = NULL,
     connect = FALSE,
     ...){
@@ -36,7 +37,7 @@ conq_boxplot <- function(
     ncols = ncols,
     xmarker = xmarker,
     qmarker = qmarker,
-    add_rug = add_rug,
+    show_bins = show_bins,
     xlim = xlim,
     connect = connect,
     ...)
