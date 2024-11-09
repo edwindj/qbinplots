@@ -2,6 +2,8 @@
 plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
   bin <- data$bin
 
+  alpha <- c(0.1, 0.3)
+
   # to keep CRAN happy
   f <- data$f
   med <- data$med
@@ -17,7 +19,7 @@ plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
     geom_segment(aes(x = f-w/2, xend = f + w/2, y = max, yend = max), alpha=.2, color = color) +
     geom_segment(aes(x = f-w/2, xend = f + w/2, y = min, yend = min), alpha=.2, color = color) +
     geom_rect(
-      alpha = 0.1,
+      alpha = alpha[1],
       aes(
         xmin = f - wh,
         xmax = f + wh,
@@ -28,7 +30,7 @@ plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
       color = NA
     ) +
     geom_rect(
-      alpha = 0.1,
+      alpha = alpha[1],
       aes(
         xmin = f - wh,
         xmax = f + wh,
@@ -39,7 +41,7 @@ plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
       color = NA
     ) +
     geom_rect(
-      alpha = 0.4,
+      alpha = alpha[2],
       aes(
         xmin = f- wh,
         xmax = f + wh,
@@ -49,15 +51,13 @@ plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
       fill = color,
       color = NA
     ) +
-    # geom_step(aes(y = mean), color=color) +
-    # geom_step(aes(y = mean), color="black", linetype="dashed") +
     (if (isTRUE(connect)){
       geom_step(aes(y = med), color=color, direction = "hv")
     } else {
       geom_segment(aes(yend = med, y = med, x = f-wh, xend=f+wh), color=color)
     }) +
-    labs(y = name) +
-    scale_y_continuous(position = "right", limits = c(min(q1), max(q3)), oob = scales::squish) +
+    labs(y = name, title = "") +
+    scale_y_continuous(position = "left", limits = c(min(q1), max(q3)), oob = scales::squish) +
     coord_flip() +
     theme_minimal()
 }

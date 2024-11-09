@@ -3,6 +3,7 @@
 S3method("[",qbin_plot)
 S3method(print,qbin)
 S3method(print,qbin_plot)
+export(conq_plot)
 export(funq_plot)
 export(qbin)
 export(qbin_barplot)

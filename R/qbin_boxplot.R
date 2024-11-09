@@ -45,7 +45,6 @@ qbin_boxplot <- function(
 
   pn <- lapply(d$num_cols, function(n){
     d <- d$data[[n]]
-    #plot_num2(d, n)
     p <- plot_boxplot(d, n, color = color, connect= connect)
     p
     #plot_fivenum(d, n)
@@ -69,7 +68,6 @@ qbin_boxplot <- function(
   idx <- match(x, names(data))
   p <- c(p[idx], p[-idx])
 
-  #TODO add xmarker
   if (length(xmarker) > 0){
     idx <- findInterval(xmarker, c(-Inf, d$data[[x]]$max))
     qmarker <- c(qmarker, d$data[[x]]$f[idx])

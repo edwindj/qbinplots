@@ -74,6 +74,11 @@ qbin_heatmap(
   "carat",
 )
 
+qbin_heatmap(
+  diamonds[c(1,7:9)],
+  x = "price",
+  n = 150
+)
 
 
 

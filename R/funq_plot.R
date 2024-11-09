@@ -18,9 +18,11 @@
 #' @param add_rug if `TRUE` a rug is added to the plot
 #' @param qmarker `numeric`, the quantile marker to use that is translated in a x value.
 #' @param xlim `numeric`, the limits of the x-axis.
+#' @param connect if `TRUE` subsequent medians are connected.
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
 #' @example example/funq_plot.R
+#' @seealso [conq_plot()]
 #' @return A ggplot object with the plots
 funq_plot <- function(
     data,
@@ -34,6 +36,7 @@ funq_plot <- function(
     qmarker = NULL,
     add_rug = FALSE,
     xlim = NULL,
+    connect = TRUE,
     ...
   ) {
   d <- qbin(
@@ -60,7 +63,8 @@ funq_plot <- function(
       x_name= x,
       y_name = y_name,
       color = color,
-      add_rug = add_rug
+      add_rug = add_rug,
+      connect = connect
     )
   })
   names(pn) <- num_cols

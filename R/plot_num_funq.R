@@ -6,6 +6,7 @@ plot_num_funq <- function(
     y_name,
     color = "#555555",
     add_rug = FALSE,
+    connect = TRUE,
     show_mean = FALSE
   ){
 
@@ -25,7 +26,8 @@ plot_num_funq <- function(
       q1 = y_data$q1,
       q3 = y_data$q3,
       hinge_low = y_data$hinge_low,
-      hinge_high = y_data$hinge_high
+      hinge_high = y_data$hinge_high,
+      xend = bin_bounds$ub
     ),
     data.table(
       bin = y_data$bin,
@@ -35,13 +37,14 @@ plot_num_funq <- function(
       q1 = y_data$q1,
       q3 = y_data$q3,
       hinge_low = y_data$hinge_low,
-      hinge_high = y_data$hinge_high
+      hinge_high = y_data$hinge_high,
+      xend = bin_bounds$ub
     )
   )[order(bin,x),]
 
 
   # to keep CRAN happy
-  x <- y <- f <- med <- q1 <- q3 <- hinge_low <- hinge_high <- bin <- NULL
+  x <- xend <- y <- f <- med <- q1 <- q3 <- hinge_low <- hinge_high <- bin <- NULL
   #
 
 
@@ -54,7 +57,7 @@ plot_num_funq <- function(
       ),
       fill = color,
       color = NA,
-      alpha = 0.2
+      alpha = 0.1
     ) +
 
     geom_ribbon(
@@ -65,11 +68,17 @@ plot_num_funq <- function(
       ),
       fill = color,
       color = NA,
-      alpha = 0.2
+      alpha = 0.15
     ) +
-    geom_line(aes(x = x, y = y), color = color) +
     labs(x = x_name, y = NULL, title=y_name) +
     theme_minimal()
+
+  if (isTRUE(connect)){
+    p <- p + geom_line(aes(x = x, y = y), color = color)
+  } else {
+    p <- p + geom_segment(aes(x = x, xend = xend, y = y), color = color)
+  }
+
 
   if (isTRUE(show_mean)){
     p <- p + geom_line(aes(x = x, y = mean), color = color, linetype="dashed")
