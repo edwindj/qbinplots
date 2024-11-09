@@ -43,18 +43,25 @@ A \code{list} of ggplot objects.
 with on the x-axis the values of the conditional variable.
 }
 \examples{
+# plots the expected median conditional on Sepal.Width
+conq_barplot(iris, "Sepal.Width", n = 25)
+
+# plots the expected median
+conq_barplot(iris, "Sepal.Width", n = 25, show_bins = TRUE)
+
+
 data("diamonds", package="ggplot2")
 
-table_plot(diamonds[c(1:4, 7)], "carat")
-
-qbin_barplot(iris, "Sepal.Length", n = 25)
-table_plot(iris, "Sepal.Length", 25)
+conq_barplot(diamonds[c(1:4, 7)], "carat", auto_fill = TRUE)
 
 if (require(palmerpenguins)) {
-  table_plot(penguins[1:7], "body_mass_g", 25)
+  p <- conq_barplot(penguins[1:7], "body_mass_g", 25, auto_fill = TRUE)
+  print(p)
+
+  # compare with qbin_boxplot
+  p <- conq_boxplot(penguins[1:7], "body_mass_g", 25, auto_fill = TRUE)
+  print(p)
 }
-
-
 }
 \seealso{
 Other conditional quantile plotting functions: 
