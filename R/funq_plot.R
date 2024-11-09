@@ -22,7 +22,7 @@
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
 #' @example example/funq_plot.R
-#' @seealso [conq_plot()]
+#' @seealso [conq_boxplot()]
 #' @return A ggplot object with the plots
 funq_plot <- function(
     data,

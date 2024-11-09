@@ -3,7 +3,7 @@
 #' Create a conditional quantile boxplot, show the boxplots of the quantile bins, with
 #' on the x-axis the values of the conditional variable.
 #'
-#' `conq_plot` is the same function as [funq_plot()] but with a different default,
+#' `conq_boxplot` is the same function as [funq_plot()] but with a different default,
 #' namely `connect = FALSE`. `funq_plot` highlights the functional relationship between
 #' x and the y-variables, but connecting the medians of the quantile bins.
 #' [qbin_boxplot()] shows the boxplots of the quantile bins on a quantile scale.
@@ -11,7 +11,7 @@
 #' @export
 #' @example example/conq_plot.R
 #' @inheritParams funq_plot
-conq_plot <- function(
+conq_boxplot <- function(
     data,
     x = NULL,
     n = 100,

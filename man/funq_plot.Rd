@@ -71,5 +71,5 @@ if (require(palmerpenguins)){
 
 }
 \seealso{
-\code{\link[=conq_plot]{conq_plot()}}
+\code{\link[=conq_boxplot]{conq_boxplot()}}
 }
