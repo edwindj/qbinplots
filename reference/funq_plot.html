@@ -60,6 +60,7 @@ hence the name <code>funq_plot</code>.</p>
 <span>  qmarker <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  add_rug <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  xlim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  connect <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -112,6 +113,10 @@ hence the name <code>funq_plot</code>.</p>
 <dd><p><code>numeric</code>, the limits of the x-axis.</p></dd>
 
 
+<dt id="arg-connect">connect<a class="anchor" aria-label="anchor" href="#arg-connect"></a></dt>
+<dd><p>if <code>TRUE</code> subsequent medians are connected.</p></dd>
+
+
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Additional arguments to pass to the plot functions</p></dd>
 
@@ -125,6 +130,10 @@ hence the name <code>funq_plot</code>.</p>
     <p>It <code>qbin</code>s the <code>x</code> variable and plots the medians of the qbins vs the other variables, thereby
 creating a functional view of <code>x</code> to the rest of the data, hence the name <code>funq</code>
 calculating the statistics for each bin, hence the name <code>funq_plot</code>.</p>
+    </div>
+    <div id="see-also">
+    <h2>See also</h2>
+    <div class="dont-index"><p><code><a href="conq_plot.html">conq_plot()</a></code></p></div>
     </div>
 
     <div id="ref-examples">
