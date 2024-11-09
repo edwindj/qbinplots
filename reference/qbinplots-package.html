@@ -44,14 +44,33 @@
     </div>
 
 
-    <div id="plot-types">
-    <h2>plot types</h2>
+    <div id="details">
+    <h2>Details</h2>
+    <p>Quantile binning is an exploratory data analysis tool that helps to see
+the distribution of the variables in a dataset as a function of the variable
+that is binned.</p>
+<p>A data.frame is quantile binned on a variable <code>x</code> using <code><a href="qbin.html">qbin()</a></code> and then
+plotted with one of the avaible plot functions.</p>
+<p><code>qbinplots</code> offers various types of plots:</p><ul><li><p><code>qbin_*</code> plots that show the distribution of the variables in the quantile bins.</p></li>
+<li><p><code>conq_*</code> plots that show</p></li>
+</ul></div>
+    <div id="quantile-bin-plots">
+    <h2>Quantile bin plots</h2>
 
 
-<ul><li><p><code><a href="qbin_boxplot.html">qbin_boxplot()</a></code> creates quantile bin boxplots, highlighting the change in median between qbins.</p></li>
-<li><p><code><a href="qbin_barplot.html">qbin_barplot()</a></code> creates quantile bin barplots highlighting the size of means of qbins.</p></li>
-<li><p><code><a href="qbin_heatmap.html">qbin_heatmap()</a></code> creates quantile bin heatmaps highlighting the distribution within the qbins.</p></li>
-<li><p><code><a href="funq_plot.html">funq_plot()</a></code> creates a functional view of the data, plotting the median and interquartile range of numerical variables and level frequency of the other variables as a function of the <code>x</code> variable using quantile bins.</p></li>
+<ul><li><p><code><a href="qbin_boxplot.html">qbin_boxplot()</a></code> highlights the change in median between qbins, shows the distribution within qbins.</p></li>
+<li><p><code><a href="qbin_barplot.html">qbin_barplot()</a></code> shows the size of medians or expected value of qbins.</p></li>
+<li><p><code><a href="qbin_heatmap.html">qbin_heatmap()</a></code> shows the distribution within the qbins.</p></li>
+</ul></div>
+    <div id="conditional-quantile-bin-plots">
+    <h2>Conditional quantile bin plots</h2>
+
+
+<ul><li><p><code><a href="conq_boxplot.html">conq_boxplot()</a></code> shows the distribution of the variables conditional on the x variable.</p></li>
+<li><p><code><a href="conq_barplot.html">conq_barplot()</a></code> shows the expected median/mean of the variables conditional on the x variable.</p></li>
+<li><p><code><a href="funq_plot.html">funq_plot()</a></code> shows a functional view of the data, plotting the median and
+interquartile range of numerical variables and level frequency of the other
+variables as a function of the <code>x</code> variable using quantile bins.</p></li>
 </ul></div>
     <div id="author">
     <h2>Author</h2>
