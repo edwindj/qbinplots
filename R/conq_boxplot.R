@@ -5,7 +5,7 @@
 #'
 #' `conq_boxplot` is the same function as [funq_plot()] but with a different default,
 #' namely `connect = FALSE`. `funq_plot` highlights the functional relationship between
-#' x and the y-variables, but connecting the medians of the quantile bins.
+#' x and the y-variables, by connecting the medians of the quantile bins.
 #' [qbin_boxplot()] shows the boxplots of the quantile bins on a quantile scale.
 #'
 #' @export

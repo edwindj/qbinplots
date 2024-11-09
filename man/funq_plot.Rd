@@ -57,7 +57,7 @@ hence the name \code{funq_plot}.
 }
 \details{
 It \code{qbin}s the \code{x} variable and plots the medians of the qbins vs the other variables, thereby
-creating a functional view of \code{x} to the rest of the data, hence the name \code{funq}
+creating a functional view of \code{x} to the rest of the data,
 calculating the statistics for each bin, hence the name \code{funq_plot}.
 }
 \examples{

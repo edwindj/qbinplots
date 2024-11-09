@@ -5,7 +5,7 @@
 #' hence the name `funq_plot`.
 #'
 #' It `qbin`s the `x` variable and plots the medians of the qbins vs the other variables, thereby
-#' creating a functional view of `x` to the rest of the data, hence the name `funq`
+#' creating a functional view of `x` to the rest of the data,
 #' calculating the statistics for each bin, hence the name `funq_plot`.
 #' @param data A data.frame or data.table
 #' @param x `character` name of variable that should be plotted in the x-axis.
