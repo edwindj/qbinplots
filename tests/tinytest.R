@@ -1,5 +1,5 @@
 
 if ( requireNamespace("tinytest", quietly=TRUE) ){
-  tinytest::test_package("qbinplot")
+  tinytest::test_package("qbinplots")
 }
 
