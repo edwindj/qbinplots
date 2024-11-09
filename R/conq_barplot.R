@@ -13,7 +13,7 @@
 #' @param show_bins If `TRUE`, show the bins on the x-axis.
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
-#' @example example/table_plot.R
+#' @example example/conq_barplot.R
 #' @family conditional quantile plotting functions
 #' @return A `list` of ggplot objects.
 conq_barplot <- function(

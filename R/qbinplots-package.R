@@ -2,12 +2,30 @@
 #'
 #' This package creates plots using quantile binning.
 #'
-#' @section plot types:
+#' Quantile binning is an exploratory data analysis tool that helps to see
+#' the distribution of the variables in a dataset as a function of the variable
+#' that is binned.
 #'
-#' - [qbin_boxplot()] creates quantile bin boxplots, highlighting the change in median between qbins.
-#' - [qbin_barplot()] creates quantile bin barplots highlighting the size of means of qbins.
-#' - [qbin_heatmap()] creates quantile bin heatmaps highlighting the distribution within the qbins.
-#' - [funq_plot()] creates a functional view of the data, plotting the median and interquartile range of numerical variables and level frequency of the other variables as a function of the `x` variable using quantile bins.
+#' A data.frame is quantile binned on a variable `x` using [qbin()] and then
+#' plotted with one of the avaible plot functions.
+#'
+#' `qbinplots` offers various types of plots:
+#'
+#' - `qbin_*` plots that show the distribution of the variables in the quantile bins.
+#' - `conq_*` plots that show
+#'
+#' @section Quantile bin plots:
+#'
+#' - [qbin_boxplot()] highlights the change in median between qbins, shows the distribution within qbins.
+#' - [qbin_barplot()] shows the size of medians or expected value of qbins.
+#' - [qbin_heatmap()] shows the distribution within the qbins.
+#'
+#' @section Conditional quantile bin plots:
+#' - [conq_boxplot()] shows the distribution of the variables conditional on the x variable.
+#' - [conq_barplot()] shows the expected median/mean of the variables conditional on the x variable.
+#' - [funq_plot()] shows a functional view of the data, plotting the median and
+#' interquartile range of numerical variables and level frequency of the other
+#' variables as a function of the `x` variable using quantile bins.
 "_PACKAGE"
 
 
