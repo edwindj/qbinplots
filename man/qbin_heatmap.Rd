@@ -2,12 +2,13 @@
 % Please edit documentation in R/qbin_heatmap.R
 \name{qbin_heatmap}
 \alias{qbin_heatmap}
-\title{Create a qbin_heatmap from a dataset}
+\title{Quantile binned heatmap}
 \usage{
 qbin_heatmap(
   data,
   x = NULL,
   n = 100,
+  min_bin_size = 5,
   bins = n,
   type = c("gradient", "size"),
   ncols = NULL,
@@ -19,11 +20,14 @@ qbin_heatmap(
 )
 }
 \arguments{
-\item{data}{A data.frame or data.table}
+\item{data}{a \code{data.frame} to be binned}
 
-\item{x}{The variable that generates the quantile bins.}
+\item{x}{\code{character} variable name used for the quantile binning}
 
-\item{n}{The number of bins to use for binning the data, is overruled by \code{bins}}
+\item{n}{\code{integer} number of quantile bins.}
+
+\item{min_bin_size}{\code{integer} minimum number of rows/data points that should be
+in a quantile bin.}
 
 \item{bins}{\code{integer} vector with the number of bins to use for the x and y axis.}
 
@@ -45,9 +49,10 @@ qbin_heatmap(
 A \code{list} of ggplot objects.
 }
 \description{
-\code{qbin_heatmap} from a dataset/frame. Shows the distribution
-of variables for each quantile bin of \code{x}. It is a complement to
-\code{\link[=qbin_boxplot]{qbin_boxplot()}}, focussing on the distribution per \code{\link[=qbin]{qbin()}}.
+\code{qbin_heatmap} shows the distribution of the \code{y}
+of variables for each quantile bin of \code{x}. It is an alternative to
+\code{\link[=qbin_boxplot]{qbin_boxplot()}}, fine graining the distribution per \code{\link[=qbin]{qbin()}}.
+\code{\link[=qbin_barplot]{qbin_barplot()}} highlights the median/mean of the quantile bins, while
 }
 \examples{
 
@@ -86,6 +91,7 @@ qbin_heatmap(
 \seealso{
 Other qbin plotting functions: 
 \code{\link{qbin_barplot}()},
-\code{\link{qbin_boxplot}()}
+\code{\link{qbin_boxplot}()},
+\code{\link{qbin_lineplot}()}
 }
 \concept{qbin plotting functions}

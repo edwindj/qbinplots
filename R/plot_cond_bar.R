@@ -1,5 +1,5 @@
 #' @import ggplot2
-plot_conq_bar <- function(
+plot_cond_bar <- function(
     x_data,
     y_data,
     x_name,

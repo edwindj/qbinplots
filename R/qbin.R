@@ -5,6 +5,8 @@
 #' Each numeric variable in the data.frame is binned into `n` quantile bins, for
 #' which the [fivenum()] and [mean()] is calculated.
 #'
+#' When `n/nrow(data)` is less than `min_bin_size`, `qbin` gives a warning and
+#' `n` is adjusted to `nrow(data)/min_bin_size`.
 #' Each categorical variable is binned into `n` quantile bins, for which the
 #' level frequency is calculated.
 #' @param data a `data.frame` to be binned

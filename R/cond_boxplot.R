@@ -1,21 +1,24 @@
-#' conditional quantile boxplot
+#' Conditional quantile boxplot
 #'
-#' Create a conditional quantile boxplot, show the boxplots of the quantile bins, with
-#' on the x-axis the values of the conditional variable.
+#' [cond_boxplot()] conditions all variables on `x` by quantile binning and
+#' shows the boxplots for the other variables for each value of qbinned `x`.
 #'
-#' `conq_boxplot` is the same function as [funq_plot()] but with a different default,
-#' namely `connect = FALSE`. `funq_plot` highlights the functional relationship between
+#' `cond_boxplot` is the same function as [funq_plot()] but with different defaults,
+#' namely `connect = FALSE` and `auto_fill = FALSE`.
+#' `funq_plot` highlights the functional relationship between
 #' x and the y-variables, by connecting the medians of the quantile bins.
+#'
 #' [qbin_boxplot()] shows the boxplots of the quantile bins on a quantile scale.
 #'
 #' @export
-#' @example example/conq_boxplot.R
+#' @example example/cond_boxplot.R
 #' @family conditional quantile plotting functions
 #' @inheritParams funq_plot
-conq_boxplot <- function(
+cond_boxplot <- function(
     data,
     x = NULL,
     n = 100,
+    min_bin_size = 5,
     color = "#002f2f", #"darkblue",
     fill = "#2f4f4f", #"#555555",
     auto_fill = FALSE,
@@ -31,6 +34,7 @@ conq_boxplot <- function(
     data,
     x = x,
     n = n,
+    min_bin_size = min_bin_size,
     color = color,
     fill = fill,
     auto_fill = auto_fill,

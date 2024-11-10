@@ -1,15 +1,15 @@
-#' Plot variables as a function of another variable
+#' Functional quantile plot
 #'
-#' Plot the median and interquartile range of numerical variables and level frequency
-#' of the other variables as a function the `x` variable using quantile bins,
-#' hence the name `funq_plot`.
+#' [funq_plot()] conditions on variable `x` with quantile binning and
+#' plots the median and interquartile range of numerical variables and level frequency
+#' of the other variables as a function the `x` variable.
+#'
+#' By highlighting and connecting the median values it creates a functional view of the data.
+#' What is the (expected) median given a certain value of `x`?
 #'
 #' It `qbin`s the `x` variable and plots the medians of the qbins vs the other variables, thereby
 #' creating a functional view of `x` to the rest of the data,
 #' calculating the statistics for each bin, hence the name `funq_plot`.
-#' @param data A data.frame or data.table
-#' @param x `character` name of variable that should be plotted in the x-axis.
-#' @param n The number of bins to use for binning the data
 #' @param color The color to use for the line charts
 #' @param fill The fill color to use for the areas
 #' @param auto_fill If `TRUE`, use a different color for each category
@@ -21,6 +21,7 @@
 #' @param connect if `TRUE` subsequent medians are connected.
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
+#' @inheritParams qbin
 #' @family conditional quantile plotting functions
 #' @example example/funq_plot.R
 #' @return A ggplot object with the plots
@@ -28,6 +29,7 @@ funq_plot <- function(
     data,
     x = NULL,
     n = 100,
+    min_bin_size = 5,
     color = "#002f2f", #"darkblue",
     fill = "#2f4f4f", #"#555555",
     auto_fill = TRUE,
@@ -42,7 +44,8 @@ funq_plot <- function(
   d <- qbin(
     data,
     x = x,
-    n = n
+    n = n,
+    min_bin_size = min_bin_size
   )
 
   x <- d$x

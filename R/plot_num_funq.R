@@ -70,7 +70,7 @@ plot_num_funq <- function(
       color = NA,
       alpha = 0.15
     ) +
-    labs(x = x_name, y = NULL, title=paste0("P(",y_name, " | ", x_name, ")")) +
+    labs(x = x_name, y = NULL, subtitle=paste0("P(",y_name, " | ", x_name, ")")) +
     theme_minimal()
 
   if (isTRUE(connect)){

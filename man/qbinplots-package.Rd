@@ -18,15 +18,16 @@ plotted with one of the avaible plot functions.
 
 \code{qbinplots} offers various types of plots:
 \itemize{
-\item \verb{qbin_*} plots that show the distribution of the variables in the quantile bins.
-\item \verb{conq_*} plots that show
+\item \verb{qbin_*} quantile binned plots that show the distribution of the variables in the quantile bins.
+\item \verb{cond_*} conditional quantile plots that show the distribution of the variables conditional on the \code{x} variable.
 }
 }
 \section{Quantile bin plots}{
 
 \itemize{
-\item \code{\link[=qbin_boxplot]{qbin_boxplot()}} highlights the change in median between qbins, shows the distribution within qbins.
+\item \code{\link[=qbin_lineplot]{qbin_lineplot()}} highlights the change in median between qbins, shows the distribution within qbins.
 \item \code{\link[=qbin_barplot]{qbin_barplot()}} shows the size of medians or expected value of qbins.
+\item \code{\link[=qbin_boxplot]{qbin_boxplot()}} shows the distribution within qbins.
 \item \code{\link[=qbin_heatmap]{qbin_heatmap()}} shows the distribution within the qbins.
 }
 }
@@ -34,8 +35,8 @@ plotted with one of the avaible plot functions.
 \section{Conditional quantile bin plots}{
 
 \itemize{
-\item \code{\link[=conq_boxplot]{conq_boxplot()}} shows the distribution of the variables conditional on the x variable.
-\item \code{\link[=conq_barplot]{conq_barplot()}} shows the expected median/mean of the variables conditional on the x variable.
+\item \code{\link[=cond_boxplot]{cond_boxplot()}} shows the distribution of the variables conditional on the x variable.
+\item \code{\link[=cond_barplot]{cond_barplot()}} shows the expected median/mean of the variables conditional on the x variable.
 \item \code{\link[=funq_plot]{funq_plot()}} shows a functional view of the data, plotting the median and
 interquartile range of numerical variables and level frequency of the other
 variables as a function of the \code{x} variable using quantile bins.

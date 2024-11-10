@@ -65,13 +65,13 @@ qbin_heatmap(iris, "Sepal.Length", 25, auto_fill = TRUE)
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
 ``` r
-conq_boxplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+cond_boxplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
 ``` r
-conq_barplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+cond_barplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
 ```
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />

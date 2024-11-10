@@ -1,15 +1,12 @@
-#' Create a quantile bin boxplot
+#' Quantile binned boxplot
 #'
-#' `qbin_boxplot` creates quantile bin boxplots from `data` using `x` as the binning
+#' `qbin_boxplot` creates quantile binned boxplots from `data` using `x` as the binning
 #' variable. It focuses on the change of median between qbins. It is a
 #' complement to [qbin_heatmap()] which focuses on the distribution within the qbins.
 #'
 #' The data is binned by the `x` and a boxplot is created for each bin.
 #' The median of the subsequent boxplots are connected to highlight jumps in the
 #' data. It hints at the dependecy of the variable on the binning variable.
-#' @param data A data.frame or data.table
-#' @param x `character` The variable to bin the data by
-#' @param n The number of bins to use for binning the data
 #' @param ncols The number of column to be used in the layout
 #' @param connect if `TRUE` subsequent boxplots are connected
 #' @param color The color to use for the lines
@@ -20,12 +17,14 @@
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
 #' @example example/qbin_boxplot.R
+#' @inheritParams qbin
 #' @family qbin plotting functions
 #' @return A `list` of ggplot objects.
 qbin_boxplot <- function(
     data,
     x = NULL,
     n = 100,
+    min_bin_size = 5,
     ncols=NULL,
     connect = TRUE,
     color = "#002f2f",
@@ -38,7 +37,8 @@ qbin_boxplot <- function(
   d <- qbin(
     data,
     x = x,
-    n = n
+    n = n,
+    min_bin_size = min_bin_size
   )
 
   x <- d$x

@@ -1,16 +1,15 @@
-#' Create a qbin_barplot
+#' Quantile binned bar plot
 #'
-#' [qbin_barplot()] shows the median or mean for each qbin, thereby focusing on
-#' the expected value per bin.
+#' [qbin_barplot()] shows the median or mean for each quantile bin, thereby focusing on
+#' the expected value per [qbin()].
 #'
-#' The `table_plot` calls `qbin_barplot` with `ncols` set to `ncol(data)`.
-#' @param data A data.frame or data.table
-#' @param x The variable that generates the quantile bins.
-#' @param n The number of bins to use for binning the data
+#' The `table_plot` is a specific form of `qbin_barplot`
+#' with `ncols` set to `ncol(data)`.
 #' @param ncols The number of column to be used in the layout.
 #' @param fill The color to use for the bars.
 #' @param type The type of statistic to use for the bars.
 #' @param ... Additional arguments to pass to the plot functions
+#' @inheritParams qbin
 #' @export
 #' @example example/table_plot.R
 #' @family qbin plotting functions
@@ -19,6 +18,7 @@ qbin_barplot <- function(
     data,
     x = NULL,
     n = 100,
+    min_bin_size = 5,
     ncols=NULL,
     fill = "#2f4f4f",
     type = c("median", "mean"),
@@ -29,7 +29,8 @@ qbin_barplot <- function(
   d <- qbin(
     data,
     x = x,
-    n = n
+    n = n,
+    min_bin_size = min_bin_size
   )
 
   x <- d$x

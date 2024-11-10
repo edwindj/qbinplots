@@ -1,11 +1,8 @@
-#' Create a conq_barplot
+#' Conditional quantile barplot
 #'
-#' [conq_barplot()] shows the median or mean for each [qbin()],
-#' with on the x-axis the values of the conditional variable.
+#' [cond_barplot()] conditions all variables on `x` by quantile binning and
+#' shows the median or mean of the other variables for each `x`.
 #'
-#' @param data A data.frame or data.table
-#' @param x The variable that generates the quantile bins.
-#' @param n The number of bins to use for binning the data
 #' @param ncols The number of column to be used in the layout.
 #' @param fill The color to use for the bars.
 #' @param auto_fill If `TRUE`, use a different color for each category
@@ -13,13 +10,15 @@
 #' @param show_bins If `TRUE`, show the bins on the x-axis.
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
-#' @example example/conq_barplot.R
+#' @example example/cond_barplot.R
+#' @inheritParams qbin
 #' @family conditional quantile plotting functions
 #' @return A `list` of ggplot objects.
-conq_barplot <- function(
+cond_barplot <- function(
     data,
     x = NULL,
     n = 100,
+    min_bin_size = 5,
     ncols=NULL,
     fill = "#2f4f4f",
     auto_fill = FALSE,
@@ -32,14 +31,15 @@ conq_barplot <- function(
   d <- qbin(
     data,
     x = x,
-    n = n
+    n = n,
+    min_bin_size = min_bin_size
   )
 
   x <- d$x
   x_data <- d$data[[x]]
 
   pn <- lapply(d$num_cols, function(y){
-    plot_conq_bar(
+    plot_cond_bar(
       x_data = x_data,
       y_data = d$data[[y]],
       x_name= d$x,

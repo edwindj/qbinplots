@@ -3,12 +3,13 @@
 \name{qbin_barplot}
 \alias{qbin_barplot}
 \alias{table_plot}
-\title{Create a qbin_barplot}
+\title{Quantile binned bar plot}
 \usage{
 qbin_barplot(
   data,
   x = NULL,
   n = 100,
+  min_bin_size = 5,
   ncols = NULL,
   fill = "#2f4f4f",
   type = c("median", "mean"),
@@ -18,11 +19,14 @@ qbin_barplot(
 table_plot(data, x = NULL, n = 100, ncols = ncol(data), fill = "#555555", ...)
 }
 \arguments{
-\item{data}{A data.frame or data.table}
+\item{data}{a \code{data.frame} to be binned}
 
-\item{x}{The variable that generates the quantile bins.}
+\item{x}{\code{character} variable name used for the quantile binning}
 
-\item{n}{The number of bins to use for binning the data}
+\item{n}{\code{integer} number of quantile bins.}
+
+\item{min_bin_size}{\code{integer} minimum number of rows/data points that should be
+in a quantile bin.}
 
 \item{ncols}{The number of column to be used in the layout.}
 
@@ -36,11 +40,12 @@ table_plot(data, x = NULL, n = 100, ncols = ncol(data), fill = "#555555", ...)
 A \code{list} of ggplot objects.
 }
 \description{
-\code{\link[=qbin_barplot]{qbin_barplot()}} shows the median or mean for each qbin, thereby focusing on
-the expected value per bin.
+\code{\link[=qbin_barplot]{qbin_barplot()}} shows the median or mean for each quantile bin, thereby focusing on
+the expected value per \code{\link[=qbin]{qbin()}}.
 }
 \details{
-The \code{table_plot} calls \code{qbin_barplot} with \code{ncols} set to \code{ncol(data)}.
+The \code{table_plot} is a specific form of \code{qbin_barplot}
+with \code{ncols} set to \code{ncol(data)}.
 }
 \examples{
 data("diamonds", package="ggplot2")
@@ -57,6 +62,7 @@ if (require(palmerpenguins)) {
 \seealso{
 Other qbin plotting functions: 
 \code{\link{qbin_boxplot}()},
-\code{\link{qbin_heatmap}()}
+\code{\link{qbin_heatmap}()},
+\code{\link{qbin_lineplot}()}
 }
 \concept{qbin plotting functions}

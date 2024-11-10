@@ -1,12 +1,10 @@
-#' Create a qbin_heatmap from a dataset
+#' Quantile binned heatmap
 #'
-#' `qbin_heatmap` from a dataset/frame. Shows the distribution
-#' of variables for each quantile bin of `x`. It is a complement to
-#' [qbin_boxplot()], focussing on the distribution per [qbin()].
+#' `qbin_heatmap` shows the distribution of the `y`
+#' of variables for each quantile bin of `x`. It is an alternative to
+#' [qbin_boxplot()], fine graining the distribution per [qbin()].
+#' [qbin_barplot()] highlights the median/mean of the quantile bins, while
 #'
-#' @param data A data.frame or data.table
-#' @param x The variable that generates the quantile bins.
-#' @param n The number of bins to use for binning the data, is overruled by `bins`
 #' @param bins `integer` vector with the number of bins to use for the x and y axis.
 #' @param type The type of heatmap to use. Either "gradient" or "size".
 #' @param ncols The number of column to be used in the layout.
@@ -16,6 +14,7 @@
 #' @param auto_fill If `TRUE`, use a different color for each category.
 #' @param ... Additional arguments to pass to the plot functions
 #' @export
+#' @inheritParams qbin
 #' @example example/qbin_heatmap.R
 #' @family qbin plotting functions
 #' @return A `list` of ggplot objects.
@@ -23,6 +22,7 @@ qbin_heatmap <- function(
     data,
     x = NULL,
     n = 100,
+    min_bin_size = 5,
     bins = n,
     type = c("gradient", "size"),
     ncols=NULL,
@@ -38,7 +38,8 @@ qbin_heatmap <- function(
   d <- qbin(
     data,
     x = x,
-    n = bins[1]
+    n = bins[1],
+    min_bin_size = min_bin_size
   )
 
   n <- d$n

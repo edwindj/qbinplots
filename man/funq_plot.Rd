@@ -2,15 +2,16 @@
 % Please edit documentation in R/funq_plot.R
 \name{funq_plot}
 \alias{funq_plot}
-\title{Plot variables as a function of another variable}
+\title{Functional quantile plot}
 \usage{
 funq_plot(
   data,
   x = NULL,
   n = 100,
+  min_bin_size = 5,
   color = "#002f2f",
   fill = "#2f4f4f",
-  auto_fill = FALSE,
+  auto_fill = TRUE,
   ncols = NULL,
   xmarker = NULL,
   qmarker = NULL,
@@ -21,11 +22,14 @@ funq_plot(
 )
 }
 \arguments{
-\item{data}{A data.frame or data.table}
+\item{data}{a \code{data.frame} to be binned}
 
-\item{x}{\code{character} name of variable that should be plotted in the x-axis.}
+\item{x}{\code{character} variable name used for the quantile binning}
 
-\item{n}{The number of bins to use for binning the data}
+\item{n}{\code{integer} number of quantile bins.}
+
+\item{min_bin_size}{\code{integer} minimum number of rows/data points that should be
+in a quantile bin.}
 
 \item{color}{The color to use for the line charts}
 
@@ -51,11 +55,14 @@ funq_plot(
 A ggplot object with the plots
 }
 \description{
-Plot the median and interquartile range of numerical variables and level frequency
-of the other variables as a function the \code{x} variable using quantile bins,
-hence the name \code{funq_plot}.
+\code{\link[=funq_plot]{funq_plot()}} conditions on variable \code{x} with quantile binning and
+plots the median and interquartile range of numerical variables and level frequency
+of the other variables as a function the \code{x} variable.
 }
 \details{
+By highlighting and connecting the median values it creates a functional view of the data.
+What is the (expected) median given a certain value of \code{x}?
+
 It \code{qbin}s the \code{x} variable and plots the medians of the qbins vs the other variables, thereby
 creating a functional view of \code{x} to the rest of the data,
 calculating the statistics for each bin, hence the name \code{funq_plot}.
@@ -72,7 +79,7 @@ if (require(palmerpenguins)){
 }
 \seealso{
 Other conditional quantile plotting functions: 
-\code{\link{conq_barplot}()},
-\code{\link{conq_boxplot}()}
+\code{\link{cond_barplot}()},
+\code{\link{cond_boxplot}()}
 }
 \concept{conditional quantile plotting functions}

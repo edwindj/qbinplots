@@ -25,6 +25,8 @@ Bins a data.frame into quantile bins for variable \code{x} in \code{data}.
 Each numeric variable in the data.frame is binned into \code{n} quantile bins, for
 which the \code{\link[=fivenum]{fivenum()}} and \code{\link[=mean]{mean()}} is calculated.
 
+When \code{n/nrow(data)} is less than \code{min_bin_size}, \code{qbin} gives a warning and
+\code{n} is adjusted to \code{nrow(data)/min_bin_size}.
 Each categorical variable is binned into \code{n} quantile bins, for which the
 level frequency is calculated.
 }

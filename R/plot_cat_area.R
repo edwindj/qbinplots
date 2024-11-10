@@ -35,7 +35,7 @@ plot_cat_area <- function(
     ) +
     # coord_flip() +
     labs(
-      title = paste0("P(",y_name, " | ", x_name, ")"),
+      subtitle = paste0("P(",y_name, " | ", x_name, ")"),
       x = x_name
     ) +
     scale_y_continuous(

@@ -65,10 +65,10 @@ qbin_heatmap(iris, "Sepal.Length", 25, auto_fill = TRUE)
 ```
 
 ```{r}
-conq_boxplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+cond_boxplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
 ```
 ```{r}
-conq_barplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+cond_barplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
 ```
 
 
