@@ -30,7 +30,7 @@ funq_plot <- function(
     n = 100,
     color = "#002f2f", #"darkblue",
     fill = "#2f4f4f", #"#555555",
-    auto_fill = FALSE,
+    auto_fill = TRUE,
     ncols = NULL,
     xmarker = NULL,
     qmarker = NULL,

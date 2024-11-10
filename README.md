@@ -33,7 +33,7 @@ library(qbinplots)
 A quantile binning boxplot
 
 ``` r
-qbin_boxplot(iris, "Sepal.Length", n = 25, auto_fill = TRUE)
+qbin_boxplot(iris, "Sepal.Length", n = 25, connect = FALSE)
 ```
 
 <img src="man/figures/README-percentile_iris-1.png" width="100%" />
@@ -43,7 +43,7 @@ vs
 A quantile binning barplot
 
 ``` r
-qbin_barplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+qbin_barplot(iris, "Sepal.Length", 25)
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
@@ -54,19 +54,41 @@ table_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
+vs
+
+A quantile binning heatmap
+
 ``` r
-funq_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+qbin_heatmap(iris, "Sepal.Length", 25, auto_fill = TRUE)
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
-Choosing “Petal.Width”
-
 ``` r
-qbin_boxplot(iris, "Petal.Width", 25, auto_fill = TRUE)
+conq_boxplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+
+``` r
+conq_barplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+```
+
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+
+``` r
+funq_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+```
+
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
+
+Choosing “Petal.Width”
+
+``` r
+qbin_boxplot(iris, "Petal.Width", 25, connect = FALSE)
+```
+
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
 ``` r
 library(palmerpenguins)
@@ -82,20 +104,20 @@ data("diamonds", package = "ggplot2")
 table_plot(diamonds[1:7], "carat")
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
 
 ``` r
 data("diamonds", package = "ggplot2")
 qbin_boxplot(diamonds[1:7], "carat")
 ```
 
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
 
 ``` r
 funq_plot(diamonds[1:7], "carat")
 ```
 
-<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
 
 We can zoom in on the `carat` variable, because the upper quantile bins
 are not very informative.
@@ -109,7 +131,7 @@ funq_plot(
 )
 ```
 
-<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-12-1.png" width="100%" />
 
 ``` r
 qbin_heatmap(
@@ -119,4 +141,4 @@ qbin_heatmap(
 )
 ```
 
-<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-13-1.png" width="100%" />

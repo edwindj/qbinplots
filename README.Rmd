@@ -41,7 +41,7 @@ library(qbinplots)
 A quantile binning boxplot
 
 ```{r percentile_iris}
-qbin_boxplot(iris, "Sepal.Length", n = 25, auto_fill = TRUE)
+qbin_boxplot(iris, "Sepal.Length", n = 25, connect = FALSE)
 ```
 
 vs
@@ -49,12 +49,28 @@ vs
 A quantile binning barplot
 
 ```{r}
-qbin_barplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+qbin_barplot(iris, "Sepal.Length", 25)
 ```
 
 ```{r}
 table_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
 ```
+
+vs 
+
+A quantile binning heatmap
+
+```{r}
+qbin_heatmap(iris, "Sepal.Length", 25, auto_fill = TRUE)
+```
+
+```{r}
+conq_boxplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+```
+```{r}
+conq_barplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+```
+
 
 ```{r}
 funq_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
@@ -63,7 +79,7 @@ funq_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
 Choosing "Petal.Width"
 
 ```{r}
-qbin_boxplot(iris, "Petal.Width", 25, auto_fill = TRUE)
+qbin_boxplot(iris, "Petal.Width", 25, connect = FALSE)
 ```
 
 ```{r qbin_boxplot_penquins}
