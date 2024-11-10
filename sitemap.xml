@@ -4,14 +4,15 @@
 <url><loc>/LICENSE.html</loc></url>
 <url><loc>/authors.html</loc></url>
 <url><loc>/index.html</loc></url>
-<url><loc>/reference/conq_barplot.html</loc></url>
-<url><loc>/reference/conq_boxplot.html</loc></url>
+<url><loc>/reference/cond_barplot.html</loc></url>
+<url><loc>/reference/cond_boxplot.html</loc></url>
 <url><loc>/reference/funq_plot.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/qbin.html</loc></url>
 <url><loc>/reference/qbin_barplot.html</loc></url>
 <url><loc>/reference/qbin_boxplot.html</loc></url>
 <url><loc>/reference/qbin_heatmap.html</loc></url>
+<url><loc>/reference/qbin_lineplot.html</loc></url>
 <url><loc>/reference/qbinplots-package.html</loc></url>
 </urlset>
 

@@ -76,7 +76,9 @@ in a quantile bin.</p></dd>
     <h2>Details</h2>
     <p>Each numeric variable in the data.frame is binned into <code>n</code> quantile bins, for
 which the <code><a href="https://rdrr.io/r/stats/fivenum.html" class="external-link">fivenum()</a></code> and <code><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean()</a></code> is calculated.</p>
-<p>Each categorical variable is binned into <code>n</code> quantile bins, for which the
+<p>When <code>n/nrow(data)</code> is less than <code>min_bin_size</code>, <code>qbin</code> gives a warning and
+<code>n</code> is adjusted to <code>nrow(data)/min_bin_size</code>.
+Each categorical variable is binned into <code>n</code> quantile bins, for which the
 level frequency is calculated.</p>
     </div>
 
