@@ -2,6 +2,7 @@
 #'
 #' [qbin_barplot()] shows the median or mean for each quantile bin, thereby focusing on
 #' the expected value per [qbin()].
+#' For a conditional plot, see [cond_barplot()].
 #'
 #' The `table_plot` is a specific form of `qbin_barplot`
 #' with `ncols` set to `ncol(data)`.

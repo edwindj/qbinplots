@@ -42,6 +42,7 @@ A \code{list} of ggplot objects.
 \description{
 \code{\link[=qbin_barplot]{qbin_barplot()}} shows the median or mean for each quantile bin, thereby focusing on
 the expected value per \code{\link[=qbin]{qbin()}}.
+For a conditional plot, see \code{\link[=cond_barplot]{cond_barplot()}}.
 }
 \details{
 The \code{table_plot} is a specific form of \code{qbin_barplot}

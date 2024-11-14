@@ -16,6 +16,13 @@
 #' in a quantile bin.
 #' @param ... reserved for future use
 #' @export
+#' @return a `qbin` object with:
+#' - $x the variable name used for binning
+#' - $bin a vector of bin numbers
+#' - $n the number of bins
+#' - $num_cols a vector of numeric column names
+#' - $cat_cols a vector of categorical column names
+#' - $data a list of data.tables with the collected information
 #' @import data.table
 qbin <- function(
     data,
@@ -116,23 +123,3 @@ calc_bin_bounds <- function(x){
   bin_bounds$density <- 1 - (bin_bounds$density / max(bin_bounds$density))
   bin_bounds
 }
-
-# qbin.qbin <- function(
-#     data,
-#     x = NULL,
-#     n = 100,
-#     min_bin_size = 5,
-#     ...
-# ){
-#
-#   if (!missing(x) && !is.null(x) && data$x != x){
-#     warning("`x` is different from `data$x`"
-#             , call. = FALSE
-#             )
-#   }
-#
-#   }
-# }
-#
-# d <- qbin(iris, "Sepal.Length", n = 25)
-# hist(d$data$Species$freq)

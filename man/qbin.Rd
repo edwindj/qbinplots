@@ -18,6 +18,17 @@ in a quantile bin.}
 
 \item{...}{reserved for future use}
 }
+\value{
+a \code{qbin} object with:
+\itemize{
+\item $x the variable name used for binning
+\item $bin a vector of bin numbers
+\item $n the number of bins
+\item $num_cols a vector of numeric column names
+\item $cat_cols a vector of categorical column names
+\item $data a list of data.tables with the collected information
+}
+}
 \description{
 Bins a data.frame into quantile bins for variable \code{x} in \code{data}.
 }
