@@ -72,6 +72,15 @@ in a quantile bin.</p></dd>
 <dd><p>reserved for future use</p></dd>
 
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    <p>a <code>qbin</code> object with:</p><ul><li><p>$x the variable name used for binning</p></li>
+<li><p>$bin a vector of bin numbers</p></li>
+<li><p>$n the number of bins</p></li>
+<li><p>$num_cols a vector of numeric column names</p></li>
+<li><p>$cat_cols a vector of categorical column names</p></li>
+<li><p>$data a list of data.tables with the collected information</p></li>
+</ul></div>
     <div id="details">
     <h2>Details</h2>
     <p>Each numeric variable in the data.frame is binned into <code>n</code> quantile bins, for
