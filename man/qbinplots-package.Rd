@@ -46,4 +46,9 @@ variables as a function of the \code{x} variable using quantile bins.
 \author{
 \strong{Maintainer}: Edwin de Jonge \email{edwindjonge@gmail.com} (\href{https://orcid.org/0000-0002-6580-4718}{ORCID})
 
+Other contributors:
+\itemize{
+  \item Martijn Tennekes \email{mtennekes@gmail.com} [contributor]
+}
+
 }

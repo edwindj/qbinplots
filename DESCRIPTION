@@ -2,8 +2,11 @@ Package: qbinplots
 Title: Quantile Bin Plots
 Version: 0.2.0.9000
 Authors@R: 
+    c(
     person("Edwin", "de Jonge", , "edwindjonge@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-6580-4718"))
+           comment = c(ORCID = "0000-0002-6580-4718")),
+    person("Martijn", "Tennekes", , "mtennekes@gmail.com", role = c("ctb"))
+    )
 Description: Create quantile and conditional quantile bin plots, which are 
   based on quantile binning.
   The plots are created with 'ggplot2' and 'patchwork' and can be further adjusted.
