@@ -69,6 +69,7 @@ cond_boxplot(iris, x = "Petal.Length", n = 25, auto_fill = TRUE)
 \seealso{
 Other conditional quantile plotting functions: 
 \code{\link{cond_barplot}()},
+\code{\link{cond_heatmap}()},
 \code{\link{funq_plot}()}
 }
 \concept{conditional quantile plotting functions}

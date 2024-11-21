@@ -86,6 +86,7 @@ if (require(palmerpenguins)){
 \seealso{
 Other conditional quantile plotting functions: 
 \code{\link{cond_barplot}()},
-\code{\link{cond_boxplot}()}
+\code{\link{cond_boxplot}()},
+\code{\link{cond_heatmap}()}
 }
 \concept{conditional quantile plotting functions}

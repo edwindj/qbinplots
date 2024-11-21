@@ -70,6 +70,7 @@ if (require(palmerpenguins)) {
 \seealso{
 Other conditional quantile plotting functions: 
 \code{\link{cond_boxplot}()},
+\code{\link{cond_heatmap}()},
 \code{\link{funq_plot}()}
 }
 \concept{conditional quantile plotting functions}
