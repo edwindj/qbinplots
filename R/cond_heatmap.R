@@ -2,8 +2,9 @@
 #'
 #' `cond_heatmap` shows the conditional distribution of the `y`
 #' of variables for each quantile bin of `x`. It is an alternative to
-#' [qbin_boxplot()], fine graining the distribution per [qbin()].
-#' [qbin_barplot()] highlights the median/mean of the quantile bins, while
+#' [cond_boxplot()], fine graining the distribution per [qbin()].
+#' [cond_barplot()] highlights the median/mean of the quantile bins, while
+#' [funq_plot()] highlights the functional dependency of the median.
 #'
 #' @param bins `integer` vector with the number of bins to use for the x and y axis.
 #' @param ncols The number of column to be used in the layout.

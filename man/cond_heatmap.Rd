@@ -51,8 +51,9 @@ A \code{list} of ggplot objects.
 \description{
 \code{cond_heatmap} shows the conditional distribution of the \code{y}
 of variables for each quantile bin of \code{x}. It is an alternative to
-\code{\link[=qbin_boxplot]{qbin_boxplot()}}, fine graining the distribution per \code{\link[=qbin]{qbin()}}.
-\code{\link[=qbin_barplot]{qbin_barplot()}} highlights the median/mean of the quantile bins, while
+\code{\link[=cond_boxplot]{cond_boxplot()}}, fine graining the distribution per \code{\link[=qbin]{qbin()}}.
+\code{\link[=cond_barplot]{cond_barplot()}} highlights the median/mean of the quantile bins, while
+\code{\link[=funq_plot]{funq_plot()}} highlights the functional dependency of the median.
 }
 \examples{
 cond_heatmap(
