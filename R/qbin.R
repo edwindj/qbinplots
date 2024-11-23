@@ -61,9 +61,9 @@ qbin <- function(
     d <- data[, calc_num(.SD[[nc]], na.rm=TRUE), by = bin]
     d$f <- (d$bin-1)/(n-1)
     iqr <-  d$q3 - d$q1
-    # TODO rename hinge
-    d$hinge_low <- pmax(d$min,d$q1 - 1.5 * iqr)
-    d$hinge_high <- pmin(d$q3 + 1.5 * iqr, d$max)
+    # TODO rename whisker
+    d$whisker_low <- pmax(d$min,d$q1 - 1.5 * iqr)
+    d$whisker_high <- pmin(d$q3 + 1.5 * iqr, d$max)
     d
   })
   names(nd) <- num_cols

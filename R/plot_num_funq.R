@@ -25,8 +25,8 @@ plot_num_funq <- function(
       mean = y_data$mean,
       q1 = y_data$q1,
       q3 = y_data$q3,
-      hinge_low = y_data$hinge_low,
-      hinge_high = y_data$hinge_high,
+      whisker_low = y_data$whisker_low,
+      whisker_high = y_data$whisker_high,
       xend = bin_bounds$ub
     ),
     data.table(
@@ -36,15 +36,15 @@ plot_num_funq <- function(
       mean = y_data$mean,
       q1 = y_data$q1,
       q3 = y_data$q3,
-      hinge_low = y_data$hinge_low,
-      hinge_high = y_data$hinge_high,
+      whisker_low = y_data$whisker_low,
+      whisker_high = y_data$whisker_high,
       xend = bin_bounds$ub
     )
   )[order(bin,x),]
 
 
   # to keep CRAN happy
-  x <- xend <- y <- f <- med <- q1 <- q3 <- hinge_low <- hinge_high <- bin <- NULL
+  x <- xend <- y <- f <- med <- q1 <- q3 <- whisker_low <- whisker_high <- bin <- NULL
   #
 
 
@@ -52,8 +52,8 @@ plot_num_funq <- function(
     geom_ribbon(
       aes(
         x = x,
-        ymin = hinge_low,
-        ymax = hinge_high
+        ymin = whisker_low,
+        ymax = whisker_high
       ),
       fill = color,
       color = NA,
@@ -95,7 +95,7 @@ plot_num_funq <- function(
     #   aes(
     #     xmin = f - w/2,
     #     xmax = f + w/2,
-    #     ymin = hinge_low,
+    #     ymin = whisker_low,
     #     ymax = q1
     #   ),
     #   fill = "blue",
@@ -107,7 +107,7 @@ plot_num_funq <- function(
     #     xmin = f - w/2,
     #     xmax = f + w/2,
     #     ymin = q3,
-    #     ymax = hinge_high
+    #     ymax = whisker_high
     #   ),
     #   fill = "blue",
     #   color = NA

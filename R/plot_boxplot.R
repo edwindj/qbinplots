@@ -9,8 +9,8 @@ plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
   med <- data$med
   q1 <- data$q1
   q3 <- data$q3
-  hinge_low <- data$hinge_low
-  hinge_high <- data$hinge_high
+  whisker_low <- data$whisker_low
+  whisker_high <- data$whisker_high
 
   w <- resolution(f)
   wh <- w/2
@@ -23,7 +23,7 @@ plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
       aes(
         xmin = f - wh,
         xmax = f + wh,
-        ymin = hinge_low,
+        ymin = whisker_low,
         ymax = q1
       ),
       fill = color,
@@ -35,7 +35,7 @@ plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
         xmin = f - wh,
         xmax = f + wh,
         ymin = q3,
-        ymax = hinge_high
+        ymax = whisker_high
       ),
       fill = color,
       color = NA
