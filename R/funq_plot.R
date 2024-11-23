@@ -114,11 +114,7 @@ funq_plot <- function(
     p <- set_palettes(p, d$cat_cols)
   }
 
-  p <- qbin_plot(
-    p,
-    x = x,
-    ncols = ncols
-  )
+  p <- cond_plot(p, x = x, ncols = ncols)
 
   # p <- Reduce(`+`, p)
   #

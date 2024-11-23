@@ -5,7 +5,10 @@ plot_cond_heatmap_gradient <- function(
     x_name,
     y_name,
     show_bins = FALSE,
-    bins, low = "#eeeeee", high = "#2f4f4f", ...){
+    bins,
+    low = "#eeeeee",
+    high = "#2f4f4f", ...
+  ){
 
   y_bin_breaks <- seq(
     from = min(y, na.rm = TRUE),
@@ -39,6 +42,8 @@ plot_cond_heatmap_gradient <- function(
 
   xmin <- xmax <- ymin <- ymax <- fill <- . <- bin <- y_bin <- d <- n <-  NULL
 
+  subtitle <- sprintf("%s | %s", y_name, x_name)
+
   p <- ggplot(data) +
     geom_rect(
       aes(
@@ -51,7 +56,11 @@ plot_cond_heatmap_gradient <- function(
       # color = "white",
       show.legend = FALSE) +
     scale_fill_gradient(low = low, high=high) +
-    labs(x = x_name, y = NULL, subtitle=paste0("P(",y_name, " | ", x_name, ")")) +
+    labs(
+      x = x_name,
+      y = NULL,
+      subtitle=subtitle
+    ) +
     theme_minimal()
 
   if (isTRUE(show_bins)){

@@ -28,6 +28,7 @@ plot_cat_area <- function(
     geom <- geom_area(show.legend = FALSE, aes(fill=category))
   }
 
+  subtitle <- sprintf("%s | %s", y_name, x_name)
   ggplot(data, aes(x = x, y=freq)) +
     geom +
     facet_grid(
@@ -35,7 +36,7 @@ plot_cat_area <- function(
     ) +
     # coord_flip() +
     labs(
-      subtitle = paste0("P(",y_name, " | ", x_name, ")"),
+      subtitle = subtitle,
       x = x_name
     ) +
     scale_y_continuous(

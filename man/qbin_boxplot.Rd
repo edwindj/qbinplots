@@ -10,7 +10,7 @@ qbin_boxplot(
   n = 100,
   min_bin_size = 5,
   ncols = NULL,
-  connect = TRUE,
+  connect = FALSE,
   color = "#002f2f",
   fill = "#2f4f4f",
   auto_fill = FALSE,

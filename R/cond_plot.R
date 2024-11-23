@@ -9,12 +9,16 @@ cond_plot <- function(l, x, ncols=NULL){
 
 #' @export
 print.cond_plot <- function(x, ...){
-  pw <- Reduce(`+`, x)
+  title <- sprintf("Conditioning on %s", attr(x, "x"))
 
-  ncols <- attr(x, "ncols")
-  if (is.numeric(ncols)){
-    pw <- pw + plot_layout(ncol = ncols)
-  }
+  pw <- patchwork::wrap_plots(
+    x,
+    ncol = attr(x, "ncols"),
+    axes = 'collect',
+    ...
+  ) + patchwork::plot_annotation(
+    title=title
+  )
 
   print(pw, ...)
 }

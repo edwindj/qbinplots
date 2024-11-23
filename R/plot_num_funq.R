@@ -46,7 +46,8 @@ plot_num_funq <- function(
   # to keep CRAN happy
   x <- xend <- y <- f <- med <- q1 <- q3 <- whisker_low <- whisker_high <- bin <- NULL
   #
-
+  # subtitle <- paste0("P(",y_name, " | ", x_name, ")")
+  subtitle <- sprintf("%s | %s", y_name, x_name)
 
   p <- ggplot(data) +
     geom_ribbon(
@@ -70,7 +71,7 @@ plot_num_funq <- function(
       color = NA,
       alpha = 0.15
     ) +
-    labs(x = x_name, y = NULL, subtitle=paste0("P(",y_name, " | ", x_name, ")")) +
+    labs(x = x_name, y = NULL, subtitle=subtitle) +
     theme_minimal()
 
   if (isTRUE(connect)){
@@ -87,47 +88,7 @@ plot_num_funq <- function(
   if (isTRUE(show_bins)){
     p <- p + geom_rug(data = data, aes(x = x))
   }
+
   p
-    # geom_segment(aes(x = f-w/2, xend = f + w/2, y = max, yend = max), alpha=.2, color = color) +
-    # geom_segment(aes(x = f-w/2, xend = f + w/2, y = min, yend = min), alpha=.2, color = color) +
-    # geom_rect(
-    #   alpha = 0.1,
-    #   aes(
-    #     xmin = f - w/2,
-    #     xmax = f + w/2,
-    #     ymin = whisker_low,
-    #     ymax = q1
-    #   ),
-    #   fill = "blue",
-    #   color = NA
-    # ) +
-    # geom_rect(
-    #   alpha = 0.1,
-    #   aes(
-    #     xmin = f - w/2,
-    #     xmax = f + w/2,
-    #     ymin = q3,
-    #     ymax = whisker_high
-    #   ),
-    #   fill = "blue",
-    #   color = NA
-    # ) +
-    # geom_rect(
-    #   alpha = 0.4,
-    #   aes(
-    #     xmin = f- w/2,
-    #     xmax = f + w /2,
-    #     ymin = q1,
-    #     ymax = q3
-    #   ),
-    #   fill = "blue",
-    #   color = NA
-    # ) +
-    # # geom_step(aes(y = mean), color=color) +
-    # # geom_step(aes(y = mean), color="black", linetype="dashed") +
-    # geom_step(aes(y = med), color="blue") +
-    # labs(y = name) +
-    # scale_y_continuous(position = "right") +
-    # coord_flip() +
 }
 

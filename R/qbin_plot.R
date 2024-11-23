@@ -22,13 +22,17 @@ print.qbin_plot <- function(x, ...){
     })
   }
 
-  pw <- Reduce(`+`, x)
-
   ncols <- attr(x, "ncols")
-  if (is.numeric(ncols)){
-    pw <- pw + plot_layout(ncol = ncols)
-  }
+  title <- sprintf("Quantile bins: %s", attr(x, "x"))
 
+  pw <- patchwork::wrap_plots(
+    x,
+    ncol = ncols,
+    axes = 'collect',
+    ...
+  ) + patchwork::plot_annotation(
+    title=title
+  )
   print(pw, ...)
 }
 
@@ -43,5 +47,7 @@ print.qbin_plot <- function(x, ...){
   }
 
   attr(xs, "y_scale_rm") <- attr(x, 'y_scale_rm')
+  attr(xs, "x") <- attr(x, 'x')
+  attr(xs, "names") <- attr(x, 'names')[i]
   xs
 }
