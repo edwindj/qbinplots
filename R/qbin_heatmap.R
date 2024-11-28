@@ -97,7 +97,7 @@ qbin_heatmap <- function(
     p <- set_palettes(p, d$cat_cols)
   }
 
-  p <- qbin_plot(p, x = x, ncols = ncols, y_scale_rm = TRUE)
+  p <- qbin_plot(p, x = x, ncols = ncols)
   p
 }
 

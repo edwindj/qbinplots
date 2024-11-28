@@ -57,7 +57,11 @@ plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
       geom_segment(aes(yend = med, y = med, x = f-wh, xend=f+wh), color=color)
     }) +
     labs(y = name, title = "") +
-    scale_y_continuous(position = "left", limits = c(min(q1), max(q3)), oob = scales::squish) +
+    scale_y_continuous(
+      position = "left",
+      limits = c(min(q1), max(q3)),
+      oob = scales::squish
+    ) +
     coord_flip() +
     theme_minimal()
 }

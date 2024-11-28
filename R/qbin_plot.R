@@ -1,26 +1,21 @@
-qbin_plot <- function(l, x, ncols=NULL, y_scale_rm = FALSE){
+qbin_plot <- function(l, x, ncols=NULL){
   structure(
     l,
     class="qbin_plot",
     x = x,
-    ncols = ncols,
-    y_scale_rm = y_scale_rm
+    ncols = ncols
   )
 }
 
 #' @export
 print.qbin_plot <- function(x, ...){
-  y_scale_rm <- attr(x, "y_scale_rm")
-
-  if (isTRUE(y_scale_rm)){
-    x[] <- lapply(x, function(p){
-      p + scale_x_continuous(
-        name = NULL,
-        expand = c(0,0),
-        labels = scales::label_percent()
-      )
-    })
-  }
+  x[] <- lapply(x, function(p){
+    p + scale_x_continuous(
+      name = NULL,
+      expand = c(0,0),
+      labels = scales::label_percent()
+    )
+  })
 
   ncols <- attr(x, "ncols")
   title <- sprintf("Quantile bins: %s", attr(x, "x"))
@@ -46,8 +41,6 @@ print.qbin_plot <- function(x, ...){
     attr(xs, "ncols") <- min(length(xs), ncols)
   }
 
-  attr(xs, "y_scale_rm") <- attr(x, 'y_scale_rm')
   attr(xs, "x") <- attr(x, 'x')
-  attr(xs, "names") <- attr(x, 'names')[i]
   xs
 }
