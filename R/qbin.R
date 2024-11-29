@@ -58,6 +58,8 @@ qbin <- function(
   data <- as.data.table(data)
   setkeyv(data, x)
 
+  overlap_idx <- NULL
+
   if ((nrow(data) / n) < min_bin_size){
 
     if (is.null(overlap)){
@@ -78,7 +80,8 @@ qbin <- function(
         })
       # create overlapping qbins
       bin <- row(start) |> as.integer()
-      data <- data[as.integer(start),]
+      overlap_idxidx <- as.integer(start)
+      data <- data[overlap_idx,]
     } else {
       n <- trunc(nrow(data)/min_bin_size)
       message("Bin size < min_bin_size, setting 'n' to: ", n)
@@ -114,6 +117,7 @@ qbin <- function(
     list(
       x = x,
       bin = bin,
+      overlap_idx = overlap_idx,
       n = n,
       num_cols = num_cols,
       cat_cols = cat_cols,

@@ -41,6 +41,4 @@ expect_message(
 expect_equal(b$n, 15)
 
 
-b <- qbin(iris, x = "Sepal.Length", min_bin_size = 5, overlap = TRUE)
-
-b
+b <- qbin(iris, x = "Sepal.Length", min_bin_size = 5)

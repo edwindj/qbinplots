@@ -64,7 +64,6 @@ cond_heatmap <- function(
   x_name <- x
   x_data <- d$data[[x]]
 
-  o <- order(data[[x]])
   x_bin <-
     data[[x]] |>
     order() |>
