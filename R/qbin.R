@@ -14,6 +14,8 @@
 #' @param n `integer` number of quantile bins.
 #' @param min_bin_size `integer` minimum number of rows/data points that should be
 #' in a quantile bin.
+#' @param overlap `logical` if `TRUE` the quantile bins will overlap. Default value will be
+#' `FALSE`.
 #' @param ... reserved for future use
 #' @export
 #' @return a `qbin` object with:
@@ -29,6 +31,7 @@ qbin <- function(
     x = NULL,
     n = 100,
     min_bin_size = 5,
+    overlap = NULL,
     ...
   ){
   # TODO check if data.frame
@@ -46,16 +49,45 @@ qbin <- function(
     message("No `x` variable specified, using first numeric column: '", num_cols[1], "'")
   }
 
+  if (min_bin_size < 2){
+    min_bin_size <- 2
+    message("Setting 'min_bin_size' to 2")
+  }
+
+
   data <- as.data.table(data)
   setkeyv(data, x)
 
-  # TODO add check
   if ((nrow(data) / n) < min_bin_size){
-    n <- trunc(nrow(data)/min_bin_size)
-    message("Bin size < min_bin_size, setting 'n' to: ", n)
+
+    if (is.null(overlap)){
+      overlap <- FALSE
+      message("Setting 'overlap' to FALSE")
+    }
+
+    if (isTRUE(overlap)){
+      end <- nrow(data) - min_bin_size
+      if (end < n){
+        n <- end
+        message("Overlapping, setting 'n' to: ", n)
+      }
+      start <-
+        seq_len(min_bin_size) |>
+        sapply(function(i){
+          seq(i, end + i, length.out = n) |> as.integer()
+        })
+      # create overlapping qbins
+      bin <- row(start) |> as.integer()
+      data <- data[as.integer(start),]
+    } else {
+      n <- trunc(nrow(data)/min_bin_size)
+      message("Bin size < min_bin_size, setting 'n' to: ", n)
+      bin <- data[, cut(.I, n, labels = FALSE)]
+    }
+  } else {
+    bin <- data[, cut(.I, n, labels = FALSE)]
   }
 
-  bin <- data[, cut(.I, n, labels = FALSE)]
 
   nd <- lapply(num_cols, function(nc){
     d <- data[, calc_num(.SD[[nc]], na.rm=TRUE), by = bin]

@@ -26,6 +26,7 @@ qbin_boxplot <- function(
     n = 100,
     min_bin_size = 5,
     ncols=NULL,
+    overlap = NULL,
     connect = FALSE,
     color = "#002f2f",
     fill = "#2f4f4f",
@@ -38,7 +39,8 @@ qbin_boxplot <- function(
     data,
     x = x,
     n = n,
-    min_bin_size = min_bin_size
+    min_bin_size = min_bin_size,
+    overlap = overlap
   )
 
   x <- d$x

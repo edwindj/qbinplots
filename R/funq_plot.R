@@ -30,6 +30,7 @@ funq_plot <- function(
     x = NULL,
     n = 100,
     min_bin_size = 5,
+    overlap = NULL,
     color = "#002f2f", #"darkblue",
     fill = "#2f4f4f", #"#555555",
     auto_fill = TRUE,
@@ -45,7 +46,8 @@ funq_plot <- function(
     data,
     x = x,
     n = n,
-    min_bin_size = min_bin_size
+    min_bin_size = min_bin_size,
+    overlap = overlap
   )
 
   x <- d$x

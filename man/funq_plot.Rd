@@ -9,6 +9,7 @@ funq_plot(
   x = NULL,
   n = 100,
   min_bin_size = 5,
+  overlap = NULL,
   color = "#002f2f",
   fill = "#2f4f4f",
   auto_fill = TRUE,
@@ -30,6 +31,9 @@ funq_plot(
 
 \item{min_bin_size}{\code{integer} minimum number of rows/data points that should be
 in a quantile bin.}
+
+\item{overlap}{\code{logical} if \code{TRUE} the quantile bins will overlap. Default value will be
+\code{FALSE}.}
 
 \item{color}{The color to use for the line charts}
 

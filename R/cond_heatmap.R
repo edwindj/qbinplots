@@ -24,6 +24,7 @@ cond_heatmap <- function(
     x = NULL,
     n = 100,
     min_bin_size = 5,
+    overlap = NULL,
     bins = n,
 #    type = c("gradient", "size"),
     ncols=NULL,
@@ -42,7 +43,8 @@ cond_heatmap <- function(
     data,
     x = x,
     n = bins[1],
-    min_bin_size = min_bin_size
+    min_bin_size = min_bin_size,
+    overlap = overlap
   )
 
   x <- d$x

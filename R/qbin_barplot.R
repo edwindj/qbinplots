@@ -20,6 +20,7 @@ qbin_barplot <- function(
     x = NULL,
     n = 100,
     min_bin_size = 5,
+    overlap = NULL,
     ncols=NULL,
     fill = "#2f4f4f",
     type = c("median", "mean"),
@@ -31,7 +32,8 @@ qbin_barplot <- function(
     data,
     x = x,
     n = n,
-    min_bin_size = min_bin_size
+    min_bin_size = min_bin_size,
+    overlap = overlap
   )
 
   x <- d$x

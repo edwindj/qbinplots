@@ -10,6 +10,7 @@ qbin_barplot(
   x = NULL,
   n = 100,
   min_bin_size = 5,
+  overlap = NULL,
   ncols = NULL,
   fill = "#2f4f4f",
   type = c("median", "mean"),
@@ -27,6 +28,9 @@ table_plot(data, x = NULL, n = 100, ncols = ncol(data), fill = "#555555", ...)
 
 \item{min_bin_size}{\code{integer} minimum number of rows/data points that should be
 in a quantile bin.}
+
+\item{overlap}{\code{logical} if \code{TRUE} the quantile bins will overlap. Default value will be
+\code{FALSE}.}
 
 \item{ncols}{The number of column to be used in the layout.}
 

@@ -9,6 +9,7 @@ cond_heatmap(
   x = NULL,
   n = 100,
   min_bin_size = 5,
+  overlap = NULL,
   bins = n,
   ncols = NULL,
   auto_fill = FALSE,
@@ -28,6 +29,9 @@ cond_heatmap(
 
 \item{min_bin_size}{\code{integer} minimum number of rows/data points that should be
 in a quantile bin.}
+
+\item{overlap}{\code{logical} if \code{TRUE} the quantile bins will overlap. Default value will be
+\code{FALSE}.}
 
 \item{bins}{\code{integer} vector with the number of bins to use for the x and y axis.}
 

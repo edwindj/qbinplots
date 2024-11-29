@@ -10,6 +10,7 @@ qbin_boxplot(
   n = 100,
   min_bin_size = 5,
   ncols = NULL,
+  overlap = NULL,
   connect = FALSE,
   color = "#002f2f",
   fill = "#2f4f4f",
@@ -30,6 +31,9 @@ qbin_boxplot(
 in a quantile bin.}
 
 \item{ncols}{The number of column to be used in the layout}
+
+\item{overlap}{\code{logical} if \code{TRUE} the quantile bins will overlap. Default value will be
+\code{FALSE}.}
 
 \item{connect}{if \code{TRUE} subsequent boxplots are connected}
 
