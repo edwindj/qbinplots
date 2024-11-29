@@ -80,7 +80,7 @@ qbin <- function(
         })
       # create overlapping qbins
       bin <- row(start) |> as.integer()
-      overlap_idxidx <- as.integer(start)
+      overlap_idx <- as.integer(start)
       data <- data[overlap_idx,]
     } else {
       n <- trunc(nrow(data)/min_bin_size)

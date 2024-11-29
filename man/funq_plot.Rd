@@ -86,6 +86,13 @@ if (require(palmerpenguins)){
   )
 }
 
+funq_plot(
+  iris,
+  x = "Sepal.Length",
+  min_bin_size = 20,
+  overlap = TRUE
+)
+
 }
 \seealso{
 Other conditional quantile plotting functions: 
