@@ -1,5 +1,5 @@
 Package: qbinplots
-Title: Quantile Bin Plots
+Title: Quantile Binned Plots
 Version: 0.2.0.9000
 Authors@R: 
     c(
@@ -7,9 +7,10 @@ Authors@R:
            comment = c(ORCID = "0000-0002-6580-4718")),
     person("Martijn", "Tennekes", , "mtennekes@gmail.com", role = c("ctb"))
     )
-Description: Create quantile and conditional quantile bin plots, which are 
-  based on quantile binning.
-  The plots are created with 'ggplot2' and 'patchwork' and can be further adjusted.
+Description: Create quantile binned and conditional plots for Exploratory Data
+  Analysis. The package provides several plotting functions that are all based
+  on quantile binning. The plots are created with 'ggplot2' and 'patchwork' 
+  and can be further adjusted.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

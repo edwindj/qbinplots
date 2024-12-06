@@ -8,10 +8,15 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/qbinplots)](https://CRAN.R-project.org/package=qbinplots)
 [![R-CMD-check](https://github.com/edwindj/qbinplots/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/edwindj/qbinplots/actions/workflows/R-CMD-check.yaml)
-
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 This package is in its early stages, not ready for production yet.
+
+This package creates plots using quantile binning. Quantile binning is
+an exploratory data analysis tool that helps to see the distribution of
+the variables in a dataset as a function of the variable that is binned.
 
 ## Installation
 

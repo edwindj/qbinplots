@@ -64,14 +64,15 @@ qbin <- function(
 
     if (is.null(overlap)){
       overlap <- FALSE
-      message("Setting 'overlap' to FALSE")
+
+      message("'overlap' not specified, setting 'overlap' to ", overlap)
     }
 
     if (isTRUE(overlap)){
       end <- nrow(data) - min_bin_size
       if (end < n){
         n <- end
-        message("Overlapping, setting 'n' to: ", n)
+        message("Overlapping bins, setting 'n' to: ", n)
       }
       start <-
         seq_len(min_bin_size) |>
@@ -84,7 +85,8 @@ qbin <- function(
       data <- data[overlap_idx,]
     } else {
       n <- trunc(nrow(data)/min_bin_size)
-      message("Bin size < min_bin_size, setting 'n' to: ", n)
+      message("'nrow()/n < min_bin_size (",min_bin_size,")', setting 'n' to: ", n)
+      message("bin size is now: ", min_bin_size)
       bin <- data[, cut(.I, n, labels = FALSE)]
     }
   } else {

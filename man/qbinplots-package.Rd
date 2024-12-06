@@ -22,7 +22,7 @@ plotted with one of the avaible plot functions.
 \item \verb{cond_*} conditional quantile plots that show the distribution of the variables conditional on the \code{x} variable.
 }
 }
-\section{Quantile bin plots}{
+\section{Quantile binned plots}{
 
 \itemize{
 \item \code{\link[=qbin_lineplot]{qbin_lineplot()}} highlights the change in median between qbins, shows the distribution within qbins.
@@ -32,7 +32,7 @@ plotted with one of the avaible plot functions.
 }
 }
 
-\section{Conditional quantile bin plots}{
+\section{Conditional (quantile binned) plots}{
 
 \itemize{
 \item \code{\link[=cond_boxplot]{cond_boxplot()}} shows the distribution of the variables conditional on the x variable.

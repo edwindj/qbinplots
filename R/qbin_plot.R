@@ -18,7 +18,7 @@ print.qbin_plot <- function(x, ...){
   })
 
   ncols <- attr(x, "ncols")
-  title <- sprintf("Quantile bins: %s", attr(x, "x"))
+  title <- sprintf("Quantile binned: %s", attr(x, "x"))
 
   pw <- patchwork::wrap_plots(
     x,
