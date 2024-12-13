@@ -115,7 +115,7 @@ cond_heatmap <- function(
     p <- set_palettes(p, d$cat_cols)
   }
 
-  p <- cond_plot(p, x = x, ncols = ncols)
+  p <- condplotlist(p, x = x, ncols = ncols)
   p
 }
 

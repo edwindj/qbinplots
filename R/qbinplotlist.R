@@ -1,14 +1,14 @@
-qbin_plot <- function(l, x, ncols=NULL){
+qbinplotlist <- function(l, x, ncols=NULL){
   structure(
     l,
-    class="qbin_plot",
+    class="qbinplotlist",
     x = x,
     ncols = ncols
   )
 }
 
 #' @export
-print.qbin_plot <- function(x, ...){
+print.qbinplotlist <- function(x, ...){
   x[] <- lapply(x, function(p){
     p + scale_x_continuous(
       name = NULL,
@@ -32,7 +32,7 @@ print.qbin_plot <- function(x, ...){
 }
 
 #' @export
-`[.qbin_plot` <- function(x, i){
+`[.qbinplotlist` <- function(x, i){
   xs <- unclass(x)[i]
   class(xs) <- class(x)
 

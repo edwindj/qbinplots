@@ -1,14 +1,14 @@
-cond_plot <- function(l, x, ncols=NULL){
+condplotlist <- function(l, x, ncols=NULL){
   structure(
     l,
-    class="cond_plot",
+    class="condplotlist",
     x = x,
     ncols = ncols
   )
 }
 
 #' @export
-print.cond_plot <- function(x, ...){
+print.condplotlist <- function(x, ...){
   title <- sprintf("Conditioning on %s", attr(x, "x"))
 
   pw <- patchwork::wrap_plots(
@@ -24,7 +24,7 @@ print.cond_plot <- function(x, ...){
 }
 
 #' @export
-`[.cond_plot` <- function(x, i){
+`[.condplotlist` <- function(x, i){
   xs <- unclass(x)[i]
   class(xs) <- class(x)
 
