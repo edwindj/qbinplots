@@ -56,7 +56,7 @@ cond_barplot <- function(
 
   pc <- lapply(d$cat_cols, function(y_name){
     y_data <- d$data[[y_name]]
-    plot_cat_area(
+    plot_cond_cat_area(
       x_data,
       y_data = y_data,
       x_name = x,

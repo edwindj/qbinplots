@@ -1,5 +1,5 @@
 #' @import ggplot2
-plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
+plot_qbin_boxplot <- function(data, name, color = "blue", connect = TRUE){
   bin <- data$bin
 
   alpha <- c(0.1, 0.3)

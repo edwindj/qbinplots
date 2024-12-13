@@ -1,5 +1,5 @@
 #' @import ggplot2
-plot_num_bar <- function(data, name, fill = "#555555", type=c("median", "mean")){
+plot_qbin_num_bar <- function(data, name, fill = "#555555", type=c("median", "mean")){
   bin <- data$bin
   f <- data$f
   # CRAN checks

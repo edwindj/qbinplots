@@ -1,5 +1,5 @@
 #' @import ggplot2
-plot_num_funq <- function(
+plot_cond_boxplot <- function(
     x_data,
     y_data,
     x_name,

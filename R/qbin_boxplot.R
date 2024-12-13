@@ -47,7 +47,7 @@ qbin_boxplot <- function(
 
   pn <- lapply(d$num_cols, function(n){
     d <- d$data[[n]]
-    p <- plot_boxplot(d, n, color = color, connect= connect)
+    p <- plot_qbin_boxplot(d, n, color = color, connect= connect)
     p
     #plot_fivenum(d, n)
   })
@@ -55,7 +55,7 @@ qbin_boxplot <- function(
 
   pc <- lapply(d$cat_cols, function(n){
     #plot_cat(d$data[[n]], n)
-    plot_cat_freq(
+    plot_qbin_cat_freq(
       d$data[[n]],
       n,
       fill = fill,

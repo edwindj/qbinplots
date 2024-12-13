@@ -1,4 +1,4 @@
-plot_heatmap_gradient <- function(f, y, name, bins, low = "#eeeeee", high = "#2f4f4f", ...){
+plot_qbin_heatmap_gradient <- function(f, y, name, bins, low = "#eeeeee", high = "#2f4f4f", ...){
   d <- data.frame(x = f, y = y)
   x <- NULL
   p <- ggplot(data.frame(x = f, y = y), aes(x = x, y = y)) +
@@ -14,7 +14,7 @@ plot_heatmap_gradient <- function(f, y, name, bins, low = "#eeeeee", high = "#2f
 }
 
 
-plot_heatmap_size <- function(f, y, name, bins, fill = "#2f4f4f", ...){
+plot_qbin_heatmap_size <- function(f, y, name, bins, fill = "#2f4f4f", ...){
 
   # CRAN checks
   ncount <- NULL

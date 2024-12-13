@@ -1,5 +1,5 @@
 #' @import ggplot2
-plot_cat_freq <- function(
+plot_qbin_cat_freq <- function(
     data,
     name,
     scales=c("fixed", "free_x"),
@@ -31,9 +31,10 @@ plot_cat_freq <- function(
     ) +
     coord_flip() +
     labs(fill = NULL, y = name, color = NULL) +
-    scale_y_continuous( position = "right"
-                      , labels = NULL
-                      ) +
+    scale_y_continuous(
+      position = "right",
+      labels = NULL
+    ) +
     theme_minimal() +
     theme(legend.position = "bottom")
 }

@@ -62,7 +62,7 @@ funq_plot <- function(
   pn <- lapply(num_cols, function(y_name){
     y_data <- d$data[[y_name]]
 #    plot_num_line(
-    plot_num_funq(
+    plot_cond_boxplot(
       x_data = x_data,
       y_data = y_data,
       x_name= x,
@@ -76,7 +76,7 @@ funq_plot <- function(
 
   pc <- lapply(d$cat_cols, function(y_name){
     y_data <- d$data[[y_name]]
-    plot_cat_area(
+    plot_cond_cat_area(
       x_data,
       y_data = y_data,
       x_name = x,

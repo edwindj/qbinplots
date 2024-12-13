@@ -1,5 +1,5 @@
 #' @import ggplot2
-plot_cat_stacked <- function(data, name){
+plot_qbin_cat_stacked <- function(data, name){
 
   # CRAN checks...
   bin <- data$bin

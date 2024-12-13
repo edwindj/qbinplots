@@ -56,15 +56,15 @@ qbin_heatmap <- function(
   f <- order(o) |> cut(n, labels = FALSE)
   f <- (f-1)/(n-1)
 
-  plot_heatmap <- switch(
+  plot_qbin_heatmap <- switch(
     match.arg(type),
-    gradient = plot_heatmap_gradient,
-    size = plot_heatmap_size
+    gradient = plot_qbin_heatmap_gradient,
+    size = plot_qbin_heatmap_size
   )
 
   pn <- lapply(d$num_cols, function(nc){
     y <- data[[nc]]
-    plot_heatmap(
+    plot_qbin_heatmap(
       f,
       y    = y,
       name = nc,
@@ -80,7 +80,7 @@ qbin_heatmap <- function(
 
   pc <- lapply(d$cat_cols, function(n){
     #plot_cat(d$data[[n]], n)
-    plot_cat_freq(
+    plot_qbin_cat_freq(
       d$data[[n]],
       n,
       fill = fill,
