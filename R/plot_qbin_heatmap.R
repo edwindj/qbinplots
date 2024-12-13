@@ -7,8 +7,7 @@ plot_qbin_heatmap_gradient <- function(f, y, name, bins, low = "#eeeeee", high =
     scale_fill_gradient(low = low, high=high) +
     scale_y_continuous( position = "right")+
     coord_flip() +
-    labs(y = name) +
-    theme_minimal()
+    labs(y = name)
 
   p
 }

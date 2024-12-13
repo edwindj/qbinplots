@@ -71,8 +71,7 @@ plot_cond_boxplot <- function(
       color = NA,
       alpha = 0.15
     ) +
-    labs(x = x_name, y = NULL, subtitle=subtitle) +
-    theme_minimal()
+    labs(x = x_name, y = NULL, subtitle=subtitle)
 
   if (isTRUE(connect)){
     p <- p + geom_line(aes(x = x, y = y), color = color)

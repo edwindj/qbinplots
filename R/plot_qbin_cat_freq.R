@@ -32,9 +32,7 @@ plot_qbin_cat_freq <- function(
     coord_flip() +
     labs(fill = NULL, y = name, color = NULL) +
     scale_y_continuous(
-      position = "right",
+      # position = "right",
       labels = NULL
-    ) +
-    theme_minimal() +
-    theme(legend.position = "bottom")
+    )
 }

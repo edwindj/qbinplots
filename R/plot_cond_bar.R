@@ -36,8 +36,11 @@ plot_cond_bar <- function(
 
   p <- ggplot(data) +
     geom_rect(aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), fill = fill, color = color) +
-    labs(x = x_name, y = NULL, title=paste0(y_name, " | ", x_name)) +
-    theme_minimal()
+    labs(
+      x = x_name,
+      y = NULL,
+      subtitle=paste0(y_name, " | ", x_name)
+    )
 
   if (isTRUE(show_bins)){
     p <- p + geom_rug(data = data, aes(x = xmin))

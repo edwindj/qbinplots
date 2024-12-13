@@ -15,9 +15,8 @@ plot_qbin_num_bar <- function(data, name, fill = "#555555", type=c("median", "me
   ggplot(data, mapping = mapping) +
     geom_col(fill=fill, width = width) +
     labs(y = name) +
-    scale_y_continuous(position = "right") +
-    coord_flip() +
-    theme_minimal()
+    # scale_y_continuous(position = "right") +
+    coord_flip()
 }
 
 

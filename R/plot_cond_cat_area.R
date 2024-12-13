@@ -43,6 +43,5 @@ plot_cond_cat_area <- function(
       labels = NULL,
       breaks = NULL,
       name = NULL
-    ) +
-    theme_minimal()
+    )
 }

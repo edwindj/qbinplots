@@ -60,8 +60,7 @@ plot_cond_heatmap_gradient <- function(
       x = x_name,
       y = NULL,
       subtitle=subtitle
-    ) +
-    theme_minimal()
+    )
 
   if (isTRUE(show_bins)){
     p <- p + geom_rug(data = x_bin_bounds, aes(x = xmin))

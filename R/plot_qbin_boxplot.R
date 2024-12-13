@@ -58,11 +58,10 @@ plot_qbin_boxplot <- function(data, name, color = "blue", connect = TRUE){
     }) +
     labs(y = name, title = "") +
     scale_y_continuous(
-      position = "left",
+      # position = "left",
       limits = c(min(q1), max(q3)),
       oob = scales::squish
     ) +
-    coord_flip() +
-    theme_minimal()
+    coord_flip()
 }
 

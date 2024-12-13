@@ -13,7 +13,9 @@ plot_qbin_cat_stacked <- function(data, name){
     geom_col(width=width) +
     coord_flip() +
     labs(fill = NULL, y = name) +
-    scale_y_continuous(position = "right", labels = scales::label_percent(), n.breaks = 3) +
-    theme_minimal() +
-    theme(legend.position = "bottom")
+    scale_y_continuous(
+      # position = "right",
+      labels = scales::label_percent(),
+      n.breaks = 3
+    )
 }
