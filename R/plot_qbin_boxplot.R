@@ -56,7 +56,7 @@ plot_qbin_boxplot <- function(data, name, color = "blue", connect = TRUE){
     } else {
       geom_segment(aes(yend = med, y = med, x = f-wh, xend=f+wh), color=color)
     }) +
-    labs(y = name, title = "") +
+    labs(y = name, title = NULL) +
     scale_y_continuous(
       # position = "left",
       limits = c(min(q1), max(q3)),

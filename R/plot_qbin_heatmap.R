@@ -5,10 +5,9 @@ plot_qbin_heatmap_gradient <- function(f, y, name, bins, low = "#eeeeee", high =
     geom_bin_2d(show.legend = FALSE, bins = bins) +
     # scale_x_continuous(labels = scales::percent_format()) +
     scale_fill_gradient(low = low, high=high) +
-    scale_y_continuous( position = "right")+
+    # scale_y_continuous( position = "right")+
     coord_flip() +
-    labs(y = name)
-
+    labs(y = name, title=NULL)
   p
 }
 
@@ -40,8 +39,7 @@ plot_qbin_heatmap_size <- function(f, y, name, bins, fill = "#2f4f4f", ...){
     # scale_x_continuous(labels = scales::percent_format()) +
     scale_y_continuous( position = "right")+
     coord_flip() +
-    labs(y = name) +
-    theme_minimal()
+    labs(y = name, title=NULL)
 
   p
 }

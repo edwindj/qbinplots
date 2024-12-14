@@ -16,7 +16,9 @@ print.qbinplotlist <- function(x, ...){
       labels = scales::label_percent()
     ) +
     theme_minimal() +
-    theme(legend.position = "bottom")
+    theme(
+      legend.position = "bottom"
+    )
   })
 
   ncols <- attr(x, "ncols")

@@ -26,11 +26,17 @@ plot_qbin_cat_freq <- function(
   ggplot(data, mapping = mapping) +
     geom +
     facet_grid(
-      ~category,
+      cols=vars(category),
       scales=match.arg(scales)
     ) +
     coord_flip() +
-    labs(fill = NULL, y = name, color = NULL) +
+    labs(
+      fill = NULL,
+      y = name,
+      color = NULL,
+      title=NULL,
+      subtitle = NULL
+    ) +
     scale_y_continuous(
       # position = "right",
       labels = NULL

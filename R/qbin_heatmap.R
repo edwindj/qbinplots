@@ -46,6 +46,7 @@ qbin_heatmap <- function(
 
   n <- d$n
   bins[1] <- d$n
+  x <- d$x
 
   if (length(bins) == 1){
     bins <- c(bins, bins)
@@ -79,7 +80,6 @@ qbin_heatmap <- function(
   names(pn) <- d$num_cols
 
   pc <- lapply(d$cat_cols, function(n){
-    #plot_cat(d$data[[n]], n)
     plot_qbin_cat_freq(
       d$data[[n]],
       n,
