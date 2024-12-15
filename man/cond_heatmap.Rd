@@ -63,14 +63,14 @@ of variables for each quantile bin of \code{x}. It is an alternative to
 cond_heatmap(
   iris,
   x = "Petal.Length",
-  n = 25
+  n = 12
 )
 
 
 cond_heatmap(
   diamonds,
   x = "carat",
-  n = 50
+  bins <- c(100,100)
 )[6:8]
 }
 \seealso{

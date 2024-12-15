@@ -41,7 +41,7 @@ library(qbinplots)
 A quantile binning boxplot
 
 ```{r percentile_iris}
-qbin_boxplot(iris, "Sepal.Length", n = 25, connect = FALSE)
+qbin_boxplot(iris, "Sepal.Length", n = 12)
 ```
 
 vs
@@ -49,11 +49,11 @@ vs
 A quantile binning barplot
 
 ```{r}
-qbin_barplot(iris, "Sepal.Length", 25)
+qbin_barplot(iris, "Sepal.Length", n = 12)
 ```
 
 ```{r}
-table_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+table_plot(iris, "Sepal.Length", n=12)
 ```
 
 vs 
@@ -61,30 +61,35 @@ vs
 A quantile binning heatmap
 
 ```{r}
-qbin_heatmap(iris, "Sepal.Length", 25, auto_fill = TRUE)
+qbin_heatmap(iris, "Sepal.Length", n=12, auto_fill = TRUE)
 ```
 
 ```{r}
-cond_boxplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+cond_boxplot(iris, "Sepal.Length", n=12, auto_fill = TRUE)
 ```
 ```{r}
-cond_barplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+cond_barplot(iris, "Sepal.Length", n=12, auto_fill = TRUE)
 ```
 
 
 ```{r}
-funq_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+funq_plot(iris, "Sepal.Length", 12, auto_fill = TRUE)
 ```
+
+```{r}
+funq_plot(iris, "Sepal.Length", overlap = TRUE, min_bin_size = 20)
+```
+
 
 Choosing "Petal.Width"
 
 ```{r}
-qbin_boxplot(iris, "Petal.Width", 25, connect = FALSE)
+funq_plot(iris, "Petal.Width", n=12)
 ```
 
 ```{r qbin_boxplot_penquins}
 library(palmerpenguins)
-qbin_boxplot(penguins[1:7], c("body_mass_g"), 25)
+qbin_lineplot(penguins[1:7], x="body_mass_g", n = 19, ncols = 4)
 ```
 
 
@@ -118,7 +123,15 @@ funq_plot(
 qbin_heatmap(
   iris,
   x = "Sepal.Length",
-  n = 25
+  n = 12,
+  type="s"
 )
 ```
 
+```{r}
+qbin_heatmap(
+  iris,
+  x = "Sepal.Length",
+  overlap = TRUE
+)
+```

@@ -33,7 +33,7 @@ library(qbinplots)
 A quantile binning boxplot
 
 ``` r
-qbin_boxplot(iris, "Sepal.Length", n = 25, connect = FALSE)
+qbin_boxplot(iris, "Sepal.Length", n = 12)
 ```
 
 <img src="man/figures/README-percentile_iris-1.png" width="100%" />
@@ -43,13 +43,13 @@ vs
 A quantile binning barplot
 
 ``` r
-qbin_barplot(iris, "Sepal.Length", 25)
+qbin_barplot(iris, "Sepal.Length", n = 12)
 ```
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ``` r
-table_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+table_plot(iris, "Sepal.Length", n=12)
 ```
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
@@ -59,40 +59,46 @@ vs
 A quantile binning heatmap
 
 ``` r
-qbin_heatmap(iris, "Sepal.Length", 25, auto_fill = TRUE)
+qbin_heatmap(iris, "Sepal.Length", n=12, auto_fill = TRUE)
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
 ``` r
-cond_boxplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+cond_boxplot(iris, "Sepal.Length", n=12, auto_fill = TRUE)
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
 ``` r
-cond_barplot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+cond_barplot(iris, "Sepal.Length", n=12, auto_fill = TRUE)
 ```
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
 ``` r
-funq_plot(iris, "Sepal.Length", 25, auto_fill = TRUE)
+funq_plot(iris, "Sepal.Length", 12, auto_fill = TRUE)
 ```
 
 <img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
 
-Choosing “Petal.Width”
-
 ``` r
-qbin_boxplot(iris, "Petal.Width", 25, connect = FALSE)
+funq_plot(iris, "Sepal.Length", overlap = TRUE, min_bin_size = 20)
 ```
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
+Choosing “Petal.Width”
+
+``` r
+funq_plot(iris, "Petal.Width", n=12)
+```
+
+<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
+
 ``` r
 library(palmerpenguins)
-qbin_boxplot(penguins[1:7], c("body_mass_g"), 25)
+qbin_lineplot(penguins[1:7], x="body_mass_g", n = 19, ncols = 4)
 ```
 
 <img src="man/figures/README-qbin_boxplot_penquins-1.png" width="100%" />
@@ -104,20 +110,20 @@ data("diamonds", package = "ggplot2")
 table_plot(diamonds[1:7], "carat")
 ```
 
-<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
 
 ``` r
 data("diamonds", package = "ggplot2")
 qbin_boxplot(diamonds[1:7], "carat")
 ```
 
-<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
 
 ``` r
 funq_plot(diamonds[1:7], "carat")
 ```
 
-<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-12-1.png" width="100%" />
 
 We can zoom in on the `carat` variable, because the upper quantile bins
 are not very informative.
@@ -131,14 +137,25 @@ funq_plot(
 )
 ```
 
-<img src="man/figures/README-unnamed-chunk-12-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-13-1.png" width="100%" />
 
 ``` r
 qbin_heatmap(
   iris,
   x = "Sepal.Length",
-  n = 25
+  n = 12,
+  type="s"
 )
 ```
 
-<img src="man/figures/README-unnamed-chunk-13-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-14-1.png" width="100%" />
+
+``` r
+qbin_heatmap(
+  iris,
+  x = "Sepal.Length",
+  overlap = TRUE
+)
+```
+
+<img src="man/figures/README-unnamed-chunk-15-1.png" width="100%" />

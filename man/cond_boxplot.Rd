@@ -64,7 +64,11 @@ x and the y-variables, by connecting the medians of the quantile bins.
 \code{\link[=qbin_boxplot]{qbin_boxplot()}} shows the boxplots of the quantile bins on a quantile scale.
 }
 \examples{
-cond_boxplot(iris, x = "Petal.Length", n = 25, auto_fill = TRUE)
+cond_boxplot(
+  iris, x = "Petal.Length",
+  overlap=TRUE,
+  auto_fill = TRUE
+)
 }
 \seealso{
 Other conditional quantile plotting functions: 
