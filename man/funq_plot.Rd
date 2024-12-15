@@ -72,8 +72,10 @@ creating a functional view of \code{x} to the rest of the data,
 calculating the statistics for each bin, hence the name \code{funq_plot}.
 }
 \examples{
+
 funq_plot(iris, "Sepal.Length", n = 12, xmarker=5.5)
 
+data("diamonds", package="ggplot2")
 funq_plot(diamonds[1:7], "carat", xlim=c(0,2))
 
 if (require(palmerpenguins)){

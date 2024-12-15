@@ -12,7 +12,7 @@ print.condplotlist <- function(x, ...){
   title <- sprintf("Conditioning on %s", attr(x, "x"))
   x[] <- lapply(x, function(p){
     p +
-      theme_minimal()
+      ggplot2::theme_minimal()
   })
 
   pw <- patchwork::wrap_plots(

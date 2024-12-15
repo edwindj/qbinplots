@@ -1,4 +1,3 @@
-#' @import ggplot2
 plot_qbin_cat_freq <- function(
     data,
     name,
@@ -13,31 +12,31 @@ plot_qbin_cat_freq <- function(
   freq <- data$freq
   category <- data$category
 
-  width = resolution(data$f)
+  width = ggplot2::resolution(data$f)
 
   mapping <- aes(x = f, y = freq)
-  geom <- geom_col(show.legend = FALSE, width=width, fill = fill)
+  geom <- ggplot2::geom_col(show.legend = FALSE, width=width, fill = fill)
 
   if (isTRUE(auto_fill)){
     mapping <- aes(x = f, y = freq, fill = category)
-    geom <- geom_col(show.legend = FALSE, width=width)
+    geom <- ggplot2::geom_col(show.legend = FALSE, width=width)
   }
 
-  ggplot(data, mapping = mapping) +
+  ggplot2::ggplot(data, mapping = mapping) +
     geom +
-    facet_grid(
-      cols=vars(category),
+    ggplot2::facet_grid(
+      cols=ggplot2::vars(category),
       scales=match.arg(scales)
     ) +
-    coord_flip() +
-    labs(
+    ggplot2::coord_flip() +
+    ggplot2::labs(
       fill = NULL,
       y = name,
       color = NULL,
       title=NULL,
       subtitle = NULL
     ) +
-    scale_y_continuous(
+    ggplot2::scale_y_continuous(
       # position = "right",
       labels = NULL
     )

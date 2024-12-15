@@ -6,7 +6,7 @@ set_palettes <- function(x, cat_cols, ...){
 
   x[cat_cols] <- lapply(cat_cols, function(cat){
     p <- x[[cat]]
-    p + scale_fill_brewer(palette = pals[cat])
+    p + ggplot2::scale_fill_brewer(palette = pals[cat])
   })
   x
 }

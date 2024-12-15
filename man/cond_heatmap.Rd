@@ -66,6 +66,7 @@ cond_heatmap(
   n = 12
 )
 
+data("diamonds", package="ggplot2")
 
 cond_heatmap(
   diamonds,

@@ -102,13 +102,13 @@ funq_plot <- function(
 
   if (!is.null(xmarker)){
     for (i in seq_along(p)){
-      p[[i]] <- p[[i]] + geom_vline(xintercept = xmarker, linetype="dashed", alpha = 0.7)
+      p[[i]] <- p[[i]] + ggplot2::geom_vline(xintercept = xmarker, linetype="dashed", alpha = 0.7)
     }
   }
 
   if (!is.null(xlim)){
     for (i in seq_along(p)){
-      p[[i]] <- p[[i]] + coord_cartesian(xlim = xlim)
+      p[[i]] <- p[[i]] + ggplot2::coord_cartesian(xlim = xlim)
     }
   }
 

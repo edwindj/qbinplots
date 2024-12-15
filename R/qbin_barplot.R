@@ -60,7 +60,6 @@ qbin_barplot <- function(
 
   p <- qbinplotlist(p, x = x, ncols = ncols)
 
-  # p <- layout(p, ncol = ncols, x = x)
   p
 }
 

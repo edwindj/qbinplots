@@ -10,13 +10,13 @@ qbinplotlist <- function(l, x, ncols=NULL){
 #' @export
 print.qbinplotlist <- function(x, ...){
   x[] <- lapply(x, function(p){
-    p + scale_x_continuous(
+    p + ggplot2::scale_x_continuous(
       name = NULL,
       expand = c(0,0),
       labels = scales::label_percent()
     ) +
-    theme_minimal() +
-    theme(
+    ggplot2::theme_minimal() +
+    ggplot2::theme(
       legend.position = "bottom"
     )
   })

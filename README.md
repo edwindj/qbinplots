@@ -26,7 +26,6 @@ remotes::install_github("edwindj/qbinplots")
 
 ``` r
 library(qbinplots)
-#> Loading required package: ggplot2
 ## basic example code
 ```
 

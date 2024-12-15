@@ -1,4 +1,3 @@
-#' @import ggplot2
 plot_cond_cat_area <- function(
     x_data,
     y_data,
@@ -23,23 +22,23 @@ plot_cond_cat_area <- function(
     cbind(bin_bounds[(y_data$bin),.(x = ub)], y_data)
   )[order(category, bin,x),]
 
-  geom <- geom_area(show.legend = FALSE, fill = fill)
+  geom <- ggplot2::geom_area(show.legend = FALSE, fill = fill)
   if (isTRUE(auto_fill)){
-    geom <- geom_area(show.legend = FALSE, aes(fill=category))
+    geom <- ggplot2::geom_area(show.legend = FALSE, aes(fill=category))
   }
 
   subtitle <- sprintf("%s", y_name)
-  ggplot(data, aes(x = x, y=freq)) +
+  ggplot2::ggplot(data, aes(x = x, y=freq)) +
     geom +
-    facet_grid(
+    ggplot2::facet_grid(
       category~.
     ) +
     # coord_flip() +
-    labs(
+    ggplot2::labs(
       subtitle = subtitle,
       x = x_name
     ) +
-    scale_y_continuous(
+    ggplot2::scale_y_continuous(
       labels = NULL,
       breaks = NULL,
       name = NULL

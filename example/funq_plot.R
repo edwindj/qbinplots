@@ -1,5 +1,7 @@
+
 funq_plot(iris, "Sepal.Length", n = 12, xmarker=5.5)
 
+data("diamonds", package="ggplot2")
 funq_plot(diamonds[1:7], "carat", xlim=c(0,2))
 
 if (require(palmerpenguins)){

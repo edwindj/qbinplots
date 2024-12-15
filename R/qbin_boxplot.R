@@ -77,7 +77,7 @@ qbin_boxplot <- function(
 
   if (!is.null(qmarker)){
     for (i in seq_along(p)){
-      p[[i]] <- p[[i]] + geom_vline(xintercept = qmarker, linetype="dashed", alpha = 0.7)
+      p[[i]] <- p[[i]] + ggplot2::geom_vline(xintercept = qmarker, linetype="dashed", alpha = 0.7)
     }
   }
 
