@@ -24,7 +24,7 @@ qbin_boxplot <- function(
     data,
     x = NULL,
     n = 100,
-    min_bin_size = 5,
+    min_bin_size = NULL,
     ncols=NULL,
     overlap = NULL,
     connect = FALSE,

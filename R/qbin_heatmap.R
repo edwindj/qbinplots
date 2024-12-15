@@ -21,10 +21,10 @@
 qbin_heatmap <- function(
     data,
     x = NULL,
-    n = 100,
-    min_bin_size = 5,
+    n = 25,
+    min_bin_size = NULL,
     overlap = NULL,
-    bins = n,
+    bins = c(n),
     type = c("gradient", "size"),
     ncols=NULL,
     auto_fill = FALSE,

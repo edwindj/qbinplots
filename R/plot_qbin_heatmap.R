@@ -37,7 +37,6 @@ plot_qbin_heatmap_size <- function(f, y, name, bins, fill = "#2f4f4f", ...){
       bins = bins
     ) +
     # scale_x_continuous(labels = scales::percent_format()) +
-    scale_y_continuous( position = "right")+
     coord_flip() +
     labs(y = name, title=NULL)
 

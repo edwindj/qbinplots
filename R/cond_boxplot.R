@@ -18,7 +18,7 @@ cond_boxplot <- function(
     data,
     x = NULL,
     n = 100,
-    min_bin_size = 5,
+    min_bin_size = NULL,
     color = "#002f2f", #"darkblue",
     fill = "#2f4f4f", #"#555555",
     auto_fill = FALSE,

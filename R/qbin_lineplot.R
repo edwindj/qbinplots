@@ -15,7 +15,7 @@ qbin_lineplot <- function(
     data,
     x = NULL,
     n = 100,
-    min_bin_size = 5,
+    min_bin_size = NULL,
     ncols=NULL,
     connect = TRUE,
     color = "#002f2f",

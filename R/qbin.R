@@ -13,7 +13,7 @@
 #' @param x `character` variable name used for the quantile binning
 #' @param n `integer` number of quantile bins.
 #' @param min_bin_size `integer` minimum number of rows/data points that should be
-#' in a quantile bin.
+#' in a quantile bin. If NULL it is initially `sqrt(nrow(data))`
 #' @param overlap `logical` if `TRUE` the quantile bins will overlap. Default value will be
 #' `FALSE`.
 #' @param ... reserved for future use
@@ -30,7 +30,7 @@ qbin <- function(
     data,
     x = NULL,
     n = 100,
-    min_bin_size = 5,
+    min_bin_size = NULL,
     overlap = NULL,
     ...
   ){
@@ -46,8 +46,14 @@ qbin <- function(
 
   if (is.null(x)){
     x <- num_cols[1]
-    message("No `x` variable specified, using first numeric column: '", num_cols[1], "'")
+    message("`x` variable not specified, using first numeric column: '", num_cols[1], "'")
   }
+
+  if (is.null(min_bin_size)){
+    min_bin_size <- sqrt(nrow(data))
+  }
+
+  min_bin_size <- floor(min_bin_size)
 
   if (min_bin_size < 2){
     min_bin_size <- 2
@@ -64,7 +70,7 @@ qbin <- function(
 
     if (is.null(overlap)){
       overlap <- FALSE
-      message("Setting 'overlap' to FALSE")
+      message("`overlap` not specified, using `overlap=", overlap,"`")
     }
 
     if (isTRUE(overlap)){
@@ -84,7 +90,7 @@ qbin <- function(
       data <- data[overlap_idx,]
     } else {
       n <- trunc(nrow(data)/min_bin_size)
-      message("Bin size < min_bin_size, setting 'n' to: ", n)
+      message("`min_bin_size`=",min_bin_size,", using `n=", n, "`")
       bin <- data[, cut(.I, n, labels = FALSE)]
     }
   } else {

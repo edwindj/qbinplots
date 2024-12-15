@@ -8,7 +8,7 @@ qbin_boxplot(
   data,
   x = NULL,
   n = 100,
-  min_bin_size = 5,
+  min_bin_size = NULL,
   ncols = NULL,
   overlap = NULL,
   connect = FALSE,
@@ -28,7 +28,7 @@ qbin_boxplot(
 \item{n}{\code{integer} number of quantile bins.}
 
 \item{min_bin_size}{\code{integer} minimum number of rows/data points that should be
-in a quantile bin.}
+in a quantile bin. If NULL it is initially \code{sqrt(nrow(data))}}
 
 \item{ncols}{The number of column to be used in the layout}
 

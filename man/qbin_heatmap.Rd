@@ -7,10 +7,10 @@
 qbin_heatmap(
   data,
   x = NULL,
-  n = 100,
-  min_bin_size = 5,
+  n = 25,
+  min_bin_size = NULL,
   overlap = NULL,
-  bins = n,
+  bins = c(n),
   type = c("gradient", "size"),
   ncols = NULL,
   auto_fill = FALSE,
@@ -28,7 +28,7 @@ qbin_heatmap(
 \item{n}{\code{integer} number of quantile bins.}
 
 \item{min_bin_size}{\code{integer} minimum number of rows/data points that should be
-in a quantile bin.}
+in a quantile bin. If NULL it is initially \code{sqrt(nrow(data))}}
 
 \item{overlap}{\code{logical} if \code{TRUE} the quantile bins will overlap. Default value will be
 \code{FALSE}.}
