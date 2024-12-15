@@ -44,7 +44,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">qbin</span><span class="op">(</span><span class="va">data</span>, x <span class="op">=</span> <span class="cn">NULL</span>, n <span class="op">=</span> <span class="fl">100</span>, min_bin_size <span class="op">=</span> <span class="fl">5</span>, overlap <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">qbin</span><span class="op">(</span><span class="va">data</span>, x <span class="op">=</span> <span class="cn">NULL</span>, n <span class="op">=</span> <span class="fl">100</span>, min_bin_size <span class="op">=</span> <span class="cn">NULL</span>, overlap <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -65,7 +65,7 @@
 
 <dt id="arg-min-bin-size">min_bin_size<a class="anchor" aria-label="anchor" href="#arg-min-bin-size"></a></dt>
 <dd><p><code>integer</code> minimum number of rows/data points that should be
-in a quantile bin.</p></dd>
+in a quantile bin. If NULL it is initially <code>sqrt(nrow(data))</code></p></dd>
 
 
 <dt id="arg-overlap">overlap<a class="anchor" aria-label="anchor" href="#arg-overlap"></a></dt>

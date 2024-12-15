@@ -50,7 +50,7 @@ shows the boxplots for the other variables for each value of qbinned <code>x</co
 <span>  <span class="va">data</span>,</span>
 <span>  x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  n <span class="op">=</span> <span class="fl">100</span>,</span>
-<span>  min_bin_size <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>  min_bin_size <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  color <span class="op">=</span> <span class="st">"#002f2f"</span>,</span>
 <span>  fill <span class="op">=</span> <span class="st">"#2f4f4f"</span>,</span>
 <span>  auto_fill <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -82,7 +82,7 @@ shows the boxplots for the other variables for each value of qbinned <code>x</co
 
 <dt id="arg-min-bin-size">min_bin_size<a class="anchor" aria-label="anchor" href="#arg-min-bin-size"></a></dt>
 <dd><p><code>integer</code> minimum number of rows/data points that should be
-in a quantile bin.</p></dd>
+in a quantile bin. If NULL it is initially <code>sqrt(nrow(data))</code></p></dd>
 
 
 <dt id="arg-color">color<a class="anchor" aria-label="anchor" href="#arg-color"></a></dt>
@@ -143,7 +143,11 @@ x and the y-variables, by connecting the medians of the quantile bins.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">cond_boxplot</span><span class="op">(</span><span class="va">iris</span>, x <span class="op">=</span> <span class="st">"Petal.Length"</span>, n <span class="op">=</span> <span class="fl">25</span>, auto_fill <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">cond_boxplot</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">iris</span>, x <span class="op">=</span> <span class="st">"Petal.Length"</span>,</span></span>
+<span class="r-in"><span>  overlap<span class="op">=</span><span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>  auto_fill <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="cond_boxplot-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>

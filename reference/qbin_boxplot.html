@@ -52,7 +52,7 @@ complement to <code><a href="qbin_heatmap.html">qbin_heatmap()</a></code> which 
 <span>  <span class="va">data</span>,</span>
 <span>  x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  n <span class="op">=</span> <span class="fl">100</span>,</span>
-<span>  min_bin_size <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>  min_bin_size <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  ncols <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  overlap <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  connect <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -83,7 +83,7 @@ complement to <code><a href="qbin_heatmap.html">qbin_heatmap()</a></code> which 
 
 <dt id="arg-min-bin-size">min_bin_size<a class="anchor" aria-label="anchor" href="#arg-min-bin-size"></a></dt>
 <dd><p><code>integer</code> minimum number of rows/data points that should be
-in a quantile bin.</p></dd>
+in a quantile bin. If NULL it is initially <code>sqrt(nrow(data))</code></p></dd>
 
 
 <dt id="arg-ncols">ncols<a class="anchor" aria-label="anchor" href="#arg-ncols"></a></dt>
@@ -150,6 +150,8 @@ data. It hints at the dependecy of the variable on the binning variable.</p>
 <span class="r-in"><span>  n <span class="op">=</span> <span class="fl">25</span>,</span></span>
 <span class="r-in"><span>  connect <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> `overlap` not specified, using `overlap=FALSE`</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> `min_bin_size`=12, using `n=12`</span>
 <span class="r-plt img"><img src="qbin_boxplot-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">qbin_boxplot</span><span class="op">(</span></span></span>
@@ -160,6 +162,8 @@ data. It hints at the dependecy of the variable on the binning variable.</p>
 <span class="r-in"><span>  xmarker <span class="op">=</span> <span class="fl">5.5</span>,</span></span>
 <span class="r-in"><span>  auto_fill <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> `overlap` not specified, using `overlap=FALSE`</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> `min_bin_size`=12, using `n=12`</span>
 <span class="r-plt img"><img src="qbin_boxplot-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"diamonds"</span>, package<span class="op">=</span><span class="st">"ggplot2"</span><span class="op">)</span></span></span>
