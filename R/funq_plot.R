@@ -93,6 +93,8 @@ funq_plot <- function(
 
   p <- c(pn, pc)[nms]
 
+  # todo extract this to a function
+
   if (length(qmarker) > 0){
     idx <- findInterval(qmarker, c(-Inf, x_data$f))
     xmarker <- c(xmarker, x_data$med[idx])

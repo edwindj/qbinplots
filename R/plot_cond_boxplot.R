@@ -47,7 +47,7 @@ plot_cond_boxplot <- function(
   x <- xend <- y <- f <- med <- q1 <- q3 <- whisker_low <- whisker_high <- bin <- NULL
   #
   # subtitle <- paste0("P(",y_name, " | ", x_name, ")")
-  subtitle <- sprintf("%s | %s", y_name, x_name)
+  subtitle <- sprintf("%s", y_name)
 
   p <- ggplot(data) +
     geom_ribbon(

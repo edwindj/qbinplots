@@ -28,7 +28,7 @@ plot_cond_cat_area <- function(
     geom <- geom_area(show.legend = FALSE, aes(fill=category))
   }
 
-  subtitle <- sprintf("%s | %s", y_name, x_name)
+  subtitle <- sprintf("%s", y_name)
   ggplot(data, aes(x = x, y=freq)) +
     geom +
     facet_grid(

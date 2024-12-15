@@ -39,7 +39,7 @@ plot_cond_bar <- function(
     labs(
       x = x_name,
       y = NULL,
-      subtitle=paste0(y_name, " | ", x_name)
+      subtitle=y_name
     )
 
   if (isTRUE(show_bins)){

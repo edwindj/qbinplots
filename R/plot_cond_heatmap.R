@@ -42,7 +42,7 @@ plot_cond_heatmap_gradient <- function(
 
   xmin <- xmax <- ymin <- ymax <- fill <- . <- bin <- y_bin <- d <- n <-  NULL
 
-  subtitle <- sprintf("%s | %s", y_name, x_name)
+  subtitle <- sprintf("%s", y_name)
 
   p <- ggplot(data) +
     geom_rect(
