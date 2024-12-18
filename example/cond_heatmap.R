@@ -1,12 +1,13 @@
 cond_heatmap(
   iris,
   x = "Petal.Length",
-  n = 25
+  n = 12
 )
 
+data("diamonds", package="ggplot2")
 
 cond_heatmap(
   diamonds,
   x = "carat",
-  n = 50
+  bins <- c(100,100)
 )[6:8]

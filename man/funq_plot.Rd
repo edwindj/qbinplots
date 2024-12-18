@@ -8,7 +8,7 @@ funq_plot(
   data,
   x = NULL,
   n = 100,
-  min_bin_size = 5,
+  min_bin_size = NULL,
   overlap = NULL,
   color = "#002f2f",
   fill = "#2f4f4f",
@@ -30,7 +30,7 @@ funq_plot(
 \item{n}{\code{integer} number of quantile bins.}
 
 \item{min_bin_size}{\code{integer} minimum number of rows/data points that should be
-in a quantile bin.}
+in a quantile bin. If NULL it is initially \code{sqrt(nrow(data))}}
 
 \item{overlap}{\code{logical} if \code{TRUE} the quantile bins will overlap. Default value will be
 \code{FALSE}.}
@@ -72,26 +72,28 @@ creating a functional view of \code{x} to the rest of the data,
 calculating the statistics for each bin, hence the name \code{funq_plot}.
 }
 \examples{
-funq_plot(iris, "Sepal.Length", n = 25, xmarker=5.5)
+funq_plot(iris, "Sepal.Length", xmarker=5.5)
 
+funq_plot(
+  iris,
+  x = "Sepal.Length",
+  xmarker=5.5,
+  overlap = TRUE
+)
+
+
+data("diamonds", package="ggplot2")
 funq_plot(diamonds[1:7], "carat", xlim=c(0,2))
 
 if (require(palmerpenguins)){
   funq_plot(
     penguins[1:7],
     x = "body_mass_g",
-    n = 25,
     xmarker=4650,
-    ncol = 2
+    ncol = 3
   )
 }
 
-funq_plot(
-  iris,
-  x = "Sepal.Length",
-  min_bin_size = 20,
-  overlap = TRUE
-)
 
 }
 \seealso{

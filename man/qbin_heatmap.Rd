@@ -7,10 +7,10 @@
 qbin_heatmap(
   data,
   x = NULL,
-  n = 100,
-  min_bin_size = 5,
+  n = 25,
+  min_bin_size = NULL,
   overlap = NULL,
-  bins = n,
+  bins = c(n),
   type = c("gradient", "size"),
   ncols = NULL,
   auto_fill = FALSE,
@@ -28,7 +28,7 @@ qbin_heatmap(
 \item{n}{\code{integer} number of quantile bins.}
 
 \item{min_bin_size}{\code{integer} minimum number of rows/data points that should be
-in a quantile bin.}
+in a quantile bin. If NULL it is initially \code{sqrt(nrow(data))}}
 
 \item{overlap}{\code{logical} if \code{TRUE} the quantile bins will overlap. Default value will be
 \code{FALSE}.}
@@ -63,25 +63,24 @@ of variables for each quantile bin of \code{x}. It is an alternative to
 qbin_heatmap(
   iris,
   "Sepal.Length",
-  n = 25,
   auto_fill = TRUE
 )
 
 qbin_heatmap(
   iris,
   "Sepal.Length",
-  n = 25,
   auto_fill = TRUE,
   type = "size"
 )
 
+qbin_heatmap(
+  iris,
+  "Sepal.Length",
+  overlap = TRUE,
+  auto_fill = TRUE
+)
 
 data("diamonds", package="ggplot2")
-
-qbin_heatmap(
-  diamonds[c(1,7:9)],
-  "carat",
-)
 
 qbin_heatmap(
   diamonds[c(1,7:9)],

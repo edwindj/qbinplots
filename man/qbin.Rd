@@ -4,7 +4,7 @@
 \alias{qbin}
 \title{Bin a data.frame into quantile bins}
 \usage{
-qbin(data, x = NULL, n = 100, min_bin_size = 5, overlap = NULL, ...)
+qbin(data, x = NULL, n = 100, min_bin_size = NULL, overlap = NULL, ...)
 }
 \arguments{
 \item{data}{a \code{data.frame} to be binned}
@@ -14,7 +14,7 @@ qbin(data, x = NULL, n = 100, min_bin_size = 5, overlap = NULL, ...)
 \item{n}{\code{integer} number of quantile bins.}
 
 \item{min_bin_size}{\code{integer} minimum number of rows/data points that should be
-in a quantile bin.}
+in a quantile bin. If NULL it is initially \code{sqrt(nrow(data))}}
 
 \item{overlap}{\code{logical} if \code{TRUE} the quantile bins will overlap. Default value will be
 \code{FALSE}.}

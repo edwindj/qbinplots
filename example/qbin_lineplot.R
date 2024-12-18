@@ -2,13 +2,19 @@
 qbin_lineplot(
   iris,
   x = "Sepal.Length",
-  n = 25,
 )
 
 qbin_lineplot(
   iris,
   x = "Sepal.Length",
-  n = 25,
+  xmarker = 5.5,
+  auto_fill = TRUE
+)
+
+qbin_lineplot(
+  iris,
+  x = "Sepal.Length",
+  overlap=TRUE,
   xmarker = 5.5,
   auto_fill = TRUE
 )

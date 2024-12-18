@@ -2,25 +2,24 @@
 qbin_heatmap(
   iris,
   "Sepal.Length",
-  n = 25,
   auto_fill = TRUE
 )
 
 qbin_heatmap(
   iris,
   "Sepal.Length",
-  n = 25,
   auto_fill = TRUE,
   type = "size"
 )
 
+qbin_heatmap(
+  iris,
+  "Sepal.Length",
+  overlap = TRUE,
+  auto_fill = TRUE
+)
 
 data("diamonds", package="ggplot2")
-
-qbin_heatmap(
-  diamonds[c(1,7:9)],
-  "carat",
-)
 
 qbin_heatmap(
   diamonds[c(1,7:9)],

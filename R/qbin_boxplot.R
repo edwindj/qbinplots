@@ -24,7 +24,7 @@ qbin_boxplot <- function(
     data,
     x = NULL,
     n = 100,
-    min_bin_size = 5,
+    min_bin_size = NULL,
     ncols=NULL,
     overlap = NULL,
     connect = FALSE,
@@ -47,7 +47,7 @@ qbin_boxplot <- function(
 
   pn <- lapply(d$num_cols, function(n){
     d <- d$data[[n]]
-    p <- plot_boxplot(d, n, color = color, connect= connect)
+    p <- plot_qbin_boxplot(d, n, color = color, connect= connect)
     p
     #plot_fivenum(d, n)
   })
@@ -55,7 +55,7 @@ qbin_boxplot <- function(
 
   pc <- lapply(d$cat_cols, function(n){
     #plot_cat(d$data[[n]], n)
-    plot_cat_freq(
+    plot_qbin_cat_freq(
       d$data[[n]],
       n,
       fill = fill,
@@ -77,7 +77,7 @@ qbin_boxplot <- function(
 
   if (!is.null(qmarker)){
     for (i in seq_along(p)){
-      p[[i]] <- p[[i]] + geom_vline(xintercept = qmarker, linetype="dashed", alpha = 0.7)
+      p[[i]] <- p[[i]] + ggplot2::geom_vline(xintercept = qmarker, linetype="dashed", alpha = 0.7)
     }
   }
 
@@ -85,7 +85,7 @@ qbin_boxplot <- function(
     p <- set_palettes(p, d$cat_cols)
   }
 
-  p <- qbin_plot(p, x = x, ncols = ncols)
+  p <- qbinplotlist(p, x = x, ncols = ncols)
 
   p
 }

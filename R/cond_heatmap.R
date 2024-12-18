@@ -23,9 +23,9 @@ cond_heatmap <- function(
     data,
     x = NULL,
     n = 100,
-    min_bin_size = 5,
+    min_bin_size = NULL,
     overlap = NULL,
-    bins = n,
+    bins = c(n,25),
 #    type = c("gradient", "size"),
     ncols=NULL,
     auto_fill = FALSE,
@@ -97,7 +97,7 @@ cond_heatmap <- function(
   pc <- lapply(d$cat_cols, function(y_name){
     #plot_cat(d$data[[n]], n)
     y_data <- d$data[[y_name]]
-    plot_cat_area(
+    plot_cond_cat_area(
       x_data,
       y_data = y_data,
       x_name = x,
@@ -115,7 +115,7 @@ cond_heatmap <- function(
     p <- set_palettes(p, d$cat_cols)
   }
 
-  p <- cond_plot(p, x = x, ncols = ncols)
+  p <- condplotlist(p, x = x, ncols = ncols)
   p
 }
 

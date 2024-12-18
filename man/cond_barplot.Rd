@@ -8,7 +8,7 @@ cond_barplot(
   data,
   x = NULL,
   n = 100,
-  min_bin_size = 5,
+  min_bin_size = NULL,
   overlap = NULL,
   ncols = NULL,
   fill = "#2f4f4f",
@@ -26,7 +26,7 @@ cond_barplot(
 \item{n}{\code{integer} number of quantile bins.}
 
 \item{min_bin_size}{\code{integer} minimum number of rows/data points that should be
-in a quantile bin.}
+in a quantile bin. If NULL it is initially \code{sqrt(nrow(data))}}
 
 \item{overlap}{\code{logical} if \code{TRUE} the quantile bins will overlap. Default value will be
 \code{FALSE}.}
@@ -52,22 +52,21 @@ shows the median or mean of the other variables for each \code{x}.
 }
 \examples{
 # plots the expected median conditional on Sepal.Width
-cond_barplot(iris, "Sepal.Width", n = 25)
+cond_barplot(iris, "Sepal.Width", n = 12)
 
 # plots the expected median
-cond_barplot(iris, "Sepal.Width", n = 25, show_bins = TRUE)
-
+cond_barplot(iris, "Sepal.Width", n = 12, show_bins = TRUE)
 
 data("diamonds", package="ggplot2")
 
 cond_barplot(diamonds[c(1:4, 7)], "carat", auto_fill = TRUE)
 
 if (require(palmerpenguins)) {
-  p <- cond_barplot(penguins[1:7], "body_mass_g", 25, auto_fill = TRUE)
+  p <- cond_barplot(penguins[1:7], "body_mass_g", auto_fill = TRUE)
   print(p)
 
   # compare with qbin_boxplot
-  p <- cond_boxplot(penguins[1:7], "body_mass_g", 25, auto_fill = TRUE)
+  p <- cond_boxplot(penguins[1:7], "body_mass_g", auto_fill = TRUE)
   print(p)
 }
 }

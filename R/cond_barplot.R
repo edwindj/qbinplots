@@ -18,7 +18,7 @@ cond_barplot <- function(
     data,
     x = NULL,
     n = 100,
-    min_bin_size = 5,
+    min_bin_size = NULL,
     overlap = NULL,
     ncols=NULL,
     fill = "#2f4f4f",
@@ -56,7 +56,7 @@ cond_barplot <- function(
 
   pc <- lapply(d$cat_cols, function(y_name){
     y_data <- d$data[[y_name]]
-    plot_cat_area(
+    plot_cond_cat_area(
       x_data,
       y_data = y_data,
       x_name = x,
@@ -75,7 +75,7 @@ cond_barplot <- function(
 
   p <- set_palettes(p, d$cat_cols)
 
-  p <- cond_plot(p, x = x, ncols = ncols)
+  p <- condplotlist(p, x = x, ncols = ncols)
 
   p
 }

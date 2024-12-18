@@ -1,5 +1,4 @@
-#' @import ggplot2
-plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
+plot_qbin_boxplot <- function(data, name, color = "blue", connect = TRUE){
   bin <- data$bin
 
   alpha <- c(0.1, 0.3)
@@ -12,13 +11,13 @@ plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
   whisker_low <- data$whisker_low
   whisker_high <- data$whisker_high
 
-  w <- resolution(f)
+  w <- ggplot2::resolution(f)
   wh <- w/2
 
-  ggplot(data, aes(x = f)) +
-    geom_segment(aes(x = f-w/2, xend = f + w/2, y = max, yend = max), alpha=.2, color = color) +
-    geom_segment(aes(x = f-w/2, xend = f + w/2, y = min, yend = min), alpha=.2, color = color) +
-    geom_rect(
+  ggplot2::ggplot(data, aes(x = f)) +
+    ggplot2::geom_segment(aes(x = f-w/2, xend = f + w/2, y = max, yend = max), alpha=.2, color = color) +
+    ggplot2::geom_segment(aes(x = f-w/2, xend = f + w/2, y = min, yend = min), alpha=.2, color = color) +
+    ggplot2::geom_rect(
       alpha = alpha[1],
       aes(
         xmin = f - wh,
@@ -29,7 +28,7 @@ plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
       fill = color,
       color = NA
     ) +
-    geom_rect(
+    ggplot2::geom_rect(
       alpha = alpha[1],
       aes(
         xmin = f - wh,
@@ -40,7 +39,7 @@ plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
       fill = color,
       color = NA
     ) +
-    geom_rect(
+    ggplot2::geom_rect(
       alpha = alpha[2],
       aes(
         xmin = f- wh,
@@ -52,17 +51,16 @@ plot_boxplot <- function(data, name, color = "blue", connect = TRUE){
       color = NA
     ) +
     (if (isTRUE(connect)){
-      geom_step(aes(y = med), color=color, direction = "hv")
+      ggplot2::geom_step(aes(y = med), color=color, direction = "hv")
     } else {
-      geom_segment(aes(yend = med, y = med, x = f-wh, xend=f+wh), color=color)
+      ggplot2::geom_segment(aes(yend = med, y = med, x = f-wh, xend=f+wh), color=color)
     }) +
-    labs(y = name, title = "") +
-    scale_y_continuous(
-      position = "left",
+    ggplot2::labs(y = name, title = NULL) +
+    ggplot2::scale_y_continuous(
+      # position = "left",
       limits = c(min(q1), max(q3)),
       oob = scales::squish
     ) +
-    coord_flip() +
-    theme_minimal()
+    ggplot2::coord_flip()
 }
 

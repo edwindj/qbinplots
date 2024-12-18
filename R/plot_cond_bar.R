@@ -1,4 +1,3 @@
-#' @import ggplot2
 plot_cond_bar <- function(
     x_data,
     y_data,
@@ -34,13 +33,16 @@ plot_cond_bar <- function(
     color <- grDevices::adjustcolor(fill, alpha.f = 0.1)
   }
 
-  p <- ggplot(data) +
-    geom_rect(aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), fill = fill, color = color) +
-    labs(x = x_name, y = NULL, title=paste0(y_name, " | ", x_name)) +
-    theme_minimal()
+  p <- ggplot2::ggplot(data) +
+    ggplot2::geom_rect(aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax), fill = fill, color = color) +
+    ggplot2::labs(
+      x = x_name,
+      y = NULL,
+      subtitle=y_name
+    )
 
   if (isTRUE(show_bins)){
-    p <- p + geom_rug(data = data, aes(x = xmin))
+    p <- p + ggplot2::geom_rug(data = data, aes(x = xmin))
   }
   p
 }

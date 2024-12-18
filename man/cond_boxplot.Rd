@@ -8,7 +8,7 @@ cond_boxplot(
   data,
   x = NULL,
   n = 100,
-  min_bin_size = 5,
+  min_bin_size = NULL,
   color = "#002f2f",
   fill = "#2f4f4f",
   auto_fill = FALSE,
@@ -29,7 +29,7 @@ cond_boxplot(
 \item{n}{\code{integer} number of quantile bins.}
 
 \item{min_bin_size}{\code{integer} minimum number of rows/data points that should be
-in a quantile bin.}
+in a quantile bin. If NULL it is initially \code{sqrt(nrow(data))}}
 
 \item{color}{The color to use for the line charts}
 
@@ -64,7 +64,11 @@ x and the y-variables, by connecting the medians of the quantile bins.
 \code{\link[=qbin_boxplot]{qbin_boxplot()}} shows the boxplots of the quantile bins on a quantile scale.
 }
 \examples{
-cond_boxplot(iris, x = "Petal.Length", n = 25, auto_fill = TRUE)
+cond_boxplot(
+  iris, x = "Petal.Length",
+  overlap=TRUE,
+  auto_fill = TRUE
+)
 }
 \seealso{
 Other conditional quantile plotting functions: 

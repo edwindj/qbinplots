@@ -1,5 +1,4 @@
-#' @import ggplot2
-plot_num_funq <- function(
+plot_cond_boxplot <- function(
     x_data,
     y_data,
     x_name,
@@ -47,10 +46,10 @@ plot_num_funq <- function(
   x <- xend <- y <- f <- med <- q1 <- q3 <- whisker_low <- whisker_high <- bin <- NULL
   #
   # subtitle <- paste0("P(",y_name, " | ", x_name, ")")
-  subtitle <- sprintf("%s | %s", y_name, x_name)
+  subtitle <- sprintf("%s", y_name)
 
-  p <- ggplot(data) +
-    geom_ribbon(
+  p <- ggplot2::ggplot(data) +
+    ggplot2::geom_ribbon(
       aes(
         x = x,
         ymin = whisker_low,
@@ -61,7 +60,7 @@ plot_num_funq <- function(
       alpha = 0.1
     ) +
 
-    geom_ribbon(
+    ggplot2::geom_ribbon(
       aes(
         x = x,
         ymin = q1,
@@ -71,22 +70,21 @@ plot_num_funq <- function(
       color = NA,
       alpha = 0.15
     ) +
-    labs(x = x_name, y = NULL, subtitle=subtitle) +
-    theme_minimal()
+    ggplot2::labs(x = x_name, y = NULL, subtitle=subtitle)
 
   if (isTRUE(connect)){
-    p <- p + geom_line(aes(x = x, y = y), color = color)
+    p <- p + ggplot2::geom_line(aes(x = x, y = y), color = color)
   } else {
-    p <- p + geom_segment(aes(x = x, xend = xend, y = y), color = color)
+    p <- p + ggplot2::geom_segment(aes(x = x, xend = xend, y = y), color = color)
   }
 
 
   if (isTRUE(show_mean)){
-    p <- p + geom_line(aes(x = x, y = mean), color = color, linetype="dashed")
+    p <- p + ggplot2::geom_line(aes(x = x, y = mean), color = color, linetype="dashed")
   }
 
   if (isTRUE(show_bins)){
-    p <- p + geom_rug(data = data, aes(x = x))
+    p <- p + ggplot2::geom_rug(data = data, aes(x = x))
   }
 
   p

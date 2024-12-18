@@ -1,1 +1,5 @@
-cond_boxplot(iris, x = "Petal.Length", n = 25, auto_fill = TRUE)
+cond_boxplot(
+  iris, x = "Petal.Length",
+  overlap=TRUE,
+  auto_fill = TRUE
+)

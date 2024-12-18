@@ -42,10 +42,10 @@ plot_cond_heatmap_gradient <- function(
 
   xmin <- xmax <- ymin <- ymax <- fill <- . <- bin <- y_bin <- d <- n <-  NULL
 
-  subtitle <- sprintf("%s | %s", y_name, x_name)
+  subtitle <- sprintf("%s", y_name)
 
-  p <- ggplot(data) +
-    geom_rect(
+  p <- ggplot2::ggplot(data) +
+    ggplot2::geom_rect(
       aes(
         xmin = xmin,
         xmax = xmax,
@@ -55,16 +55,15 @@ plot_cond_heatmap_gradient <- function(
       ),
       # color = "white",
       show.legend = FALSE) +
-    scale_fill_gradient(low = low, high=high) +
-    labs(
+    ggplot2::scale_fill_gradient(low = low, high=high) +
+    ggplot2::labs(
       x = x_name,
       y = NULL,
       subtitle=subtitle
-    ) +
-    theme_minimal()
+    )
 
   if (isTRUE(show_bins)){
-    p <- p + geom_rug(data = x_bin_bounds, aes(x = xmin))
+    p <- p + ggplot2::geom_rug(data = x_bin_bounds, aes(x = xmin))
   }
 
   p

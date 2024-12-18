@@ -19,7 +19,7 @@ qbin_barplot <- function(
     data,
     x = NULL,
     n = 100,
-    min_bin_size = 5,
+    min_bin_size = NULL,
     overlap = NULL,
     ncols=NULL,
     fill = "#2f4f4f",
@@ -40,13 +40,13 @@ qbin_barplot <- function(
 
   pn <- lapply(d$num_cols, function(n){
     d <- d$data[[n]]
-    plot_num_bar(d, n, fill = fill, type = type)
+    plot_qbin_num_bar(d, n, fill = fill, type = type)
   })
 
   names(pn) <- d$num_cols
 
   pc <- lapply(d$cat_cols, function(n){
-    plot_cat_stacked(d$data[[n]], n)
+    plot_qbin_cat_stacked(d$data[[n]], n)
   })
 
   names(pc) <- d$cat_cols
@@ -58,9 +58,8 @@ qbin_barplot <- function(
 
   p <- set_palettes(p, d$cat_cols)
 
-  p <- qbin_plot(p, x = x, ncols = ncols)
+  p <- qbinplotlist(p, x = x, ncols = ncols)
 
-  # p <- layout(p, ncol = ncols, x = x)
   p
 }
 

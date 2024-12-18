@@ -1,5 +1,4 @@
-#' @import ggplot2
-plot_num_bar <- function(data, name, fill = "#555555", type=c("median", "mean")){
+plot_qbin_num_bar <- function(data, name, fill = "#555555", type=c("median", "mean")){
   bin <- data$bin
   f <- data$f
   # CRAN checks
@@ -10,14 +9,13 @@ plot_num_bar <- function(data, name, fill = "#555555", type=c("median", "mean"))
     mapping <- aes(x = f, y = mean)
   }
 
-  width <- resolution(f) * 1.0
+  width <- ggplot2::resolution(f) * 1.0
 
-  ggplot(data, mapping = mapping) +
-    geom_col(fill=fill, width = width) +
-    labs(y = name) +
-    scale_y_continuous(position = "right") +
-    coord_flip() +
-    theme_minimal()
+  ggplot2::ggplot(data, mapping = mapping) +
+    ggplot2::geom_col(fill=fill, width = width) +
+    ggplot2::labs(y = name) +
+    # scale_y_continuous(position = "right") +
+    ggplot2::coord_flip()
 }
 
 

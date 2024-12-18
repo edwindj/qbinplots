@@ -21,10 +21,10 @@
 qbin_heatmap <- function(
     data,
     x = NULL,
-    n = 100,
-    min_bin_size = 5,
+    n = 25,
+    min_bin_size = NULL,
     overlap = NULL,
-    bins = n,
+    bins = c(n),
     type = c("gradient", "size"),
     ncols=NULL,
     auto_fill = FALSE,
@@ -46,6 +46,7 @@ qbin_heatmap <- function(
 
   n <- d$n
   bins[1] <- d$n
+  x <- d$x
 
   if (length(bins) == 1){
     bins <- c(bins, bins)
@@ -56,15 +57,15 @@ qbin_heatmap <- function(
   f <- order(o) |> cut(n, labels = FALSE)
   f <- (f-1)/(n-1)
 
-  plot_heatmap <- switch(
+  plot_qbin_heatmap <- switch(
     match.arg(type),
-    gradient = plot_heatmap_gradient,
-    size = plot_heatmap_size
+    gradient = plot_qbin_heatmap_gradient,
+    size = plot_qbin_heatmap_size
   )
 
   pn <- lapply(d$num_cols, function(nc){
     y <- data[[nc]]
-    plot_heatmap(
+    plot_qbin_heatmap(
       f,
       y    = y,
       name = nc,
@@ -79,8 +80,7 @@ qbin_heatmap <- function(
   names(pn) <- d$num_cols
 
   pc <- lapply(d$cat_cols, function(n){
-    #plot_cat(d$data[[n]], n)
-    plot_cat_freq(
+    plot_qbin_cat_freq(
       d$data[[n]],
       n,
       fill = fill,
@@ -99,7 +99,7 @@ qbin_heatmap <- function(
     p <- set_palettes(p, d$cat_cols)
   }
 
-  p <- qbin_plot(p, x = x, ncols = ncols)
+  p <- qbinplotlist(p, x = x, ncols = ncols)
   p
 }
 

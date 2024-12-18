@@ -1,4 +1,5 @@
 library(tinytest)
+data("diamonds", package="ggplot2")
 
 qbin_barplot( iris
               , n = 25

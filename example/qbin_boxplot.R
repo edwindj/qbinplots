@@ -2,14 +2,19 @@
 qbin_boxplot(
   iris,
   x = "Sepal.Length",
-  n = 25,
-  connect = FALSE,
 )
 
 qbin_boxplot(
   iris,
   x = "Sepal.Length",
-  n = 25,
+  connect = TRUE,
+  overlap = TRUE
+)
+
+
+qbin_boxplot(
+  iris,
+  x = "Sepal.Length",
   connect = TRUE,
   xmarker = 5.5,
   auto_fill = TRUE

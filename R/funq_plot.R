@@ -29,7 +29,7 @@ funq_plot <- function(
     data,
     x = NULL,
     n = 100,
-    min_bin_size = 5,
+    min_bin_size = NULL,
     overlap = NULL,
     color = "#002f2f", #"darkblue",
     fill = "#2f4f4f", #"#555555",
@@ -62,7 +62,7 @@ funq_plot <- function(
   pn <- lapply(num_cols, function(y_name){
     y_data <- d$data[[y_name]]
 #    plot_num_line(
-    plot_num_funq(
+    plot_cond_boxplot(
       x_data = x_data,
       y_data = y_data,
       x_name= x,
@@ -76,7 +76,7 @@ funq_plot <- function(
 
   pc <- lapply(d$cat_cols, function(y_name){
     y_data <- d$data[[y_name]]
-    plot_cat_area(
+    plot_cond_cat_area(
       x_data,
       y_data = y_data,
       x_name = x,
@@ -93,6 +93,8 @@ funq_plot <- function(
 
   p <- c(pn, pc)[nms]
 
+  # todo extract this to a function
+
   if (length(qmarker) > 0){
     idx <- findInterval(qmarker, c(-Inf, x_data$f))
     xmarker <- c(xmarker, x_data$med[idx])
@@ -100,13 +102,13 @@ funq_plot <- function(
 
   if (!is.null(xmarker)){
     for (i in seq_along(p)){
-      p[[i]] <- p[[i]] + geom_vline(xintercept = xmarker, linetype="dashed", alpha = 0.7)
+      p[[i]] <- p[[i]] + ggplot2::geom_vline(xintercept = xmarker, linetype="dashed", alpha = 0.7)
     }
   }
 
   if (!is.null(xlim)){
     for (i in seq_along(p)){
-      p[[i]] <- p[[i]] + coord_cartesian(xlim = xlim)
+      p[[i]] <- p[[i]] + ggplot2::coord_cartesian(xlim = xlim)
     }
   }
 
@@ -116,7 +118,7 @@ funq_plot <- function(
     p <- set_palettes(p, d$cat_cols)
   }
 
-  p <- cond_plot(p, x = x, ncols = ncols)
+  p <- condplotlist(p, x = x, ncols = ncols)
 
   # p <- Reduce(`+`, p)
   #

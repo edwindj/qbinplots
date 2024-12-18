@@ -9,7 +9,7 @@ qbin_barplot(
   data,
   x = NULL,
   n = 100,
-  min_bin_size = 5,
+  min_bin_size = NULL,
   overlap = NULL,
   ncols = NULL,
   fill = "#2f4f4f",
@@ -27,7 +27,7 @@ table_plot(data, x = NULL, n = 100, ncols = ncol(data), fill = "#555555", ...)
 \item{n}{\code{integer} number of quantile bins.}
 
 \item{min_bin_size}{\code{integer} minimum number of rows/data points that should be
-in a quantile bin.}
+in a quantile bin. If NULL it is initially \code{sqrt(nrow(data))}}
 
 \item{overlap}{\code{logical} if \code{TRUE} the quantile bins will overlap. Default value will be
 \code{FALSE}.}
@@ -57,11 +57,18 @@ data("diamonds", package="ggplot2")
 
 table_plot(diamonds[c(1:4, 7)], "carat")
 
-qbin_barplot(iris, "Sepal.Length", n = 25)
-table_plot(iris, "Sepal.Length", 25)
+qbin_barplot(iris, "Sepal.Length", n = 12)
+
+table_plot(iris, "Sepal.Length", n=12)
+table_plot(
+  iris,
+  x = "Sepal.Length",
+  min_bin_size=20,
+  overlap=TRUE
+)
 
 if (require(palmerpenguins)) {
-  table_plot(penguins[1:7], "body_mass_g", 25)
+  table_plot(penguins[1:7], "body_mass_g", 19)
 }
 }
 \seealso{
