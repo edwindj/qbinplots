@@ -148,6 +148,9 @@ calc_cat <- function(x){
   d <- (1.0 * table(x))/length(x)
   d <- as.data.table(d)
   names(d) <- c("category", "freq")
+  if (!is.null(lev <- levels(x))){
+    d$category <- factor(d$category, levels = lev)
+  }
   d
 }
 
