@@ -12,6 +12,8 @@ Description: Create quantile binned and conditional plots for Exploratory Data
   on quantile binning. The plots are created with 'ggplot2' and 'patchwork' 
   and can be further adjusted.
 License: MIT + file LICENSE
+URL: https://edwindj.github.io/qbinplots
+BugReports: https://github.com/edwindj/qbinplots/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
