@@ -12,7 +12,7 @@ status](https://www.r-pkg.org/badges/version/qbinplots)](https://CRAN.R-project.
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-This package is in its early stages, not ready for production yet.
+<!-- This package is in its early stages, not ready for production yet. -->
 
 This package creates plots using quantile binning. Quantile binning is
 an exploratory data analysis tool that helps to see the distribution of
