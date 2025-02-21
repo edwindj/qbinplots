@@ -1,6 +1,6 @@
 Package: qbinplots
 Title: Quantile Binned Plots
-Version: 0.3
+Version: 0.3.1
 Authors@R: 
     c(
     person("Edwin", "de Jonge", , "edwindjonge@gmail.com", role = c("aut", "cre"),
@@ -12,11 +12,13 @@ Description: Create quantile binned and conditional plots for Exploratory Data
   on quantile binning. The plots are created with 'ggplot2' and 'patchwork' 
   and can be further adjusted.
 License: MIT + file LICENSE
-URL: https://edwindj.github.io/qbinplots
+URL: https://edwindj.github.io/qbinplots/
 BugReports: https://github.com/edwindj/qbinplots/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+Depends: 
+  R (>= 4.1)
 Imports: 
     ggplot2,
     data.table,

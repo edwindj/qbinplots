@@ -46,7 +46,7 @@ variables as a function of the \code{x} variable using quantile bins.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://edwindj.github.io/qbinplots}
+  \item \url{https://edwindj.github.io/qbinplots/}
   \item Report bugs at \url{https://github.com/edwindj/qbinplots/issues}
 }
 
