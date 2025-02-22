@@ -54,20 +54,23 @@ shows the median or mean of the other variables for each \code{x}.
 # plots the expected median conditional on Sepal.Width
 cond_barplot(iris, "Sepal.Width", n = 12)
 
-# plots the expected median
-cond_barplot(iris, "Sepal.Width", n = 12, show_bins = TRUE)
+\donttest{
 
-data("diamonds", package="ggplot2")
+  # plots the expected median
+  cond_barplot(iris, "Sepal.Width", n = 12, show_bins = TRUE)
 
-cond_barplot(diamonds[c(1:4, 7)], "carat", auto_fill = TRUE)
+  data("diamonds", package="ggplot2")
 
-if (require(palmerpenguins)) {
-  p <- cond_barplot(penguins[1:7], "body_mass_g", auto_fill = TRUE)
-  print(p)
+  cond_barplot(diamonds[c(1:4, 7)], "carat", auto_fill = TRUE)
 
-  # compare with qbin_boxplot
-  p <- cond_boxplot(penguins[1:7], "body_mass_g", auto_fill = TRUE)
-  print(p)
+  if (require(palmerpenguins)) {
+    p <- cond_barplot(penguins[1:7], "body_mass_g", auto_fill = TRUE)
+    print(p)
+
+    # compare with qbin_boxplot
+    p <- cond_boxplot(penguins[1:7], "body_mass_g", auto_fill = TRUE)
+    print(p)
+  }
 }
 }
 \seealso{

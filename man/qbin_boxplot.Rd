@@ -63,44 +63,41 @@ The median of the subsequent boxplots are connected to highlight jumps in the
 data. It hints at the dependecy of the variable on the binning variable.
 }
 \examples{
-
 qbin_boxplot(
   iris,
   x = "Sepal.Length",
 )
 
-qbin_boxplot(
-  iris,
-  x = "Sepal.Length",
-  connect = TRUE,
-  overlap = TRUE
-)
+\donttest{
+  qbin_boxplot(
+    iris,
+    x = "Sepal.Length",
+    connect = TRUE,
+    overlap = TRUE
+  )
 
+  qbin_boxplot(
+    iris,
+    x = "Sepal.Length",
+    connect = TRUE,
+    xmarker = 5.5,
+    auto_fill = TRUE
+  )
 
-qbin_boxplot(
-  iris,
-  x = "Sepal.Length",
-  connect = TRUE,
-  xmarker = 5.5,
-  auto_fill = TRUE
-)
+  data("diamonds", package="ggplot2")
 
-data("diamonds", package="ggplot2")
+  qbin_boxplot(
+    diamonds[1:7],
+    "carat",
+    auto_fill = TRUE
+  )
 
-qbin_boxplot(
-  diamonds[1:7],
-  "carat",
-  auto_fill = TRUE
-)
-
-qbin_boxplot(
-  diamonds[1:7],
-  "price",
-  auto_fill = TRUE,
-)
-
-
-
+  qbin_boxplot(
+    diamonds[1:7],
+    "price",
+    auto_fill = TRUE,
+  )
+}
 }
 \seealso{
 Other qbin plotting functions: 

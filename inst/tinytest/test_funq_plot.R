@@ -8,6 +8,8 @@ expect_message({
 
 expect_equal(names(p), tail(names(iris), -1))
 
+exit_if_not(at_home())
+
 p <- funq_plot(iris, "Sepal.Width", auto_fill = TRUE, xmarker = 3, n = 25)
 
 qbin_boxplot(iris, "Sepal.Width", auto_fill = TRUE, xmarker = 3, n = 25)

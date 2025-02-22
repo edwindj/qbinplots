@@ -51,6 +51,9 @@ in a quantile bin. If NULL it is initially \code{sqrt(nrow(data))}}
 
 \item{...}{Additional arguments to pass to the plot functions}
 }
+\value{
+A \code{list} of ggplot objects.
+}
 \description{
 \code{\link[=cond_boxplot]{cond_boxplot()}} conditions all variables on \code{x} by quantile binning and
 shows the boxplots for the other variables for each value of qbinned \code{x}.
@@ -65,10 +68,9 @@ x and the y-variables, by connecting the medians of the quantile bins.
 }
 \examples{
 cond_boxplot(
-  iris, x = "Petal.Length",
-  overlap=TRUE,
-  auto_fill = TRUE
+  iris, x = "Petal.Length"
 )
+
 }
 \seealso{
 Other conditional quantile plotting functions: 

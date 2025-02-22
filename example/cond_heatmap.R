@@ -4,10 +4,13 @@ cond_heatmap(
   n = 12
 )
 
-data("diamonds", package="ggplot2")
+\donttest{
 
-cond_heatmap(
-  diamonds,
-  x = "carat",
-  bins <- c(100,100)
-)[6:8]
+  data("diamonds", package="ggplot2")
+
+  cond_heatmap(
+    diamonds,
+    x = "carat",
+    bins <- c(100,100)
+  )[6:8]
+}

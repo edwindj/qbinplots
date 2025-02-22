@@ -14,6 +14,7 @@
 #' @example example/cond_boxplot.R
 #' @family conditional quantile plotting functions
 #' @inheritParams funq_plot
+#' @return A `list` of ggplot objects.
 cond_boxplot <- function(
     data,
     x = NULL,
