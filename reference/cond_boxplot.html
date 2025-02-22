@@ -18,7 +18,7 @@ shows the boxplots for the other variables for each value of qbinned x."><!-- ma
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">qbinplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.3</span>
       </span>
     </div>
 
@@ -131,6 +131,10 @@ in a quantile bin. If NULL it is initially <code>sqrt(nrow(data))</code></p></dd
 <dd><p>Additional arguments to pass to the plot functions</p></dd>
 
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    <p>A <code>list</code> of ggplot objects.</p>
+    </div>
     <div id="details">
     <h2>Details</h2>
     <p><code>cond_boxplot</code> is the same function as <code><a href="funq_plot.html">funq_plot()</a></code> but with different defaults,
@@ -150,11 +154,12 @@ x and the y-variables, by connecting the medians of the quantile bins.</p>
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">cond_boxplot</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="va">iris</span>, x <span class="op">=</span> <span class="st">"Petal.Length"</span>,</span></span>
-<span class="r-in"><span>  overlap<span class="op">=</span><span class="cn">TRUE</span>,</span></span>
-<span class="r-in"><span>  auto_fill <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>  <span class="va">iris</span>, x <span class="op">=</span> <span class="st">"Petal.Length"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> `overlap` not specified, using `overlap=FALSE`</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> `min_bin_size`=12, using `n=12`</span>
 <span class="r-plt img"><img src="cond_boxplot-1.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
