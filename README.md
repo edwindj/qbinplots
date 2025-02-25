@@ -20,6 +20,13 @@ the variables in a dataset as a function of the variable that is binned.
 
 ## Installation
 
+You can install the released version of `qbinplots` from
+[CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("qbinplots")
+```
+
 You can install the development version of `qbinplots` from
 [GitHub](https://github.com/) with:
 

@@ -1,6 +1,6 @@
 Package: qbinplots
 Title: Quantile Binned Plots
-Version: 0.3.3
+Version: 0.3.3.9000
 Authors@R: 
     c(
     person("Edwin", "de Jonge", , "edwindjonge@gmail.com", role = c("aut", "cre"),
