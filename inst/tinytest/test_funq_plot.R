@@ -22,3 +22,5 @@ funq_plot(iris, "Sepal.Width", qmarker=0.2)
 
 qbin_heatmap(iris, "Sepal.Width", bins=c(25,30), type="size")
 
+
+

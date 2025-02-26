@@ -47,6 +47,8 @@ qbin <- function(
   if (is.null(x)){
     x <- num_cols[1]
     message("`x` variable not specified, using first numeric column: '", num_cols[1], "'")
+  } else if (!x %in% num_cols){
+    stop("variable '", x, "' is not a numeric column", call. = FALSE)
   }
 
   if (is.null(min_bin_size)){

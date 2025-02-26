@@ -70,3 +70,9 @@ expect_message(
 )
 
 expect_equal(b$n, 125)
+
+
+# good error message when binning categorical column
+expect_error({
+  b <- qbin(iris, "Species", n = 10)
+})
