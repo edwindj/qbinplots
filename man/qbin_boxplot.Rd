@@ -87,13 +87,13 @@ qbin_boxplot(
   data("diamonds", package="ggplot2")
 
   qbin_boxplot(
-    diamonds[1:7],
+    diamonds[c(1:4,7)],
     "carat",
     auto_fill = TRUE
   )
 
   qbin_boxplot(
-    diamonds[1:7],
+    diamonds[c(1:4,7)],
     "price",
     auto_fill = TRUE,
   )

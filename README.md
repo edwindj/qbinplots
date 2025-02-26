@@ -118,20 +118,23 @@ Or the well-known `diamonds` dataset
 
 ``` r
 data("diamonds", package = "ggplot2")
-table_plot(diamonds[1:7], "carat")
+diam <- diamonds |> 
+  subset(
+    select = c(carat, price, cut, color, clarity)
+  )
+table_plot(diam, "carat")
 ```
 
 <img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
 
 ``` r
-data("diamonds", package = "ggplot2")
-qbin_boxplot(diamonds[1:7], "carat")
+qbin_boxplot(diam, "carat")
 ```
 
 <img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
 
 ``` r
-funq_plot(diamonds[1:7], "carat")
+funq_plot(diam, "carat")
 ```
 
 <img src="man/figures/README-unnamed-chunk-12-1.png" width="100%" />
@@ -141,7 +144,7 @@ are not very informative.
 
 ``` r
 funq_plot(
-  diamonds[1:7], 
+  diam, 
   "carat", 
   auto_fill = TRUE,
   xlim = c(0, 2.5)

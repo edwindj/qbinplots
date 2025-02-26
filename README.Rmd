@@ -110,22 +110,25 @@ Or the well-known `diamonds` dataset
 
 ```{r}
 data("diamonds", package = "ggplot2")
-table_plot(diamonds[1:7], "carat")
+diam <- diamonds |> 
+  subset(
+    select = c(carat, price, cut, color, clarity)
+  )
+table_plot(diam, "carat")
 ```
 
 ```{r}
-data("diamonds", package = "ggplot2")
-qbin_boxplot(diamonds[1:7], "carat")
+qbin_boxplot(diam, "carat")
 ```
 
 ```{r}
-funq_plot(diamonds[1:7], "carat")
+funq_plot(diam, "carat")
 ```
 
 We can zoom in on the `carat` variable, because the upper quantile bins are not very informative.
 ```{r}
 funq_plot(
-  diamonds[1:7], 
+  diam, 
   "carat", 
   auto_fill = TRUE,
   xlim = c(0, 2.5)
