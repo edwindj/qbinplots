@@ -14,7 +14,7 @@ the distribution of the variables in a dataset as a function of the variable
 that is binned.
 
 A data.frame is quantile binned on a variable \code{x} using \code{\link[=qbin]{qbin()}} and then
-plotted with one of the avaible plot functions.
+plotted with one of the available plot functions.
 
 \code{qbinplots} offers various types of plots:
 \itemize{

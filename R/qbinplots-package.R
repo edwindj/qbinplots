@@ -7,7 +7,7 @@
 #' that is binned.
 #'
 #' A data.frame is quantile binned on a variable `x` using [qbin()] and then
-#' plotted with one of the avaible plot functions.
+#' plotted with one of the available plot functions.
 #'
 #' `qbinplots` offers various types of plots:
 #'
